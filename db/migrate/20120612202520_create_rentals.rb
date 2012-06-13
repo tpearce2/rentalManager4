@@ -6,7 +6,7 @@ class CreateRentals < ActiveRecord::Migration
       t.integer :customerID
       t.date :pickupDate
       t.date :deliveryDate
-
+      t.string :title
       t.timestamps
     end
   end

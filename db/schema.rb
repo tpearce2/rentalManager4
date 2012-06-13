@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20120612202520) do
     t.integer  "customerID"
     t.date     "pickupDate"
     t.date     "deliveryDate"
+    t.string   "title"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

@@ -13,7 +13,27 @@ $(document).ready(function() {
 				right: 'month,agendaWeek,agendaDay'
 			},
 			editable: false,
-			events: [
+     eventSources: [
+
+        // your event source
+        {
+            url: '/api/rentals_json',
+            type: 'GET',
+            data: {
+                custom_param1: 'something',
+                custom_param2: 'somethingelse'
+            },
+            error: function() {
+                alert('there was an error while fetching events!');
+            },
+            color: 'yellow',   // a non-ajax option
+            textColor: 'black' // a non-ajax option
+        }
+
+        // any other sources...
+
+    ]
+			/*events: [
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)
@@ -82,7 +102,7 @@ $(document).ready(function() {
 					end: new Date(y, m, 29),
 					url: 'http://google.com/'
 				}
-			]
+			]*/
 		});
 		
 	});

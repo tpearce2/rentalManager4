@@ -1,4 +1,6 @@
 ShopifyRental3::Application.routes.draw do
+  get "api/rentals_json"
+
   match 'auth/shopify/callback' => 'login#finalize'
 
   match 'welcome'            => 'home#welcome'
