@@ -10,17 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120612202520) do
+ActiveRecord::Schema.define(:version => 20120613184736) do
 
   create_table "rentals", :force => true do |t|
-    t.integer  "productID"
-    t.integer  "orderID"
-    t.integer  "customerID"
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.integer  "customer_id"
     t.date     "pickupDate"
     t.date     "deliveryDate"
-    t.string   "title"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "type",         :limit => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "webhook_events", :force => true do |t|
+    t.string   "event_type"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

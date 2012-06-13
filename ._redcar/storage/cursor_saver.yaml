@@ -1,0 +1,6 @@
+--- 
+cursor_positions: 
+  - :path: db/migrate/20120613185649_join_webhooks.rb
+    :cursor_offset: 237
+    :timestamp: 2012-06-13 14:56:49.788000 -04:00
+files_to_retain: 0
