@@ -7,6 +7,10 @@ class HomeController < ApplicationController
     @callback_url = "http://#{current_host}/login/finalize"
   end
   
+  def stripe
+    head :ok
+  end
+  
   def index
     #ShopifyAPI::Base.activate_session(session[:shopify])
     # get 5 products

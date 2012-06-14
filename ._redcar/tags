@@ -1,4 +1,4 @@
-1339622869
+1339712903
 AgendaDayView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaDayView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaEventRenderer()
@@ -29,7 +29,7 @@ Calendar	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	functio
 CoordinateGrid	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function CoordinateGrid(buildFunc)
 CoordinateGrid	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function CoordinateGrid(buildFunc)
 CreateCustomers	R:/rails/shopifyRental4/db/migrate/20120613192104_create_customers.rb	class CreateCustomers 
-CreateOrders	R:/rails/shopifyRental4/db/migrate/20120613195155_create_orders.rb	class CreateOrders 
+CreateLocations	R:/rails/shopifyRental4/db/migrate/20120614160639_create_locations.rb	class CreateLocations 
 CreateProducts	R:/rails/shopifyRental4/db/migrate/20120613190422_create_products.rb	class CreateProducts 
 CreateRentals	R:/rails/shopifyRental4/db/migrate/20120612202520_create_rentals.rb	class CreateRentals 
 CreateWebhookEvents	R:/rails/shopifyRental4/db/migrate/20120613184736_create_webhook_events.rb	class CreateWebhookEvents 
@@ -57,6 +57,8 @@ Ka	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function 
 Kb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Kb(a,b,e){function d(G,p){G=qa[G];if(typeof G=="object")return jb(G,p||e)
 L	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function L(k,D,Z){k!==ma&&gb(r,k);D!==ma&&hb(r,D);Z!==ma&&ba(r,Z);S()}function c(){return N(r)}function z(){return n}function H(k,D){if(D===ma)return b[k];if(k=="height"||k=="contentHeight"||k=="aspectRatio"){b[k]=D;Q()}}function T(k,D){if(b[k])return b[k].apply(D||i,Array.prototype.slice.call(arguments,2))
 Lb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Lb(){function a(g,l){var j=f.shift();j||(j=m("<div class='fc-cell-overlay' style='position:absolute;z-index:3'/>"));j[0].parentNode!=l[0]&&j.appendTo(l);d.push(j.css(g).show());return j}function b(){for(var g;g=d.shift();)f.push(g.hide().unbind())}var e=this;e.renderOverlay=a;e.clearOverlays=b;var d=[],f=[]}function Nb(a){var b=this,e,d;b.build=function(){e=[];d=[];a(e,d)};b.cell=function(f,g)
+Location	R:/rails/shopifyRental4/app/models/location.rb	class Location 
+LocationTest	R:/rails/shopifyRental4/test/unit/location_test.rb	class LocationTest 
 LoginController	R:/rails/shopifyRental4/app/controllers/login_controller.rb	class LoginController 
 LoginHelper	R:/rails/shopifyRental4/app/helpers/login_helper.rb	module LoginHelper 
 Mb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Mb(){function a(Q,q,u){b();q||(q=j(Q,u));t(Q,q,u);e(Q,q,u)}function b(Q){if(S){S=false;y();l("unselect",null,Q)}}function e(Q,q,u,fa){S=true;l("select",null,Q,q,u,fa)}function d(Q){var q=f.cellDate,u=f.cellIsAllDay,fa=f.getHoverListener()
@@ -64,8 +66,6 @@ MonthView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalend
 MonthView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function MonthView(element, calendar)
 Oa	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Oa(a,b,e){return ib(a,null,b,e)}function ib(a,b,e,d){d=d||Ya;var f=a,g=b,l,j=e.length,t,y,S,Q="";for(l=0;l<j;l++){t=e.charAt(l);if(t=="'")for(y=l+1;y<j;y++){if(e.charAt(y)=="'"){if(f){Q+=y==l+1?"'":e.substring(l+1,y);l=y}break}}else if(t=="(")for(y=l+1;y<j;y++){if(e.charAt(y)==")"){l=Oa(f,e.substring(l+1,y),d);if(parseInt(l.replace(/\D/,""),10))Q+=l;l=y;break}}else if(t=="[")for(y=l+1;y<j;y++){if(e.charAt(y)=="]"){t=e.substring(l+1,y);l=Oa(f,t,d);if(l!=Oa(g,t,d))
 Ob	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Ob(a){function b(j){xc(j);j=a.cell(j.pageX,j.pageY);if(!j!=!l||j&&(j.row!=l.row||j.col!=l.col)){if(j){g||(g=j);f(j,g,j.row-g.row,j.col-g.col)}else f(j,g);l=j}}var e=this,d,f,g,l;e.start=function(j,t,y)
-Order	R:/rails/shopifyRental4/app/models/order.rb	class Order 
-OrderTest	R:/rails/shopifyRental4/test/unit/order_test.rb	class OrderTest 
 OverlayManager	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function OverlayManager()
 OverlayManager	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function OverlayManager()
 Pb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Pb(a){function b(l){return d[l]=d[l]||a(l)}var e=this,d={},f={},g={};e.left=function(l){return f[l]=f[l]===ma?b(l).position().left:f[l]};e.right=function(l){return g[l]=g[l]===ma?e.left(l)+b(l).width():g[l]};e.clear=function()
@@ -75,6 +75,7 @@ Q	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Q
 Q	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Q(){ca=[];ka={}}function q(G,p){p.click(function(L){if(!p.hasClass("ui-draggable-dragging")&&!p.hasClass("ui-resizable-resizing"))return f("eventClick",this,G,L)}).hover(function(L){f("eventMouseover",this,G,L)},function(L){f("eventMouseout",this,G,L)})}function u(G,p){oa(G,p,"show")}function fa(G,p){oa(G,p,"hide")}function oa(G,p,L){G=ka[G._id];var c,z=G.length;for(c=0;c<z;c++)if(!p||G[c][0]!=p[0])G[c][L]()}function ga(G,p,L,c,z,H,T){var X=p.allDay,ya=p._id;sa(U[ya],L,c,z)
 Qa	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Qa(a){return a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/'/g,"&#039;").replace(/"/g,"&quot;").replace(/\n/g,"<br />")}function Ib(a){return a.id+"/"+a.className+"/"+a.style.cssText.replace(/(^|;)\s*(top|left|width|height)\s*:[^;]*/ig,"")}function qb(a){a.attr("unselectable","on").css("MozUserSelect","none").bind("selectstart.ui",function(){return false})}function ab(a){a.children().removeClass("fc-first fc-last").filter(":first-child").addClass("fc-first").end().filter(":last-child").addClass("fc-last")
 Qb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Qb(){function a(i,C){var P=z(),E=pa(),B=U(),n=0,Y,W,o=i.length,s,v;P[0].innerHTML=e(i);d(i,P.children());f(i);g(i,P,C);l(i);j(i);t(i);C=y();for(P=0;P<E;P++)
+RENTAL_DAY_BUFFER	R:/rails/shopifyRental4/config/initializers/constants.rb	RENTAL_DAY_BUFFER =
 Rb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Rb(a,b,e){function d(h){Ba=h;f();v?P():g();l()}function f(){Wa=i("theme")?"ui":"fc";Sb=i("weekends")?0:1;Tb=i("firstDay");if(Ub=i("isRTL")){Ha=-1;Ia=Ba-1}else{Ha=1;Ia=0}La=mb(i("minTime"))
 Rental	R:/rails/shopifyRental4/app/models/rental.rb	class Rental 
 RentalTest	R:/rails/shopifyRental4/test/unit/rental_test.rb	class RentalTest 
@@ -99,8 +100,12 @@ Ua	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function 
 Va	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Va(a,b,e){for(var d=0,f;d<a.length;d++){f=m(a[d]);f.width(Math.max(0,b-pb(f,e)))}}function Eb(a,b,e){for(var d=0,f;d<a.length;d++){f=m(a[d]);f.height(Math.max(0,b-Sa(f,e)))}}function pb(a,b){return gc(a)+hc(a)+(b?ic(a):0)}function gc(a){return(parseFloat(m.curCSS(a[0],"paddingLeft",true))||0)+(parseFloat(m.curCSS(a[0],"paddingRight",true))||0)}function ic(a)
 View	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function View(element, calendar, viewName)
 View	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function View(element, calendar, viewName)
+WebhookController	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class WebhookController 
+WebhookControllerTest	R:/rails/shopifyRental4/test/functional/webhook_controller_test.rb	class WebhookControllerTest 
 WebhookEvent	R:/rails/shopifyRental4/app/models/webhook_event.rb	class WebhookEvent 
 WebhookEventTest	R:/rails/shopifyRental4/test/unit/webhook_event_test.rb	class WebhookEventTest 
+WebhookHelper	R:/rails/shopifyRental4/app/helpers/webhook_helper.rb	module WebhookHelper
+WebhookHelperTest	R:/rails/shopifyRental4/test/unit/helpers/webhook_helper_test.rb	class WebhookHelperTest 
 Yb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Yb(a,b,e){function d(k){if(E){u();q();na();S(k)}else f()}function f(){B=b.theme?"ui":"fc";a.addClass("fc");b.isRTL&&a.addClass("fc-rtl");b.theme&&a.addClass("ui-widget");E=m("<div class='fc-content' style='position:relative'/>").prependTo(a);C=new Zb(X,b);(P=C.render())&&a.prepend(P);y(b.defaultView);m(window).resize(oa);t()||g()}function g(){setTimeout(function(){!n.start&&t()&&S()},0)}function l(){m(window).unbind("resize",oa);C.destroy()
 Za	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Za(a,b){b=typeof b=="number"?b+"px":b;a.each(function(e,d){d.style.cssText+=";min-height:"+b+";_height:"+b})}function xb(){}function Gb(a,b){return a-b}function Hb(a){return Math.max.apply(Math,a)}function Pa(a){return(a<10?"0":"")+a}function jb(a,b){if(a[b]!==ma)return a[b];b=b.split(/(?=[A-Z])/);for(var e=b.length-1,d;e>=0;e--){d=a[b[e].toLowerCase()
 Zb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Zb(a,b){function e(){q=b.theme?"ui":"fc";if(b.header)return Q=m("<table class='fc-header' style='width:100%'/>").append(m("<tr/>").append(f("left")).append(f("center")).append(f("right")))}function d(){Q.remove()}function f(u){var fa=m("<td class='fc-header-"+u+"'/>");(u=b.header[u])&&m.each(u.split(" "),function(oa){oa>0&&fa.append("<span class='fc-header-space'/>")
@@ -159,11 +164,11 @@ cellDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	functio
 cellDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function cellDate(cell)
 cellIsAllDay	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function cellIsAllDay(cell)
 cellIsAllDay	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function cellIsAllDay(cell)
-change	R:/rails/shopifyRental4/db/migrate/20120612202520_create_rentals.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120613190422_create_products.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120613184736_create_webhook_events.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120613192104_create_customers.rb	  def change
-change	R:/rails/shopifyRental4/db/migrate/20120613195155_create_orders.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120612202520_create_rentals.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120614160639_create_locations.rb	  def change
 changeView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function changeView(newViewName)
 changeView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function changeView(newViewName)
 clearEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function clearEvents()
@@ -335,6 +340,7 @@ getSourcePrimitive	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/f
 getSourcePrimitive	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function getSourcePrimitive(source)
 getView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function getView()
 getView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function getView()
+get_quantity	R:/rails/shopifyRental4/app/controllers/api_controller.rb	  def get_quantity
 gotoDate	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function gotoDate(year, month, dateOfMonth)
 gotoDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function gotoDate(year, month, dateOfMonth)
 hborders	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function hborders(element)
@@ -419,6 +425,7 @@ opt	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	
 opt	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function opt(name, viewNameOverride)
 option	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function option(name, value)
 option	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function option(name, value)
+order_created	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def order_created
 parseDate	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function parseDate(s, ignoreTimezone)
 parseDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function parseDate(s, ignoreTimezone)
 parseISO8601	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function parseISO8601(s, ignoreTimezone)
@@ -433,6 +440,9 @@ prev	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js
 prev	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function prev()
 prevYear	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function prevYear()
 prevYear	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function prevYear()
+product_deleted	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def product_deleted
+product_new	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def product_new
+product_updated	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def product_updated
 pushLoading	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function pushLoading()
 pushLoading	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function pushLoading()
 q	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function q(){m.each(Y,function(k,D){D.sizeDirty=true})}function u(){o=b.contentHeight?b.contentHeight:b.height?b.height-(P?P.height():0)-Sa(E):Math.round(E.width()/Math.max(b.aspectRatio,0.5))}function fa(k){F++;n.setHeight(o,k);if(s){s.css("position","relative");s=null}n.setWidth(E.width(),k);F--}function oa(){if(!F)if(n.start){var k=++v;setTimeout(function(){if(k==v&&!F&&j())if(W!=(W=a.outerWidth())){F++;Q();n.trigger("windowResize",i);F--}},200)}else g()}function ga(k)
@@ -592,6 +602,7 @@ smartProperty	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullca
 smartProperty	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function smartProperty(obj, name)
 stackSegs	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function stackSegs(segs)
 stackSegs	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function stackSegs(segs)
+stripe	R:/rails/shopifyRental4/app/controllers/home_controller.rb	  def stripe
 t	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function t(w){W=w;M.clear();s=Math.floor(W/F);Va(i.slice(0,-1),s)}function y(w){w.click(S).mousedown(X)}function S(w){if(!L("selectable")){var I=parseInt(this.className.match(/fc\-day(\d+)/)[1]);I=ca(I);c("dayClick",this,I,true,w)}}function Q(w,I,R){R&&r.build();R=N(p.visStart);for(var V=ba(N(R),F),ea=0;ea<v;ea++){var aa=new Date(Math.max(R,w)),va=new Date(Math.min(V,I));if(aa<va){var wa;if(k){wa=Ca(va,R)*D+Z+1;aa=Ca(aa,R)
 test_homepage	R:/rails/shopifyRental4/test/performance/browsing_test.rb	  def test_homepage
 timePosition	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function timePosition(day, time)
@@ -627,9 +638,11 @@ updateTimeText	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullc
 updateTimeText	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function updateTimeText(minuteDelta)
 updateTitle	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function updateTitle(html)
 updateTitle	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function updateTitle(html)
+update_quantity	R:/rails/shopifyRental4/app/controllers/api_controller.rb	  def update_quantity
 vborders	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vborders(element)
 vborders	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function vborders(element)
 vc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function vc(a){var b,e,d,f,g,l;for(b=a.length-1;b>0;b--){f=a[b];for(e=0;e<f.length;e++){g=f[e];for(d=0;d<a[b-1].length;d++){l=a[b-1][d];if(Cb(g,l))l.forward=Math.max(l.forward||0,(g.forward||0)+1)}}}}function Kb(a,b,e){function d(G,p){G=qa[G];if(typeof G=="object")return jb(G,p||e)
+verify_webhook	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def verify_webhook 
 vmargins	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vmargins(element)
 vmargins	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function vmargins(element)
 vpadding	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vpadding(element)

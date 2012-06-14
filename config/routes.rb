@@ -1,5 +1,9 @@
 ShopifyRental3::Application.routes.draw do
   get "api/rentals_json"
+  
+  get "api/product/get_quantity" => 'api#get_quantity'
+  
+  post "stripe_event" => 'home#stripe'
 
   match 'auth/shopify/callback' => 'login#finalize'
 
@@ -14,6 +18,9 @@ ShopifyRental3::Application.routes.draw do
   match 'login/finalize'     => 'login#finalize',     :as => :finalize
 
   match 'login/logout'       => 'login#logout',       :as => :logout
+  
+  match 'webhooks/orders/create' => 'webhook#order_created'
+  match 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
 
   root :to                   => 'home#index'
 

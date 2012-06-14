@@ -6,6 +6,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :last_name
       t.integer :customerID
       t.text :note
+      t.boolean :status, :default => 1
       t.timestamps
     end
   end

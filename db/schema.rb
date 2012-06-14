@@ -10,22 +10,72 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613184736) do
+ActiveRecord::Schema.define(:version => 20120614160639) do
+
+  create_table "customers", :force => true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "customerID"
+    t.text     "note"
+    t.boolean  "status",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "country"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.decimal  "latitude",      :precision => 10, :scale => 6
+    t.decimal  "longitude",     :precision => 10, :scale => 6
+    t.string   "phone"
+    t.string   "province"
+    t.string   "zip"
+    t.string   "name"
+    t.string   "country_code"
+    t.string   "province_code"
+    t.boolean  "status",                                       :default => true
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.integer  "productID"
+    t.string   "handle"
+    t.string   "title"
+    t.text     "body_html"
+    t.string   "tags"
+    t.decimal  "productPrice", :precision => 10, :scale => 0
+    t.string   "productSku"
+    t.integer  "quantity"
+    t.string   "productImage"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
 
   create_table "rentals", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "order_id"
+    t.integer  "location_id"
     t.integer  "customer_id"
+    t.integer  "orderID"
     t.date     "pickupDate"
     t.date     "deliveryDate"
-    t.string   "type",         :limit => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "chargifyID"
+    t.string   "type",         :limit => 0, :default => "single"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   create_table "webhook_events", :force => true do |t|
     t.string   "event_type"
     t.text     "description"
+    t.integer  "product_id"
+    t.integer  "customer_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
