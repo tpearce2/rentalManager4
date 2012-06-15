@@ -17,7 +17,7 @@ class WebhookController < ApplicationController
     sProduct = ShopifyAPI::Product.find(oProduct['product_id'])
     
   
-    sProduct.title = "ANDREW"
+    sProduct.title = "ANDREW"  
     sProduct.save
     
     # if product
