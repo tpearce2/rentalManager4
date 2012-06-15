@@ -21,6 +21,8 @@ ShopifyRental3::Application.routes.draw do
   
   match 'webhooks/orders/create' => 'webhook#order_created'
   match 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
+  
+    match 'webhooks/test' => 'webhook#test'
 
   root :to                   => 'home#index'
 

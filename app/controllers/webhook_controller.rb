@@ -1,21 +1,50 @@
 class WebhookController < ApplicationController
-
-  #before_filter :verify_webhook, :except => 'verify_webhook'
-
+  before_filter :init_session, :except => 'init_session'
   
+  def init_session
+    token = Token.where('id = ?', 1).first
+    if token
+      session = ShopifyAPI::Session.new("just-play-toy-rental.myshopify.com", token.code)
+      ShopifyAPI::Base.activate_session(session) if session.valid?
+    end
+  end
+    
+  def update_product(oProduct)
+   
+    oProduct['product_id'] = 94091072
+    
+    product = Product.where('productID = ?', oProduct['product_id']).first
+    sProduct = ShopifyAPI::Product.find(oProduct['product_id'])
+    
+  
+    sProduct.title = "ANDREW"
+    sProduct.save
+    
+    # if product
+    #   product.handle = ""
+    #   
+    #   product = Product.new(:name => data["title"], :shopify_id => data["id"])
+    #   product.save
+    # end
+  end
+  
+  def test
+    # require 'rental.rb'
+    # RentalMethods.init_session
+  end
   
   def order_created
     data = ActiveSupport::JSON.decode(request.body.read)
-   # puts data.inspect
+    # puts data.inspect
+    render :json => data
     
     products = data["line_items"]
     
     products.each do |product|
-      puts "\n"
-      puts product['title']
+       update_product(product)
     end
     
-    head :ok
+     head :ok
 
 
     # product = Product.where('shopify_id = ?', data["id"]).first

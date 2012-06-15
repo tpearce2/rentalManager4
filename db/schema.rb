@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614160639) do
+ActiveRecord::Schema.define(:version => 20120615194648) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(:version => 20120614160639) do
     t.string   "type",         :limit => 0, :default => "single"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+  end
+
+  create_table "tokens", :force => true do |t|
+    t.string   "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "webhook_events", :force => true do |t|

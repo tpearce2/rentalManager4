@@ -3,3 +3,4 @@ class Location < ActiveRecord::Base
   has_many :rentals
   belongs_to :customer
 end
+ 
