@@ -130,6 +130,22 @@ class WebhookController < ApplicationController
 
   end
   
+  
+  
+  
+   
+  # ------------------------------------------
+  #          webhooks/getPickupDate
+  # 
+  # ------------------------------------------
+  def get_pickup_date
+    
+  end
+    
+    
+    
+    
+  
   def product_new
     data = ActiveSupport::JSON.decode(request.body.read)
     if Product.where('shopify_id = ?', data["id"]).first.exists?
