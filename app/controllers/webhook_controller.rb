@@ -10,22 +10,31 @@ class WebhookController < ApplicationController
   end
     
   def update_product(oProduct)
-   
+   #Update products
+    
+
+    
     oProduct['product_id'] = 94091072
     
     product = Product.where('productID = ?', oProduct['product_id']).first
-    sProduct = ShopifyAPI::Product.find(oProduct['product_id'])
+    sProduct =  ShopifyAPI::Product.find(oProduct['product_id'])
     
-  
-    sProduct.title = "ANDREW"  
-    sProduct.save
-    
-    # if product
-    #   product.handle = ""
-    #   
-    #   product = Product.new(:name => data["title"], :shopify_id => data["id"])
-    #   product.save
-    # end
+    puts product.inspect
+    if product.blank?
+      if not sProduct.blank?
+        if sProduct.images.blank?
+          pImage = ""
+        else 
+          pImage = sProduct.images[0].attributes[:src]
+        end 
+          
+         Product.create(:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage)
+      end
+    # If product is not blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
+    else
+      Product.update(product.id, {:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage})
+    end
+
   end
   
   def test
@@ -40,10 +49,11 @@ class WebhookController < ApplicationController
     
     products = data["line_items"]
     
-    products.each do |product|
-       update_product(product)
-    end
-    
+    if products
+      products.each do |product|
+         update_product(product)
+      end
+    end     
      head :ok
 
 

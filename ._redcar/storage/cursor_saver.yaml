@@ -18,18 +18,6 @@ cursor_positions:
   - :path: app/controllers/home_controller.rb
     :cursor_offset: 575
     :timestamp: 2012-06-11 09:56:24.749000 -04:00
-  - :path: db/migrate/20120613192104_create_customers.rb
-    :cursor_offset: 256
-    :timestamp: 2012-06-14 11:59:53.828000 -04:00
-  - :path: db/migrate/20120613190422_create_products.rb
-    :cursor_offset: 240
-    :timestamp: 2012-06-13 16:00:45.186000 -04:00
-  - :path: db/migrate/20120613184736_create_webhook_events.rb
-    :cursor_offset: 253
-    :timestamp: 2012-06-13 15:51:15.563000 -04:00
-  - :path: db/migrate/20120612202520_create_rentals.rb
-    :cursor_offset: 355
-    :timestamp: 2012-06-14 12:04:55.685000 -04:00
   - :path: app/controllers/webhook_controller.rb
     :cursor_offset: 306
     :timestamp: 2012-06-15 15:40:23.372000 -04:00
@@ -42,4 +30,19 @@ cursor_positions:
   - :path: lib/shared.rb
     :cursor_offset: 6
     :timestamp: 2012-06-15 16:53:20.718000 -04:00
+  - :path: db/migrate/20120613192104_create_customers.rb
+    :cursor_offset: 144
+    :timestamp: 2012-06-14 11:59:53.828000 -04:00
+  - :path: db/migrate/20120613190422_create_products.rb
+    :cursor_offset: 240
+    :timestamp: 2012-06-13 16:00:45.186000 -04:00
+  - :path: db/migrate/20120613184736_create_webhook_events.rb
+    :cursor_offset: 253
+    :timestamp: 2012-06-13 15:51:15.563000 -04:00
+  - :path: db/migrate/20120612202520_create_rentals.rb
+    :cursor_offset: 355
+    :timestamp: 2012-06-14 12:04:55.685000 -04:00
+  - :path: lib/rental.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-15 17:44:38.115000 -04:00
 files_to_retain: 0
