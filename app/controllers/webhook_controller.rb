@@ -9,17 +9,19 @@ class WebhookController < ApplicationController
     end
   end
     
-  def update_product(oProduct)
+  
+  
+  # ------------------------------------------
+  #           Update_product       
+  # 
+  # ------------------------------------------
+  def update_product(oProductID)
    #Update products
-    
+     # oProductID = 94091072
 
+    product = Product.where('productID = ?', oProductID).first
+    sProduct =  ShopifyAPI::Product.find(oProductID)
     
-    oProduct['product_id'] = 94091072
-    
-    product = Product.where('productID = ?', oProduct['product_id']).first
-    sProduct =  ShopifyAPI::Product.find(oProduct['product_id'])
-    
-    puts product.inspect
     if product.blank?
       if not sProduct.blank?
         if sProduct.images.blank?
@@ -28,44 +30,103 @@ class WebhookController < ApplicationController
           pImage = sProduct.images[0].attributes[:src]
         end 
           
-         Product.create(:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage)
+          newProduct = Product.new(:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage)
+          newProduct.save
+          return newProduct.id
       end
     # If product is not blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
     else
       Product.update(product.id, {:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage})
+      return product.id
     end
 
   end
+
   
-  def test
-    # require 'rental.rb'
-    # RentalMethods.init_session
+  
+  # ------------------------------------------
+  #           Update_Customer        
+  # 
+  # ------------------------------------------
+	def update_customer(oCustomer)
+     customer = Customer.where('customerID = ?', oCustomer[:customerID]).first
+   
+    
+    if customer.blank?
+      newCustomer = Customer.new(oCustomer)  
+      newCustomer.save 
+      return newCustomer.id
+    else
+      customer.update_attributes(oCustomer)
+      return customer.id
+    end
   end
   
+  
+  # ------------------------------------------
+  #           Update_Locations        
+  # 
+  # ------------------------------------------
+  def update_locations(customerID, address)
+    customer = Customer.where('customerID = ?', customerID).first
+    locations = customer.locations.where('address1 = ? AND address2 = ?', address['address1'], address['address2']).first
+    
+    if locations.blank?
+      newLoc = customer.locations.build(address)
+      newLoc.save
+      return newLoc.id
+    else 
+      return locations.id
+    end
+    
+  end
+  
+  
+  def test
+    order = ShopifyAPI::Order.find(133295484)
+    
+    attributes = order.note_attributes
+    
+    query = attributes.select {|f| f.name == 'rental-220117558' }
+
+    
+    
+    render :json => query
+   
+  end
+  
+  
+  
+  
+  # ------------------------------------------
+  #          webhooks/orders/create
+  # 
+  # ------------------------------------------
   def order_created
     data = ActiveSupport::JSON.decode(request.body.read)
     # puts data.inspect
-    render :json => data
+    # render :json => data
     
+    @order = ShopifyAPI::Order.find(data['id'])
+    @note_attributes = @order.note_attributes
+    
+    @id_customer = update_customer({:email => @order.attributes[:customer].attributes['email'], :first_name => @order.attributes[:customer].attributes['first_name'], :last_name => @order.attributes[:customer].attributes['last_name'], :customerID => @order.attributes[:customer].attributes['id'], :note => @order.attributes[:customer].attributes['note'], :phone => data['billing_address']['phone']})
+    @id_location = update_locations(@order.attributes[:customer].attributes['id'], data['shipping_address'])
+   
     products = data["line_items"]
-    
+
     if products
       products.each do |product|
-         update_product(product)
+          @id_product = update_product(product['product_id'])
+          date_query = @attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
+          
+          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'])
       end
-    end     
-     head :ok
+    end 
+    
+    
+    head :ok
 
-
-    # product = Product.where('shopify_id = ?', data["id"]).first
-    # if product
-    #   event = WebhookEvent.new(:event_type => "product update")
-    #   event.save
-    #   product.name = data["title"]
-    #   product.webhook_events << event
-    #   product.save
-    # end
-    #   head :ok
 
   end
   

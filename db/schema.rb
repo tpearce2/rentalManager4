@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615194648) do
+ActiveRecord::Schema.define(:version => 20120618175214) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120615194648) do
     t.boolean  "status",     :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "phone"
   end
 
   create_table "locations", :force => true do |t|
@@ -42,11 +43,11 @@ ActiveRecord::Schema.define(:version => 20120615194648) do
     t.boolean  "status",                                       :default => true
     t.datetime "created_at",                                                     :null => false
     t.datetime "updated_at",                                                     :null => false
+    t.string   "company"
   end
 
   create_table "products", :force => true do |t|
     t.integer  "productID"
-    t.string   "handle"
     t.string   "title"
     t.text     "body_html"
     t.string   "tags"
@@ -54,8 +55,9 @@ ActiveRecord::Schema.define(:version => 20120615194648) do
     t.string   "productSku"
     t.integer  "quantity"
     t.string   "productImage"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+    t.boolean  "status",                                      :default => true
   end
 
   create_table "rentals", :force => true do |t|

@@ -1,4 +1,7 @@
-1340029771
+1340054703
+AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
+AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
+AddStatusToProduct	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	class AddStatusToProduct 
 AgendaDayView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaDayView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaEventRenderer()
@@ -173,6 +176,9 @@ change	R:/rails/shopifyRental4/db/migrate/20120613192104_create_customers.rb	  d
 change	R:/rails/shopifyRental4/db/migrate/20120612202520_create_rentals.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120614160639_create_locations.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120615194648_create_tokens.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	  def change
 changeView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function changeView(newViewName)
 changeView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function changeView(newViewName)
 clearEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function clearEvents()
@@ -644,7 +650,9 @@ updateTimeText	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullc
 updateTimeText	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function updateTimeText(minuteDelta)
 updateTitle	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function updateTitle(html)
 updateTitle	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function updateTitle(html)
-update_product	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def update_product(oProduct)
+update_customer	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb		def update_customer(oCustomer)
+update_locations	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def update_locations(customerID, address)
+update_product	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def update_product(oProductID)
 update_quantity	R:/rails/shopifyRental4/app/controllers/api_controller.rb	  def update_quantity
 vborders	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vborders(element)
 vborders	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function vborders(element)

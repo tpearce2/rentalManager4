@@ -9,9 +9,6 @@ cursor_positions:
   - :path: app/models/order.rb
     :cursor_offset: 0
     :timestamp: 2012-06-13 15:51:55.396000 -04:00
-  - :path: config/application.rb
-    :cursor_offset: 379
-    :timestamp: 2012-06-05 20:27:14.604000 -04:00
   - :path: app/controllers/login_controller.rb
     :cursor_offset: 331
     :timestamp: 2012-06-06 17:50:06.094000 -04:00
@@ -30,9 +27,6 @@ cursor_positions:
   - :path: lib/shared.rb
     :cursor_offset: 6
     :timestamp: 2012-06-15 16:53:20.718000 -04:00
-  - :path: db/migrate/20120613192104_create_customers.rb
-    :cursor_offset: 144
-    :timestamp: 2012-06-14 11:59:53.828000 -04:00
   - :path: db/migrate/20120613190422_create_products.rb
     :cursor_offset: 240
     :timestamp: 2012-06-13 16:00:45.186000 -04:00
@@ -45,4 +39,22 @@ cursor_positions:
   - :path: lib/rental.rb
     :cursor_offset: 0
     :timestamp: 2012-06-15 17:44:38.115000 -04:00
+  - :path: db/migrate/20120618150711_add_phone_to_customer.rb
+    :cursor_offset: 99
+    :timestamp: 2012-06-18 11:11:00.645000 -04:00
+  - :path: config/application.rb
+    :cursor_offset: 2914
+    :timestamp: 2012-06-18 10:08:11.379000 -04:00
+  - :path: app/models/product.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-14 12:48:17.446000 -04:00
+  - :path: app/models/rental.rb
+    :cursor_offset: 242
+    :timestamp: 2012-06-14 12:51:05.339000 -04:00
+  - :path: db/migrate/20120613192104_create_customers.rb
+    :cursor_offset: 294
+    :timestamp: 2012-06-14 11:59:53.828000 -04:00
+  - :path: db/migrate/20120618162138_add_status_to_product.rb
+    :cursor_offset: 133
+    :timestamp: 2012-06-18 12:22:51.232000 -04:00
 files_to_retain: 0
