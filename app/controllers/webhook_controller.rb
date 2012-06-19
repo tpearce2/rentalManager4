@@ -81,17 +81,88 @@ class WebhookController < ApplicationController
     
   end
   
+
+
   
   def test
-    order = ShopifyAPI::Order.find(133295484)
+    @badDates = Array.new
     
-    attributes = order.note_attributes
+    @first_of_month = '2012-06-01'
+    @end_of_month = '2012-06-30'
+    @day_buffer = 3
+    @quantity = 2
     
-    query = attributes.select {|f| f.name == 'rental-220117558' }
+    startTime = Date.new
+    startTime = Date.parse(@first_of_month)
+    startTime -= @day_buffer
+    
+    endTime = Date.new
+    endTime = Date.parse(@end_of_month)
+    endTime += (@day_buffer + 60)
+    
+    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ?', startTime, endTime)
+    
+    @rangeDays = Date.all_days(startTime, endTime)
+    
+    
+    # Check known booked days from other rentals first   
+    bookedDays = @rangeDays.select do |day|
+      returnDay = true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     # 
+      @day = day
+      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= @day && rental.pickupDate >= @day) ? true : false }
 
+      if bookedRentals.length >= @quantity
+        returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         # 
+      else
+        returnDay = false
+      end
+      returnDay
+    end
+    
+    # Do Manual Unavailable days
+    # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
+    # end
+    
+    goodDays = @rangeDays - bookedDays
+    
+    unavailDays = goodDays.select do |day|
+      returnDay = true
+      
+      thirtydays_later = Date.new day.year, day.month, day.day
+      thirtydays_later += 30
+      
+      m = Date.new day.year, day.month, day.day
+      while m <= thirtydays_later && returnDay == true
+        if(bookedDays.include? m)
+          returnDay = false
+        end
+        m += 1
+      end
+      
+      returnDay
+    end
     
     
-    render :json => query
+    
+    # newRentals = @rentals.select do |rental|
+    #   if rental.id == 2
+    #     false
+    #   else
+    #     true
+    #   end
+    #   
+    # end
+    
+      
+    # @day_buffer = 3
+    # 
+    #   startTime = Time.new
+    #   startTime = Time.at(@params[:start].to_i).strftime("%Y-%m-%d")
+    #   
+    # @rentals = Rental.where('deliveryDate < ')
+     # render :text => t.all_days(Date.parse(@first_of_month), Date.parse(@end_of_month))
+     render :json => unavailDays
    
   end
   
@@ -206,3 +277,16 @@ class WebhookController < ApplicationController
   end
 
 end
+
+class Date
+  def self.all_days from, to
+      m = Date.new from.year, from.month, from.day
+      result = []
+      while m <= to
+        result << m
+        m += 1
+      end
+  
+      result
+    end
+  end

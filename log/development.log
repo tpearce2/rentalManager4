@@ -38861,3 +38861,805 @@ Started GET "/webhooks/test" for 127.0.0.1 at Mon Jun 18 16:47:32 -0400 2012
 Processing by WebhookController#test as HTML
   [1m[35mToken Load (0.3ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
 Completed 200 OK in 544ms (Views: 3.5ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:24:15 -0400 2012
+Connecting to database specified by database.yml
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (2.5ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+Completed 500 Internal Server Error in 65ms
+
+TypeError (can't convert String into time):
+  app/controllers/webhook_controller.rb:88:in `at'
+  app/controllers/webhook_controller.rb:88:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:25:13 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 111ms (Views: 15.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:25:37 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:31:22 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.0ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 20ms (Views: 1.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:32:07 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.1ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+Completed 500 Internal Server Error in 17ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/webhook_controller.rb:89:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:32:23 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:44:54 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (2.7ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.7ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE (`rentals`.`deliveryDate` BETWEEN '2012-05-29' AND '2012-06-04')
+Completed 500 Internal Server Error in 210ms
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'single'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Rental.inheritance_column to use another column for that information.):
+  app/controllers/webhook_controller.rb:108:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateRentals (20120612202520)
+Migrating to CreateWebhookEvents (20120613184736)
+Migrating to CreateProducts (20120613190422)
+Migrating to CreateCustomers (20120613192104)
+Migrating to CreateLocations (20120614160639)
+Migrating to CreateTokens (20120615194648)
+Migrating to AddPhoneToCustomer (20120618150711)
+Migrating to AddStatusToProduct (20120618162138)
+Migrating to AddCompanyToLocation (20120618175214)
+Migrating to RenameTypeColumn (20120619164946)
+  [1m[35m (0.2ms)[0m  SHOW COLUMNS FROM `rentals` LIKE 'type'
+  [1m[36m (115.2ms)[0m  [1mALTER TABLE `rentals` CHANGE `type` `rental_type` enum('single','recurring') DEFAULT 'single'[0m
+  [1m[35m (14.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120619164946')
+  [1m[36m (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:51:13 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (2.4ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE (`rentals`.`deliveryDate` BETWEEN '2012-05-29' AND '2012-06-04')
+Completed 200 OK in 72ms (Views: 42.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:52:44 -0400 2012
+
+SyntaxError (/home/tyler/rails/shopifyRental4/app/controllers/webhook_controller.rb:108: syntax error, unexpected tIDENTIFIER, expecting ')'
+    render :json => @rentals
+          ^):
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:192:in `const_missing'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:218:in `constantize'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `each'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `constantize'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:177:in `call!'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:157:in `call'
+  omniauth (1.1.0) lib/omniauth/builder.rb:48:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/flash.rb:238:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.5) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `_run__1715030134__call__4__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.5) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.5) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.5) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.5) lib/rails/engine.rb:479:in `call'
+  railties (3.2.5) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.5) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.5) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.5) lib/rails/commands.rb:55
+  railties (3.2.5) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.5) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 12:53:13 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.3ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE (`rentals`.`pickupDate` BETWEEN '2012-05-29' AND '2012-06-04') AND (`rentals`.`deliveryDate` BETWEEN '2012-05-29' AND '2012-06-04')
+Completed 200 OK in 32ms (Views: 2.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:03:55 -0400 2012
+
+SyntaxError (/home/tyler/rails/shopifyRental4/app/controllers/webhook_controller.rb:98: syntax error, unexpected ')', expecting kEND):
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:192:in `const_missing'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:218:in `constantize'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `each'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `constantize'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:177:in `call!'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:157:in `call'
+  omniauth (1.1.0) lib/omniauth/builder.rb:48:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/flash.rb:238:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.5) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `_run__1715030134__call__4__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.5) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.5) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.5) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.5) lib/rails/engine.rb:479:in `call'
+  railties (3.2.5) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.5) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.5) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.5) lib/rails/commands.rb:55
+  railties (3.2.5) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.5) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.3ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:04:22 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.3ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.4ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-06-04') OR (pickupDate BETWEEN '2012-05-29' AND '2012-06-04'))
+Completed 200 OK in 141ms (Views: 21.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:05:43 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.4ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 200 OK in 136ms (Views: 107.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:07:14 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (2.7ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (3.5ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 200 OK in 20ms (Views: 8.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:35:56 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.1ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.1ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 200 OK in 61ms (Views: 0.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:36:44 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.3ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.3ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 200 OK in 56ms (Views: 1.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:37:27 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.1ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 500 Internal Server Error in 181ms
+
+ActionView::MissingTemplate (Missing template webhook/test, application/test with {:locale=>[:en], :handlers=>[:coffee, :builder, :erb], :formats=>[:html]}. Searched in:
+  * "/home/tyler/rails/shopifyRental4/app/views"
+):
+  actionpack (3.2.5) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.5) lib/action_view/lookup_context.rb:109:in `find_template'
+  actionpack (3.2.5) lib/action_view/renderer/abstract_renderer.rb:3:in `__send__'
+  actionpack (3.2.5) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:34:in `determine_template'
+  actionpack (3.2.5) lib/action_view/renderer/template_renderer.rb:10:in `render'
+  actionpack (3.2.5) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.5) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.5) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.5) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.5) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  activesupport (3.2.5) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.2.5) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.5) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.5) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.5) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:425:in `_run__959605395__process_action__2030685792__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.2.5) lib/active_support/notifications.rb:123:in `instrument'
+  activesupport (3.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.5) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.5) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.5) lib/action_controller/metal/params_wrapper.rb:206:in `process_action'
+  activerecord (3.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.5) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.5) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.5) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.5) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.5) lib/action_controller/metal.rb:246:in `action'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:177:in `call!'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:157:in `call'
+  omniauth (1.1.0) lib/omniauth/builder.rb:48:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/flash.rb:238:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.5) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `_run__1715030134__call__4__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.5) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.5) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.5) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.5) lib/rails/engine.rb:479:in `call'
+  railties (3.2.5) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.5) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.5) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.5) lib/rails/commands.rb:55
+  railties (3.2.5) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.5) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.2ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 13:38:14 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+  [1m[35mRental Load (0.1ms)[0m  SELECT `rentals`.* FROM `rentals` WHERE ((deliveryDate BETWEEN '2012-05-29' AND '2012-07-03') OR (pickupDate BETWEEN '2012-05-29' AND '2012-07-03'))
+Completed 200 OK in 135ms (Views: 3.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 14:23:44 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[36mToken Load (0.0ms)[0m  [1mSELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1[0m
+Completed 500 Internal Server Error in 17ms
+
+NoMethodError (undefined method `parse' for WebhookController::Date:Class):
+  app/controllers/webhook_controller.rb:112:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 14:25:42 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.6ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= startTime AND deliveryDate <= endTime)[0m
+Mysql2::Error: Unknown column 'startTime' in 'where clause': SELECT `rentals`.* FROM `rentals`  WHERE (pickupDate >= startTime AND deliveryDate <= endTime)
+Completed 500 Internal Server Error in 31ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Unknown column 'startTime' in 'where clause': SELECT `rentals`.* FROM `rentals`  WHERE (pickupDate >= startTime AND deliveryDate <= endTime)):
+  app/controllers/webhook_controller.rb:105:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 14:26:29 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.2ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 52ms (Views: 1.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 14:30:53 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.1ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 500 Internal Server Error in 52ms
+
+NoMethodError (undefined method `year' for "2012-06-01":String):
+  app/controllers/webhook_controller.rb:241:in `all_days'
+  app/controllers/webhook_controller.rb:122:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 14:31:46 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.3ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 143ms (Views: 5.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:13:07 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.2ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 500 Internal Server Error in 275ms
+
+NoMethodError (private method `gsub!' called for Fri, 01 Jun 2012:Date):
+  app/controllers/webhook_controller.rb:112:in `test'
+  app/controllers/webhook_controller.rb:112:in `test'
+  app/controllers/webhook_controller.rb:108:in `select'
+  app/controllers/webhook_controller.rb:108:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.9ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:19:41 -0400 2012
+
+SyntaxError (/home/tyler/rails/shopifyRental4/app/controllers/webhook_controller.rb:269: syntax error, unexpected $end, expecting kEND
+  end
+     ^):
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:192:in `const_missing'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:218:in `constantize'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `each'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `constantize'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:177:in `call!'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:157:in `call'
+  omniauth (1.1.0) lib/omniauth/builder.rb:48:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/flash.rb:238:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.5) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `_run__1715030134__call__4__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.5) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.5) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.5) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.5) lib/rails/engine.rb:479:in `call'
+  railties (3.2.5) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.5) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.5) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.5) lib/rails/commands.rb:55
+  railties (3.2.5) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.5) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:21:05 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.2ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 500 Internal Server Error in 76ms
+
+NoMethodError (private method `gsub!' called for Fri, 01 Jun 2012:Date):
+  app/controllers/webhook_controller.rb:113:in `test'
+  app/controllers/webhook_controller.rb:112:in `test'
+  app/controllers/webhook_controller.rb:108:in `select'
+  app/controllers/webhook_controller.rb:108:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:22:44 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.2ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.1ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:25:00 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.2ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.1ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:26:49 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.4ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 200 OK in 25ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 15:28:13 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.2ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.3ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-08-02')[0m
+Completed 200 OK in 140ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 16:02:44 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.3ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 200 OK in 172ms (Views: 31.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 16:51:24 -0400 2012
+
+SyntaxError (/home/tyler/rails/shopifyRental4/app/controllers/webhook_controller.rb:133: syntax error, unexpected tIDENTIFIER, expecting kEND
+      30days_later = @day + 30
+                  ^):
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:469:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:192:in `const_missing'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:218:in `constantize'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `each'
+  activesupport (3.2.5) lib/active_support/inflector/methods.rb:217:in `constantize'
+  activesupport (3.2.5) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.5) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:177:in `call!'
+  omniauth (1.1.0) lib/omniauth/strategy.rb:157:in `call'
+  omniauth (1.1.0) lib/omniauth/builder.rb:48:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/flash.rb:238:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.5) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:473:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `_run__1715030134__call__4__callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `send'
+  activesupport (3.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.5) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.5) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.5) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.5) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.5) lib/rails/engine.rb:479:in `call'
+  railties (3.2.5) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.5) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.4.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.5) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.5) lib/rails/commands.rb:55
+  railties (3.2.5) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.5) lib/rails/commands.rb:50
+  script/rails:6:in `require'
+  script/rails:6
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 16:53:48 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.4ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.1ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 500 Internal Server Error in 160ms
+
+NoMethodError (private method `select' called for nil:NilClass):
+  app/controllers/webhook_controller.rb:129:in `test'
+
+
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 16:55:13 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.2ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (2.3ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 200 OK in 204ms (Views: 90.8ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 16:58:49 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.1ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.1ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 200 OK in 404ms (Views: 16.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 17:00:29 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (0.3ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (3.5ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 200 OK in 928ms (Views: 47.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/webhooks/test" for 192.168.56.1 at Tue Jun 19 17:01:39 -0400 2012
+Processing by WebhookController#test as HTML
+  [1m[35mToken Load (2.0ms)[0m  SELECT `tokens`.* FROM `tokens` WHERE (id = 1) LIMIT 1
+  [1m[36mRental Load (0.3ms)[0m  [1mSELECT `rentals`.* FROM `rentals` WHERE (pickupDate >= '2012-05-29' AND deliveryDate <= '2012-09-01')[0m
+Completed 200 OK in 288ms (Views: 5.0ms | ActiveRecord: 2.3ms)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618175214) do
+ActiveRecord::Schema.define(:version => 20120619164946) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20120618175214) do
     t.date     "pickupDate"
     t.date     "deliveryDate"
     t.integer  "chargifyID"
-    t.string   "type",         :limit => 0, :default => "single"
+    t.string   "rental_type",  :limit => 0, :default => "single"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
   end

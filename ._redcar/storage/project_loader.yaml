@@ -1,6 +1,5 @@
 --- 
 open_files: 
-  - db/migrate/20120613192104_create_customers.rb
-  - db/migrate/20120613190422_create_products.rb
-  - db/migrate/20120613184736_create_webhook_events.rb
-  - db/migrate/20120612202520_create_rentals.rb
+  - app/controllers/webhook_controller.rb
+  - app/controllers/api_controller.rb
+  - db/migrate/20120619164946_rename_type_column.rb
