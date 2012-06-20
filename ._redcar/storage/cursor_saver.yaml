@@ -12,9 +12,6 @@ cursor_positions:
   - :path: app/controllers/login_controller.rb
     :cursor_offset: 331
     :timestamp: 2012-06-06 17:50:06.094000 -04:00
-  - :path: app/controllers/home_controller.rb
-    :cursor_offset: 575
-    :timestamp: 2012-06-11 09:56:24.749000 -04:00
   - :path: lib/global_methods.rb
     :cursor_offset: 28
     :timestamp: 2012-06-15 16:00:57.117000 -04:00
@@ -36,33 +33,56 @@ cursor_positions:
   - :path: app/models/product.rb
     :cursor_offset: 0
     :timestamp: 2012-06-14 12:48:17.446000 -04:00
-  - :path: app/models/rental.rb
-    :cursor_offset: 242
-    :timestamp: 2012-06-14 12:51:05.339000 -04:00
   - :path: db/migrate/20120618162138_add_status_to_product.rb
     :cursor_offset: 133
     :timestamp: 2012-06-18 12:22:51.232000 -04:00
   - :path: db/migrate/20120613192104_create_customers.rb
     :cursor_offset: 294
     :timestamp: 2012-06-14 11:59:53.828000 -04:00
-  - :path: db/migrate/20120613190422_create_products.rb
-    :cursor_offset: 240
-    :timestamp: 2012-06-13 16:00:45.186000 -04:00
   - :path: db/migrate/20120613184736_create_webhook_events.rb
     :cursor_offset: 253
     :timestamp: 2012-06-13 15:51:15.563000 -04:00
   - :path: db/migrate/20120612202520_create_rentals.rb
     :cursor_offset: 355
     :timestamp: 2012-06-14 12:04:55.685000 -04:00
-  - :path: app/controllers/webhook_controller.rb
-    :cursor_offset: 4151
-    :timestamp: 2012-06-19 16:58:37.167000 -04:00
-  - :path: app/controllers/api_controller.rb
-    :cursor_offset: 663
-    :timestamp: 2012-06-14 18:28:20.303000 -04:00
-    :selection_offset: 754
+  - :path: db/migrate/20120620183607_change_decimal_price.rb
+    :cursor_offset: 147
+    :timestamp: 2012-06-20 14:37:47.283000 -04:00
+  - :path: db/migrate/20120614160639_create_locations.rb
+    :cursor_offset: 298
+    :timestamp: 2012-06-14 12:21:24.578000 -04:00
+    :selection_offset: 329
     :block_selection_mode: false
   - :path: db/migrate/20120619164946_rename_type_column.rb
-    :cursor_offset: 109
+    :cursor_offset: 120
     :timestamp: 2012-06-19 12:50:34.459000 -04:00
+  - :path: db/migrate/20120613190422_create_products.rb
+    :cursor_offset: 361
+    :timestamp: 2012-06-20 14:35:35.393000 -04:00
+  - :path: app/controllers/webhook_controller.rb
+    :cursor_offset: 13004
+    :timestamp: 2012-06-20 18:39:48.712000 -04:00
+  - :path: app/controllers/api_controller.rb
+    :cursor_offset: 496
+    :timestamp: 2012-06-20 15:41:37.148000 -04:00
+  - :path: app/controllers/home_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-14 16:39:01.150000 -04:00
+  - :path: config/routes.rb
+    :cursor_offset: 831
+    :timestamp: 2012-06-20 16:31:31.172000 -04:00
+  - :path: app/models/rental.rb
+    :cursor_offset: 148
+    :timestamp: 2012-06-20 15:16:02.759000 -04:00
+  - :path: app/views/home/index.html.erb
+    :cursor_offset: 71
+    :timestamp: 2012-06-12 14:08:29.942000 -04:00
+  - :path: app/assets/javascripts/rental.js
+    :cursor_offset: 294
+    :timestamp: 2012-06-20 19:13:12.319000 -04:00
+  - :path: app/assets/stylesheets/fullcalendar/fullcalendar.css
+    :cursor_offset: 3882
+    :timestamp: 2012-06-20 18:47:03.616000 -04:00
+    :selection_offset: 3903
+    :block_selection_mode: false
 files_to_retain: 0

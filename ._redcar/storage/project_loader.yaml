@@ -2,4 +2,9 @@
 open_files: 
   - app/controllers/webhook_controller.rb
   - app/controllers/api_controller.rb
-  - db/migrate/20120619164946_rename_type_column.rb
+  - app/controllers/home_controller.rb
+  - config/routes.rb
+  - app/models/rental.rb
+  - app/views/home/index.html.erb
+  - app/assets/javascripts/rental.js
+  - app/assets/stylesheets/fullcalendar/fullcalendar.css

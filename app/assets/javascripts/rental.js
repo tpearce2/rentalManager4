@@ -13,11 +13,22 @@ $(document).ready(function() {
 				right: 'month,agendaWeek,agendaDay'
 			},
 			editable: false,
+      eventRender: function(event, element) {
+        if(element.hasClass('t_delivery'))
+        {
+          element.children('div').prepend('<i class="icon-chevron-down"></i>');
+        }
+        if(element.hasClass('t_pickup'))
+        {
+          element.children('div').prepend('<i class="icon-chevron-up"></i>');
+        }
+        
+    },
      eventSources: [
 
         // your event source
         {
-            url: '/api/rentals_json',
+            url: '/webhooks/rental_json',
             type: 'GET',
             data: {
                 custom_param1: 'something',
@@ -33,76 +44,7 @@ $(document).ready(function() {
         // any other sources...
 
     ]
-			/*events: [
-				{
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-        {
-					title: 'All Day Event',
-					start: new Date(y, m, 1)
-				},
-				{
-					title: 'Long Event',
-					start: new Date(y, m, d-5),
-					end: new Date(y, m, d-2)
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d-3, 16, 0),
-					allDay: false
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: new Date(y, m, d+4, 16, 0),
-					allDay: false
-				},
-				{
-					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false
-				},
-				{
-					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false
-				},
-				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false
-				},
-				{
-					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/'
-				}
-			]*/
+			
 		});
 		
 	});

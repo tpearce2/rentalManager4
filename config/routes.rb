@@ -1,5 +1,5 @@
 ShopifyRental3::Application.routes.draw do
-  get "api/rentals_json"
+  
   
   get "api/product/get_quantity" => 'api#get_quantity'
   
@@ -21,6 +21,10 @@ ShopifyRental3::Application.routes.draw do
   
   match 'webhooks/orders/create' => 'webhook#order_created'
   match 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
+  
+  match 'webhooks/products/create'  => 'webhook#product_created'
+  get "webhooks/rental_json"       => 'webhook#rentals_json'
+
   
     match 'webhooks/test' => 'webhook#test'
 

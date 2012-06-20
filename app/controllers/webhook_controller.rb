@@ -85,22 +85,32 @@ class WebhookController < ApplicationController
 
   
   def test
-    @badDates = Array.new
+
+    get_days('2012-06-06', 94091072)
+   
+  end
+  
+  # ------------------------------------------
+  #          webhooks/rental/get_days
+  # 
+  # ------------------------------------------
+  def get_days(cDate, productID)
     
-    @first_of_month = '2012-06-01'
-    @end_of_month = '2012-06-30'
-    @day_buffer = 3
+    rDate = Date.parse(cDate)
+    
+    @pickupDate = false
+
+    @day_buffer = 1
     @quantity = 2
     
-    startTime = Date.new
-    startTime = Date.parse(@first_of_month)
+    startTime = Date.new rDate.year, rDate.month
     startTime -= @day_buffer
     
-    endTime = Date.new
-    endTime = Date.parse(@end_of_month)
+    endTime = Date.new rDate.year, rDate.month, -1
     endTime += (@day_buffer + 60)
     
-    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ?', startTime, endTime)
+    rProduct = Product.where('productID = ?', productID).first
+    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
     
     @rangeDays = Date.all_days(startTime, endTime)
     
@@ -110,7 +120,7 @@ class WebhookController < ApplicationController
       returnDay = true
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      # 
       @day = day
-      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= @day && rental.pickupDate >= @day) ? true : false }
+      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= (@day + @day_buffer) && rental.pickupDate >= (@day - @day_buffer)) ? true : false }
 
       if bookedRentals.length >= @quantity
         returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         # 
@@ -121,12 +131,16 @@ class WebhookController < ApplicationController
     end
     
     # Do Manual Unavailable days
+    manualDays = []
+    manualDays << Date.new
     # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
     # end
+    pairData = Array.new
     
     goodDays = @rangeDays - bookedDays
+    goodDays -= manualDays
     
-    unavailDays = goodDays.select do |day|
+    availDays = goodDays.select do |day|
       returnDay = true
       
       thirtydays_later = Date.new day.year, day.month, day.day
@@ -140,33 +154,30 @@ class WebhookController < ApplicationController
         m += 1
       end
       
+      
+      if(returnDay == true)
+        returnDay = false
+        n = Date.new thirtydays_later.year, thirtydays_later.month, thirtydays_later.day
+        while n <= (thirtydays_later + 10) && returnDay == false
+          if ((!bookedDays.include? n) && (!manualDays.include? n))
+            returnDay = true
+            pairData << {:delivery => day, :pickup => n}
+          end
+          n += 1
+        end
+      end
+      
       returnDay
     end
     
+    unavailDays = @rangeDays - availDays
+    
+    returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData}
+    
+    render :json => returnData.to_json
     
     
-    # newRentals = @rentals.select do |rental|
-    #   if rental.id == 2
-    #     false
-    #   else
-    #     true
-    #   end
-    #   
-    # end
-    
-      
-    # @day_buffer = 3
-    # 
-    #   startTime = Time.new
-    #   startTime = Time.at(@params[:start].to_i).strftime("%Y-%m-%d")
-    #   
-    # @rentals = Rental.where('deliveryDate < ')
-     # render :text => t.all_days(Date.parse(@first_of_month), Date.parse(@end_of_month))
-     render :json => unavailDays
-   
   end
-  
-  
   
   
   # ------------------------------------------
@@ -187,9 +198,10 @@ class WebhookController < ApplicationController
     products = data["line_items"]
 
     if products
+      puts "YEYEYEYEYEYEYEYEY"
       products.each do |product|
           @id_product = update_product(product['product_id'])
-          date_query = @attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
+          # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
           
           Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'])
       end
@@ -202,17 +214,94 @@ class WebhookController < ApplicationController
   end
   
   
+  # ------------------------------------------
+  #          webhooks/products/create
+  # 
+  # ------------------------------------------
+  def product_created
+    data = ActiveSupport::JSON.decode(request.body.read)
+    update_product(data['id'])
+    
+    head :ok
+  end
+  
+  
+   # ------------------------------------------
+  #          webhooks/orders/cancelled
+  # 
+  # ------------------------------------------
+  def order_cancelled
+    data = ActiveSupport::JSON.decode(request.body.read)
+    
+    Rental.delete_all(['orderID = ?', data['id']])
+    
+    head :ok
+  end
+  
   
   
    
   # ------------------------------------------
-  #          webhooks/getPickupDate
+  #          webhooks/rentals_json
   # 
   # ------------------------------------------
-  def get_pickup_date
+  def rentals_json
+    @params = params
     
+    if not @params[:start] && @params[:end]
+       render :text=>"Error: Missing Start/End Time for Calendar"
+    else
+      startTime = Time.new
+      startTime = Time.at(@params[:start].to_i).strftime("%Y-%m-%d")
+      
+      endTime = Time.new
+      endTime = Time.at(@params[:end].to_i).strftime("%Y-%m-%d")
+      
+      @rentals = Rental.where('(pickupDate >= ? AND pickupDate <= ?) OR (deliveryDate >= ? AND deliveryDate <= ?)', startTime, endTime, startTime, endTime)
+      
+      eventsArray = Array.new
+      daysArray = Array.new
+      @rentals.each do |rental|
+        # daysArray[rental.deliveryDate.to_s][rental.customer_id] = "hello"
+        # daysArray{ rental.deliveryDate.to_s => [{rental.customer_id => []}]}
+        # daysArray[rental.deliveryDate.to_s][rental.customer_id] << 'delivery'
+        # daysArray[rental.pickupDate][rental.customer_id] << 'pickup'
+         daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_delivery'], :allDay => true, :backgroundColor => '#8AC8E6'}
+         daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'}        
+      end
+     # render :text=>startTime
+    
+    daysArray.each do |day|
+      eCount = 0
+      search = eventsArray.select do |event|
+        if((event[:start] == day[:start]) && (event[:customer] == day[:customer]))
+          if (eventsArray[eCount][:className].include? day[:className][0])
+          else
+            eventsArray[eCount][:className] << day[:className][0]
+            eventsArray[eCount][:backgroundColor] = '#EDF731'
+          end
+          true
+        else
+          false
+        end
+      end
+      if search.length == 0
+        eventsArray << day
+      end
+      eCount += 1
+    end
+    
+    eCount = 0
+    eventsArray.each do |event|
+      customer = Customer.where('id = ?', event[:customer]).first
+      event[:title] = "#{customer[:first_name]} #{customer[:last_name]}"
+      eCount += 1
+    end
+      render :json => eventsArray.to_json
+      
+
+    end
   end
-    
     
     
     
@@ -279,7 +368,7 @@ class WebhookController < ApplicationController
 end
 
 class Date
-  def self.all_days from, to
+  def self.all_days from, to
       m = Date.new from.year, from.month, from.day
       result = []
       while m <= to

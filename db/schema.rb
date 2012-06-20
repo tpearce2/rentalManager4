@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619164946) do
+ActiveRecord::Schema.define(:version => 20120620183607) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20120619164946) do
     t.string   "title"
     t.text     "body_html"
     t.string   "tags"
-    t.decimal  "productPrice", :precision => 10, :scale => 0
+    t.decimal  "productPrice", :precision => 10, :scale => 6
     t.string   "productSku"
     t.integer  "quantity"
     t.string   "productImage"
