@@ -6,16 +6,14 @@ gem 'rails', '3.2.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-group :development do
   # gems specifically for Heroku go here
   gem 'mysql2', '~> 0.3.11'
-end
+
 
 
 group :production do
   # gems specifically for Heroku go here
-  gem "pg"
-end
+  # gem "pg"
 
 
 gem 'json'
