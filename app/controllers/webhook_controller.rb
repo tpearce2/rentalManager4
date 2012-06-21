@@ -262,10 +262,6 @@ class WebhookController < ApplicationController
       eventsArray = Array.new
       daysArray = Array.new
       @rentals.each do |rental|
-        # daysArray[rental.deliveryDate.to_s][rental.customer_id] = "hello"
-        # daysArray{ rental.deliveryDate.to_s => [{rental.customer_id => []}]}
-        # daysArray[rental.deliveryDate.to_s][rental.customer_id] << 'delivery'
-        # daysArray[rental.pickupDate][rental.customer_id] << 'pickup'
          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_delivery'], :allDay => true, :backgroundColor => '#8AC8E6'}
          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'}        
       end
@@ -366,7 +362,7 @@ class WebhookController < ApplicationController
   end
 
 end
-
+# EXTEND DATE!
 class Date
   def self.all_days from, to
       m = Date.new from.year, from.month, from.day

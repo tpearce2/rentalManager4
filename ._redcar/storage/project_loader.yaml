@@ -8,3 +8,11 @@ open_files:
   - app/views/home/index.html.erb
   - app/assets/javascripts/rental.js
   - app/assets/stylesheets/fullcalendar/fullcalendar.css
+  - Gemfile
+  - config/environments/production.rb
+  - app/controllers/admin_controller.rb
+  - app/views/layouts/application.html.erb
+  - public/assets/manifest.yml
+  - app/assets/javascripts/admin.js.coffee
+  - public/assets/application.js
+  - config/environments/development.rb

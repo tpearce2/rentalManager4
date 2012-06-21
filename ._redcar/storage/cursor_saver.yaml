@@ -59,9 +59,14 @@ cursor_positions:
   - :path: db/migrate/20120613190422_create_products.rb
     :cursor_offset: 361
     :timestamp: 2012-06-20 14:35:35.393000 -04:00
+  - :path: config/initializers/time_formats.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-21 18:13:03.530000 -04:00
+    :selection_offset: 203
+    :block_selection_mode: false
   - :path: app/controllers/webhook_controller.rb
-    :cursor_offset: 13004
-    :timestamp: 2012-06-20 18:39:48.712000 -04:00
+    :cursor_offset: 14335
+    :timestamp: 2012-06-21 17:17:47.510000 -04:00
   - :path: app/controllers/api_controller.rb
     :cursor_offset: 496
     :timestamp: 2012-06-20 15:41:37.148000 -04:00
@@ -69,20 +74,44 @@ cursor_positions:
     :cursor_offset: 0
     :timestamp: 2012-06-14 16:39:01.150000 -04:00
   - :path: config/routes.rb
-    :cursor_offset: 831
-    :timestamp: 2012-06-20 16:31:31.172000 -04:00
+    :cursor_offset: 890
+    :timestamp: 2012-06-21 17:21:15.947000 -04:00
   - :path: app/models/rental.rb
     :cursor_offset: 148
     :timestamp: 2012-06-20 15:16:02.759000 -04:00
   - :path: app/views/home/index.html.erb
-    :cursor_offset: 71
-    :timestamp: 2012-06-12 14:08:29.942000 -04:00
+    :cursor_offset: 279
+    :timestamp: 2012-06-21 18:39:11.302000 -04:00
   - :path: app/assets/javascripts/rental.js
-    :cursor_offset: 294
-    :timestamp: 2012-06-20 19:13:12.319000 -04:00
+    :cursor_offset: 141
+    :timestamp: 2012-06-21 18:38:19.835000 -04:00
   - :path: app/assets/stylesheets/fullcalendar/fullcalendar.css
     :cursor_offset: 3882
     :timestamp: 2012-06-20 18:47:03.616000 -04:00
-    :selection_offset: 3903
+  - :path: Gemfile
+    :cursor_offset: 622
+    :timestamp: 2012-06-21 14:36:50.564000 -04:00
+  - :path: config/environments/production.rb
+    :cursor_offset: 619
+    :timestamp: 2012-06-21 13:51:23.025000 -04:00
+    :selection_offset: 647
     :block_selection_mode: false
+  - :path: app/controllers/admin_controller.rb
+    :cursor_offset: 764
+    :timestamp: 2012-06-21 18:17:16.088000 -04:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 2367
+    :timestamp: 2012-06-21 18:35:06.359000 -04:00
+  - :path: public/assets/manifest.yml
+    :cursor_offset: 429
+    :timestamp: 2012-06-21 18:33:33.130000 -04:00
+  - :path: app/assets/javascripts/admin.js.coffee
+    :cursor_offset: 0
+    :timestamp: 2012-06-21 16:32:04.311000 -04:00
+  - :path: public/assets/application.js
+    :cursor_offset: 152
+    :timestamp: 2012-06-21 18:44:22.635000 -04:00
+  - :path: config/environments/development.rb
+    :cursor_offset: 768
+    :timestamp: 2012-06-21 18:41:16.378000 -04:00
 files_to_retain: 0

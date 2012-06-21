@@ -1,7 +1,11 @@
-1340301099
+1340318809
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
 AddStatusToProduct	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	class AddStatusToProduct 
+AdminController	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	class AdminController 
+AdminControllerTest	R:/rails/shopifyRental4/test/functional/admin_controller_test.rb	class AdminControllerTest 
+AdminHelper	R:/rails/shopifyRental4/app/helpers/admin_helper.rb	module AdminHelper
+AdminHelperTest	R:/rails/shopifyRental4/test/unit/helpers/admin_helper_test.rb	class AdminHelperTest 
 AgendaDayView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaDayView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function AgendaDayView(element, calendar)
 AgendaEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function AgendaEventRenderer()
@@ -41,6 +45,7 @@ CreateWebhookEvents	R:/rails/shopifyRental4/db/migrate/20120613184736_create_web
 Customer	R:/rails/shopifyRental4/app/models/customer.rb	class Customer 
 CustomerTest	R:/rails/shopifyRental4/test/unit/customer_test.rb	class CustomerTest 
 Date	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class Date
+Date	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	class Date
 DayEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function DayEventRenderer()
 DayEventRenderer	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function DayEventRenderer()
 Db	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Db(a,b,e){a.unbind("mouseover").mouseover(function(d){for(var f=d.target,g;f!=this;)
@@ -134,6 +139,7 @@ addMonths	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalend
 addMonths	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function addMonths(d, n, keepTime)
 addYears	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function addYears(d, n, keepTime)
 addYears	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function addYears(d, n, keepTime)
+admin_rentals	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def admin_rentals
 afterShow	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function afterShow()
 afterShow	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function afterShow()
 allDayBounds	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function allDayBounds(i)
@@ -143,6 +149,7 @@ allDayBounds	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	fun
 allDayRow	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function allDayRow(i)
 allDayRow	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function allDayRow(i)
 all_days	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def self.all_days 
+all_days	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def self.all_days 
 applyAll	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 applyAll	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 arrayMax	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function arrayMax(a)

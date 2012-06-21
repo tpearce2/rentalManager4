@@ -24,6 +24,8 @@ ShopifyRental3::Application.routes.draw do
   
   match 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
+  
+  match 'admin/rentals'   => 'admin#admin_rentals'   
 
   
     match 'webhooks/test' => 'webhook#test'
