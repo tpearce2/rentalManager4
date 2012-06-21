@@ -9,6 +9,9 @@ gem 'rails', '3.2.5'
   # gems specifically for Heroku go here
   gem 'mysql2', '~> 0.3.11'
 
+group :development do
+  gem 'taps', :require => false # has an sqlite dependency, which heroku hates
+end
 
 
  group :production do
