@@ -5,9 +5,18 @@ gem 'rails', '3.2.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.11'
 
-gem 'sqlite3'
+group :development do
+  # gems specifically for Heroku go here
+  gem 'mysql2', '~> 0.3.11'
+end
+
+
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
+end
+
 
 gem 'json'
 

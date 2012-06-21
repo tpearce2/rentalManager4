@@ -1,4 +1,4 @@
-1340233893
+1340296761
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
 AddStatusToProduct	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	class AddStatusToProduct 
@@ -184,6 +184,7 @@ change	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.r
 change	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120619164946_rename_type_column.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120613190422_create_products.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120620183607_change_decimal_price.rb	  def change
 changeView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function changeView(newViewName)
 changeView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function changeView(newViewName)
 clearEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function clearEvents()
@@ -282,7 +283,6 @@ disableButton	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullca
 disableButton	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function disableButton(buttonName)
 disableTextSelection	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function disableTextSelection(element)
 disableTextSelection	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function disableTextSelection(element)
-down	R:/rails/shopifyRental4/db/migrate/20120620183607_change_decimal_price.rb	  def down
 dragStart	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
 dragStart	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
 dragStart	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
@@ -642,7 +642,6 @@ unselect	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalenda
 unselect	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function unselect(ev)
 unselect	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function unselect()
 unselect	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function unselect(ev)
-up	R:/rails/shopifyRental4/db/migrate/20120620183607_change_decimal_price.rb	  def up
 updateCells	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function updateCells(firstTime)
 updateCells	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function updateCells()
 updateCells	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function updateCells(firstTime)
