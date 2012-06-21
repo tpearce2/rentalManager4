@@ -80,7 +80,6 @@ GEM
       omniauth (~> 1.0)
     omniauth-shopify-oauth2 (1.0.0)
       omniauth-oauth2 (~> 1.0.0)
-    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -144,7 +143,6 @@ DEPENDENCIES
   json
   less-rails-bootstrap
   mysql2 (~> 0.3.11)
-  pg
   rails (= 3.2.5)
   sass-rails (~> 3.2.3)
   shopify_app
