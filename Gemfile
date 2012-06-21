@@ -11,10 +11,11 @@ gem 'rails', '3.2.5'
 
 
 
-# group :production do
+ group :production do
   # gems specifically for Heroku go here
   # gem "pg"
-
+  gem 'taps'
+end
 
 gem 'json'
 

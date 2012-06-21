@@ -1,4 +1,4 @@
-1340298050
+1340298988
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
 AddStatusToProduct	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	class AddStatusToProduct 
