@@ -8,4 +8,5 @@
  *= require shopify_app_buttons
  *= require shopify_app
  *= require_tree .
+ *= require jquery.ui.all
 */

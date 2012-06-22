@@ -1,13 +1,13 @@
 <%= params[:shop] %>
 <div class="page-header" id="login-header">
-  <h1>Install This App</h1>
+  <h1>Toy Rental Management</h1>
   <h1><small>This app requires you to login to start using it.</small></h1>
 </div>
 
 <div style="width:340px; margin:0 auto;">
   <%= form_tag '/login/authenticate', :class => 'form-search' do %>
-    <%= text_field_tag 'shop', nil, :placeholder => 'Shop URL', :class => 'btn-large' %>
-    <%= submit_tag 'Install', :class => 'btn btn-primary btn-large' %>
+    <%= text_field_tag 'shop', nil, :placeholder => 'Shop URL', :value => 'just-play-toy-rental.myshopify.com', :class => 'btn-large' %>
+    <%= submit_tag 'Login', :class => 'btn btn-primary btn-large' %>
   <% end %>
 </div>
 

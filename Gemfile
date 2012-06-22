@@ -8,7 +8,7 @@ gem 'rails', '3.2.5'
 
   # gems specifically for Heroku go here
   gem 'mysql2', '~> 0.3.11'
-
+  gem 'thin'
 group :development do
   gem 'taps', :require => false # has an sqlite dependency, which heroku hates
 end
@@ -30,7 +30,7 @@ gem 'less-rails-bootstrap'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'jquery-ui-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 

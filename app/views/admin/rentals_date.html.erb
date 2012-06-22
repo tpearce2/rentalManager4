@@ -1,0 +1,96 @@
+<% 
+# @dates
+# @rentals
+# @customers
+# @locations 
+
+
+%>
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'modals'%>
+<% end %>
+  <a class="btn" data-toggle="modal" href="#modal_editRental" >Launch Modal</a>
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Rentals: By Date</h1>
+    </div>
+    <h3>Date Range</h3>
+    <form class="well">
+      <a class="btn" href="#"><i class="icon-calendar"></i>From</a>
+      <input class="input-small" type="text" value="<%= @params['range_start'] %>"/>
+      <a style="margin-left: 5px;" class="btn" href="#"><i class="icon-calendar"></i>To</a>
+      <input class="input-small" type="text" value="<%= @params['range_end'] %>"/>
+      <a style="margin-left: 5px;" class="btn" href="#"><i class="icon-refresh"></i>Reload</a>
+    </form>
+    
+    <div class="page-header">
+       <h2>Friday, June 23, 2012</h2>
+    </div>
+    <div class="well">
+      <div class="row">
+        <div class="span5" style="border-right: 1px solid #CCCCCC;">
+            <h2>Customer:</h2>
+            <h3 style="display:inline-block;">Tyler Pearce</h3>
+            <a style="margin: -10px 0 0 5px;" class="btn" href="#"><i class="icon-th-list"></i>View</a>
+            <br><br>
+            <address>
+              <strong>Company name</strong>
+              <br>123 Fake St
+              <br>Ottawa, ON k1v 9n7
+              <br>(613) 321-1234
+            </address>
+        </div>
+        <div class="span5">
+          <h2>Delivery/Pickup Location:</h2>
+          <h3 style="display:inline-block;">Tyler Pearce</h3>
+          <br><br>
+          <address>
+            <strong>Company name</strong>
+            <br>123 Fake St
+            <br>Ottawa, ON k1v 9n7
+            <br>(613) 321-1234
+          </address>
+        </div>
+      </div><!-- end row -->
+    
+    
+      
+      <br>
+      <div class="row">
+        <div class="span11">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Red Firetruck Toy</td>
+                <td>Single</td>
+                <td align="right">
+                  <a data-rentalid="1" class="btn editRental" href="#"><i class="icon-pencil"></i> Edit</a>
+                  <a style="margin-left: 5px;" class="btn btn-danger" href="#"><i class="icon-trash"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>My Other Toy Here</td>
+                <td>Recurring</td>
+                <td align="right">
+                  <a data-rentalid="2" class="btn editRental" href="#"><i class="icon-pencil"></i> Edit</a>
+                  <a style="margin-left: 5px;" class="btn btn-danger" href="#"><i class="icon-trash"></i></a>
+                </td>
+              </tr>
+            </tboby>
+          </table>
+        </div>
+      </div><!-- end row -->
+     
+      
+     
+    </div>
+  </div><!-- end span12 --.>
+</div><!-- end row -->
+
+
+<!--  
+MODALS
+-->
+
+   

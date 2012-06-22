@@ -1,6 +1,6 @@
 
 class ApiController < ApplicationController
-   around_filter :shopify_session
+   # around_filter :shopify_session
   
   def update_quantity
     product = ShopifyAPI::Product.find(params['product_id'])
@@ -18,5 +18,52 @@ class ApiController < ApplicationController
   end
   
   
- 
+  def calendar_days_admin
+    
+    cDate = params[:date]
+    rentalID = params[:rentalID]
+    
+    rDate = Date.parse(cDate)
+    
+    startTime = Date.new rDate.year, rDate.month
+    endTime = Date.new rDate.year, rDate.month, -1
+
+    rental = Rental.find(rentalID)
+    
+    rProduct = Product.where('id = ?', rental['product_id']).first
+    @quantity = rProduct['quantity']
+    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
+    
+    @rangeDays = Date.all_days(startTime, endTime)
+
+    # Check known booked days from other rentals first   
+    bookedDays = @rangeDays.select do |day|
+      returnDay = true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     # 
+      @day = day
+      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= @day && rental.pickupDate >= @day) ? true : false }
+
+      if bookedRentals.length >= @quantity
+        returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         # 
+      else
+        returnDay = false
+      end
+      returnDay
+    end
+    
+    # Do Manual Unavailable days 
+
+    unavailables = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)    
+    manualDays = unavailables.map{|t| t.awayDate}.uniq
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            # 
+    
+    
+    returnData = {:booked => bookedDays, :manual => manualDays}
+    
+    render :json => returnData.to_json
+    
+    
+  end
+  
+  
 end

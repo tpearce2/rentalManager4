@@ -1,9 +1,8 @@
 ShopifyRental3::Application.routes.draw do
   
   
-  get "api/product/get_quantity" => 'api#get_quantity'
+  get "api/calendar/admin" => 'api#calendar_days_admin'
   
-  post "stripe_event" => 'home#stripe'
 
   match 'auth/shopify/callback' => 'login#finalize'
 
@@ -19,14 +18,15 @@ ShopifyRental3::Application.routes.draw do
 
   match 'login/logout'       => 'login#logout',       :as => :logout
   
-  match 'webhooks/orders/create' => 'webhook#order_created'
-  match 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
+  post 'webhooks/orders/create' => 'webhook#order_created'
+  post 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
   
-  match 'webhooks/products/create'  => 'webhook#product_created'
+  post 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
   
   match 'admin/rentals'   => 'admin#admin_rentals'   
-
+  
+  get 'modal/rental'  => 'modal#rental'
   
     match 'webhooks/test' => 'webhook#test'
 

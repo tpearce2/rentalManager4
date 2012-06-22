@@ -101,7 +101,6 @@ class WebhookController < ApplicationController
     @pickupDate = false
 
     @day_buffer = 1
-    @quantity = 2
     
     startTime = Date.new rDate.year, rDate.month
     startTime -= @day_buffer
@@ -112,6 +111,7 @@ class WebhookController < ApplicationController
     rProduct = Product.where('productID = ?', productID).first
     @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
     
+    @quantity = rProduct['quantity']
     @rangeDays = Date.all_days(startTime, endTime)
     
     
@@ -131,8 +131,7 @@ class WebhookController < ApplicationController
     end
     
     # Do Manual Unavailable days
-    manualDays = []
-    manualDays << Date.new
+    manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
     # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
     # end
     pairData = Array.new
@@ -287,11 +286,9 @@ class WebhookController < ApplicationController
       eCount += 1
     end
     
-    eCount = 0
     eventsArray.each do |event|
       customer = Customer.where('id = ?', event[:customer]).first
       event[:title] = "#{customer[:first_name]} #{customer[:last_name]}"
-      eCount += 1
     end
       render :json => eventsArray.to_json
       

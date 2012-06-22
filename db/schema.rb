@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620183607) do
+ActiveRecord::Schema.define(:version => 20120622213555) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -51,9 +52,9 @@ ActiveRecord::Schema.define(:version => 20120620183607) do
     t.string   "title"
     t.text     "body_html"
     t.string   "tags"
-    t.decimal  "productPrice", :precision => 10, :scale => 6
+    t.decimal  "productPrice", :precision => 10, :scale => 2
     t.string   "productSku"
-    t.integer  "quantity"
+    t.integer  "quantity",                                    :default => 1
     t.string   "productImage"
     t.datetime "created_at",                                                    :null => false
     t.datetime "updated_at",                                                    :null => false
@@ -75,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20120620183607) do
 
   create_table "tokens", :force => true do |t|
     t.string   "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "unavailables", :force => true do |t|
+    t.string   "title"
+    t.date     "awayDate"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

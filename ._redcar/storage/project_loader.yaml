@@ -8,11 +8,17 @@ open_files:
   - app/views/home/index.html.erb
   - app/assets/javascripts/rental.js
   - app/assets/stylesheets/fullcalendar/fullcalendar.css
-  - Gemfile
-  - config/environments/production.rb
   - app/controllers/admin_controller.rb
-  - app/views/layouts/application.html.erb
-  - public/assets/manifest.yml
-  - app/assets/javascripts/admin.js.coffee
-  - public/assets/application.js
-  - config/environments/development.rb
+  - app/views/admin/rentals_date.html.erb
+  - app/assets/javascripts/modals.js
+  - app/controllers/modal_controller.rb
+  - app/views/modal/_modal_loading.html.erb
+  - app/views/modal/rental.html.erb
+  - app/assets/stylesheets/shopify_app.css.scss
+  - app/assets/javascripts/application.js
+  - app/assets/stylesheets/application.css
+  - config/initializers/time_formats.rb
+  - db/migrate/20120612202520_create_rentals.rb
+  - db/migrate/20120622213555_make_quantity_default.rb
+  - db/migrate/20120620183607_change_decimal_price.rb
+  - app/models/unavailable.rb

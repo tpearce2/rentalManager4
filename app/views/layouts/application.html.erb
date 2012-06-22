@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="../assets/shopify-57.png">
   <link rel="apple-touch-icon" sizes="72x72" href="../assets/shopify-72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="../assets/shopify-114.png">
-  
+  <%= yield :scripts %>
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,6 +23,10 @@
 </head>
 
 <body>
+  
+  <div class="modal hide" id="modal_editRental">
+    <%=render 'modal/modal_loading'%>
+  </div>
   
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -36,14 +40,13 @@
         
         <%= link_to 'Just Play Rental Manager', '/', :class => 'brand' %>
         
-        <% if current_shop %>
           <div class="nav-collapse">
             <ul class="nav">
               <li class='<%= active_nav_class('home', 'index') %>'><%= link_to 'Dashboard', '/' %></li>
               <li class='<%= active_nav_class('home', 'design') %>'><%= link_to 'Bootstrap Info', '/design' %></li>
             </ul>
           </div>
-          
+          <% if current_shop %>
           <ul class="nav pull-right">
             <li class="dropdown">
               <%= link_to raw(current_shop.url+' <b class="caret"></b>'), "https://#{current_shop.url}", :class => 'shop_name dropdown-toggle', :'data-toggle' => 'dropdown'  %>
