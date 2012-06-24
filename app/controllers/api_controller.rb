@@ -51,6 +51,9 @@ class ApiController < ApplicationController
       returnDay
     end
     
+    rentalRange = Date.all_days(rental['deliveryDate'], rental['pickupDate'])
+    bookedDaysLess = bookedDays - rentalRange
+    
     # Do Manual Unavailable days 
 
     unavailables = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)    
@@ -58,10 +61,46 @@ class ApiController < ApplicationController
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             # 
     
     
-    returnData = {:booked => bookedDays, :manual => manualDays}
+    returnData = {:booked => bookedDays, :booked_less_range => bookedDaysLess, :manual => manualDays}
     
     render :json => returnData.to_json
     
+  end
+  
+  def update_rental
+    returnData = {:status => 'Error saving, please try again'}
+    
+    if(params[:rentalID] && params[:deliveryDate] && params[:pickupDate])
+      begin
+        rDate = Date.parse(params[:deliveryDate])
+        dDate = Date.parse(params[:pickupDate])
+        
+        rental = Rental.find(params[:rentalID])
+        rental.deliveryDate = params[:deliveryDate]
+        rental.pickupDate = params[:pickupDate]
+        if (rental.save)
+          returnData = {:status => 1}
+        end
+      rescue ArgumentError => e
+        returnData = {:status => e.message}
+      end
+      
+      
+    end
+    
+    render :json => returnData.to_json
+    
+  end
+  
+  def delete_rental
+    returnData = {:status => 'Error deleting, please try again'}
+    if(params[:rentalID])
+      rental = Rental.find(params[:rentalID])
+      if(rental.destroy)
+        returnData = {:status => 1}
+      end
+    end
+    render :json => returnData.to_json
     
   end
   

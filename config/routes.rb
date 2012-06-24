@@ -2,7 +2,8 @@ ShopifyRental3::Application.routes.draw do
   
   
   get "api/calendar/admin" => 'api#calendar_days_admin'
-  
+  post 'api/rental'         => 'api#update_rental'
+  delete 'api/rental'         => 'api#delete_rental'
 
   match 'auth/shopify/callback' => 'login#finalize'
 

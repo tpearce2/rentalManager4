@@ -9,7 +9,7 @@
 <% content_for(:head) do %>
   <%= javascript_include_tag 'modals'%>
 <% end %>
-  <a class="btn" data-toggle="modal" href="#modal_editRental" >Launch Modal</a>
+
 <div class="row">
   <div class="span12">
     <div class="page-header">
@@ -24,32 +24,47 @@
       <a style="margin-left: 5px;" class="btn" href="#"><i class="icon-refresh"></i>Reload</a>
     </form>
     
+    <% @dates.each do |day| %>
     <div class="page-header">
-       <h2>Friday, June 23, 2012</h2>
+       <h2><%= day.strftime('%A, %B %d, %Y') %></h2>
     </div>
+    <%
+    dayLocations = []
+    dayRentals = @rentals.select do |rental|
+      if(rental.deliveryDate == day || rental.pickupDate == day)
+        dayLocations << rental.location_id
+        true
+      else
+        false
+      end
+    end
+    
+    dayLocations.each do |location|
+    cCustomer = @customers[@locations[location].customer_id]
+    cLocation = @locations[location]
+      %>
     <div class="well">
       <div class="row">
         <div class="span5" style="border-right: 1px solid #CCCCCC;">
             <h2>Customer:</h2>
-            <h3 style="display:inline-block;">Tyler Pearce</h3>
+            <h3 style="display:inline-block;"><%= cCustomer.first_name %> <%=  cCustomer.last_name %></h3>
             <a style="margin: -10px 0 0 5px;" class="btn" href="#"><i class="icon-th-list"></i>View</a>
             <br><br>
-            <address>
-              <strong>Company name</strong>
-              <br>123 Fake St
-              <br>Ottawa, ON k1v 9n7
-              <br>(613) 321-1234
-            </address>
+              <% if(cCustomer.email != '') %><strong><br><%= cCustomer.email %></strong><% end %>
+              <% if(cCustomer.phone != '') %><br><%= cCustomer.phone %> <% end %>
+              <% if(cCustomer.note != '') %><br><%= cCustomer.note %> <% end %>
+              <br>Shopify Customer ID: <%= cCustomer.customerID%>
         </div>
         <div class="span5">
           <h2>Delivery/Pickup Location:</h2>
-          <h3 style="display:inline-block;">Tyler Pearce</h3>
+          <h3 style="display:inline-block;"><%= cLocation.first_name %> <%= cLocation.last_name %></h3>
           <br><br>
           <address>
-            <strong>Company name</strong>
-            <br>123 Fake St
-            <br>Ottawa, ON k1v 9n7
-            <br>(613) 321-1234
+            <% if(cLocation.company != '') %><strong><br><%= cLocation.company %></strong><% end %>
+            <% if(cLocation.address1 != '') %><br><%= cLocation.address1 %><% end %>
+            <% if(cLocation.address2 != '') %><br><%= cLocation.address2 %><% end %>
+            <% if(cLocation.city != '') %><br><%= cLocation.city %><% end %><% if(cLocation.province != '') %>, <%= cLocation.province %><% end %><% if(cLocation.zip != '') %>, <%= cLocation.zip %><% end %>
+            <% if(cLocation.phone != '') %><br><%= cLocation.phone %><% end %>
           </address>
         </div>
       </div><!-- end row -->
@@ -65,8 +80,8 @@
                 <td>Red Firetruck Toy</td>
                 <td>Single</td>
                 <td align="right">
-                  <a data-rentalid="1" class="btn editRental" href="#"><i class="icon-pencil"></i> Edit</a>
-                  <a style="margin-left: 5px;" class="btn btn-danger" href="#"><i class="icon-trash"></i></a>
+                  <a data-rentalid="1" class="btn editRental" href="javascript:void(null);"><i class="icon-pencil"></i> Edit</a>
+                  <a data-rentalid="1" style="margin-left: 5px;" class="btn btn-danger deleteRental" href="javascript:void(null);"><i class="icon-trash"></i></a>
                 </td>
               </tr>
               <tr>
@@ -84,13 +99,9 @@
      
       
      
-    </div>
-  </div><!-- end span12 --.>
+    </div><!-- end well -->
+    <% end # end location block %>
+  <% end # end day block %>
+    
+  </div><!-- end span12 -->
 </div><!-- end row -->
-
-
-<!--  
-MODALS
--->
-
-   

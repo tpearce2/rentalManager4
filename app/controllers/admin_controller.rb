@@ -9,17 +9,30 @@ class AdminController < ApplicationController
       params[:range_end] = t + 30
     end
     
-    @dates = Date.all_days(Date.parse(params[:range_start]), Date.parse(params[:range_end]))
+    
     @rentals = Rental.where('(deliveryDate <= ? AND deliveryDate >= ?) OR (pickupDate <= ? AND pickupDate >= ?)', params[:range_end], params[:range_start], params[:range_end], params[:range_start])
     @customers = Array.new
     @locations = Array.new
     
+    @dates = Date.all_days(Date.parse(params[:range_start]), Date.parse(params[:range_end]))
+    @dates = @dates.select do |day|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        # 
+        @day = day
+        eventDays = @rentals.select {|rental| (rental.deliveryDate == @day || rental.pickupDate == @day) ? true : false }
+        if eventDays.length > 0
+          returnDay = true
+        else
+          returnDay = false
+        end
+        returnDay
+    end
+    
+    
     @rentals.map{|t| t.customer_id}.uniq.each do |id|
-      @customers << Customer.find(id)
+      @customers[id] = Customer.find(id)
     end
     
     @rentals.map{|t| t.location_id}.uniq.each do |id|
-      @locations << Location.find(id)
+      @locations[id] = Location.find(id)
     end
     
     @params = params
