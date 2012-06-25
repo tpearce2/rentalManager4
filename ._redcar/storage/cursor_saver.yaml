@@ -92,18 +92,12 @@ cursor_positions:
   - :path: app/views/modal/_modal_loading.html.erb
     :cursor_offset: 0
     :timestamp: 2012-06-22 14:30:22.558000 -04:00
-  - :path: db/migrate/20120612202520_create_rentals.rb
-    :cursor_offset: 356
-    :timestamp: 2012-06-14 12:04:55.685000 -04:00
   - :path: app/views/home/index.html.erb
     :cursor_offset: 519
     :timestamp: 2012-06-21 18:39:11.302000 -04:00
   - :path: app/controllers/home_controller.rb
     :cursor_offset: 50
     :timestamp: 2012-06-14 16:39:01.150000 -04:00
-  - :path: app/models/rental.rb
-    :cursor_offset: 148
-    :timestamp: 2012-06-20 15:16:02.759000 -04:00
   - :path: app/assets/stylesheets/fullcalendar/fullcalendar.css
     :cursor_offset: 3882
     :timestamp: 2012-06-20 18:47:03.616000 -04:00
@@ -122,61 +116,96 @@ cursor_positions:
   - :path: config/database.yml
     :cursor_offset: 571
     :timestamp: 2012-06-24 12:00:01.192000 -04:00
-  - :path: app/assets/javascripts/application.js
-    :cursor_offset: 744
-    :timestamp: 2012-06-22 14:47:27.734000 -04:00
   - :path: app/assets/javascripts/api.js.coffee
     :cursor_offset: 229
     :timestamp: 2012-06-12 19:30:25.819000 -04:00
-  - :path: app/assets/javascripts/admin.js.coffee
-    :cursor_offset: 229
-    :timestamp: 2012-06-22 09:39:35.125000 -04:00
   - :path: app/assets/javascripts/modal.js.coffee
     :cursor_offset: 229
     :timestamp: 2012-06-22 13:22:26.422000 -04:00
-  - :path: app/views/admin/admin_rentals.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-06-21 18:21:02.315000 -04:00
-  - :path: app/views/modal/_modal_editRental.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-06-22 13:59:22.962000 -04:00
   - :path: app/views/api/rentals_json.html.erb
     :cursor_offset: 80
     :timestamp: 2012-06-12 19:30:25.715000 -04:00
+  - :path: app/assets/javascripts/modals.js
+    :cursor_offset: 713
+    :timestamp: 2012-06-24 16:21:51.141000 -04:00
+  - :path: app/views/admin/admin_rentals.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-06-21 18:21:02.315000 -04:00
+  - :path: app/assets/javascripts/admin.js.coffee
+    :cursor_offset: 229
+    :timestamp: 2012-06-25 10:02:07.614000 -04:00
+  - :path: app/assets/javascripts/application.js
+    :cursor_offset: 749
+    :timestamp: 2012-06-25 10:26:03.347000 -04:00
+  - :path: app/views/modal/_modal_editRental.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-06-22 13:59:22.962000 -04:00
+  - :path: app/assets/javascripts/admin/rentals_date.js
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 11:15:37.348000 -04:00
+  - :path: app/assets/javascripts/admin/modal_product.js
+    :cursor_offset: 1337
+    :timestamp: 2012-06-25 12:56:48.010000 -04:00
+  - :path: db/migrate/20120625193233_subscription.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 15:32:33.522000 -04:00
+  - :path: db/migrate/20120625193318_subscriptions.rb
+    :cursor_offset: 253
+    :timestamp: 2012-06-25 15:35:04.627000 -04:00
+  - :path: db/migrate/20120625193645_create_subscriptions.rb
+    :cursor_offset: 248
+    :timestamp: 2012-06-25 15:37:20.761000 -04:00
+  - :path: db/migrate/20120612202520_create_rentals.rb
+    :cursor_offset: 394
+    :timestamp: 2012-06-14 12:04:55.685000 -04:00
+  - :path: app/models/rental.rb
+    :cursor_offset: 254
+    :timestamp: 2012-06-20 15:16:02.759000 -04:00
   - :path: app/assets/javascripts/rental.js
     :cursor_offset: 140
     :timestamp: 2012-06-21 18:38:19.835000 -04:00
   - :path: app/controllers/api_controller.rb
     :cursor_offset: 5696
     :timestamp: 2012-06-24 16:04:11.024000 -04:00
-  - :path: app/assets/javascripts/modals.js
-    :cursor_offset: 713
-    :timestamp: 2012-06-24 16:21:51.141000 -04:00
   - :path: app/views/admin/rentals_date.html.erb
-    :cursor_offset: 1056
-    :timestamp: 2012-06-24 17:34:36.385000 -04:00
+    :cursor_offset: 2392
+    :timestamp: 2012-06-25 15:05:29.991000 -04:00
   - :path: config/environments/development.rb
     :cursor_offset: 457
     :timestamp: 2012-06-24 13:23:37.829000 -04:00
   - :path: app/assets/stylesheets/admin.css.scss
-    :cursor_offset: 409
-    :timestamp: 2012-06-24 14:40:43.363000 -04:00
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 11:40:43.137000 -04:00
   - :path: app/controllers/modal_controller.rb
     :cursor_offset: 0
-    :timestamp: 2012-06-24 15:58:57.804000 -04:00
+    :timestamp: 2012-06-25 13:18:44.948000 -04:00
   - :path: app/controllers/admin_controller.rb
-    :cursor_offset: 82
-    :timestamp: 2012-06-24 17:36:13.994000 -04:00
+    :cursor_offset: 2896
+    :timestamp: 2012-06-25 14:54:29.951000 -04:00
   - :path: config/routes.rb
-    :cursor_offset: 262
-    :timestamp: 2012-06-24 15:56:16.100000 -04:00
+    :cursor_offset: 425
+    :timestamp: 2012-06-25 16:18:15.859000 -04:00
   - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 81
-    :timestamp: 2012-06-24 15:48:17.405000 -04:00
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 13:09:20.355000 -04:00
   - :path: app/views/modal/rental.html.erb
-    :cursor_offset: 1359
-    :timestamp: 2012-06-24 16:09:17.799000 -04:00
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 12:51:31.373000 -04:00
   - :path: app/controllers/webhook_controller.rb
-    :cursor_offset: 8953
+    :cursor_offset: 0
     :timestamp: 2012-06-22 16:23:33.812000 -04:00
+    :selection_offset: 353
+    :block_selection_mode: false
+  - :path: app/views/admin/rentals_customer.html.erb
+    :cursor_offset: 3830
+    :timestamp: 2012-06-25 15:04:07.571000 -04:00
+  - :path: app/views/admin/_dateRange.html.erb
+    :cursor_offset: 749
+    :timestamp: 2012-06-25 14:58:27.048000 -04:00
+  - :path: app/models/subscription.rb
+    :cursor_offset: 124
+    :timestamp: 2012-06-25 15:38:09.216000 -04:00
+  - :path: app/controllers/chargify_controller.rb
+    :cursor_offset: 459
+    :timestamp: 2012-06-25 16:29:30.875000 -04:00
 files_to_retain: 0

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120622213555) do
+ActiveRecord::Schema.define(:version => 20120625193645) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(:version => 20120622213555) do
     t.string   "rental_type",  :limit => 0, :default => "single"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "location_id"
+    t.integer  "customer_id"
+    t.integer  "subscriptionID"
+    t.date     "recurringDate"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "tokens", :force => true do |t|

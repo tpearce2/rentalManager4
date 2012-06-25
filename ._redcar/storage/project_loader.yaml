@@ -2,7 +2,6 @@
 open_files: 
   - app/assets/javascripts/rental.js
   - app/controllers/api_controller.rb
-  - app/assets/javascripts/modals.js
   - app/views/admin/rentals_date.html.erb
   - config/environments/development.rb
   - app/assets/stylesheets/admin.css.scss
@@ -12,3 +11,7 @@ open_files:
   - app/views/layouts/application.html.erb
   - app/views/modal/rental.html.erb
   - app/controllers/webhook_controller.rb
+  - app/views/admin/rentals_customer.html.erb
+  - app/views/admin/_dateRange.html.erb
+  - app/models/subscription.rb
+  - app/controllers/chargify_controller.rb

@@ -1,0 +1,32 @@
+<%
+  product = Product.find(@productID)
+  
+  if(@action == "show")
+%> 
+
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3><%=product.title%> (<%=product.productID%>)</h3>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="span" style="width: 200px;">
+          <a href="javascript:void(null);" class="thumbnail"><img src="<%=product.productImage%>" style="width:175px;min-height:60px;"/></a>
+          <br>
+        </div>
+        <div class="span" style="width: 280px;text-align:left;">
+          <h3><%=product.title%> - $<%=product.productPrice%></h3>
+          
+          <%=product.body_html.html_safe %>
+          <br>
+      </div>
+      </div>
+    <div class="modal-footer">
+      <a href="javascript:void(null);" class="btn" data-dismiss="modal">Close</a>
+    </div>
+    
+<% elsif(@action == "delete") %>
+
+
+
+<% end %>

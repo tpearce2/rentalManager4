@@ -27,9 +27,12 @@ ShopifyRental3::Application.routes.draw do
   
   match 'admin/rentals'   => 'admin#admin_rentals'   
   
-  get 'modal/rental'  => 'modal#rental'
+ # get 'modal/rental'  => 'modal#rental'
+  get 'modal/:action', :controller => 'modal'
   
-    match 'webhooks/test' => 'webhook#test'
+  match 'webhooks/test' => 'webhook#test'
+  match '/chargify/hooks' => "chargify#dispatch_handler", :via => "post"
+ 
 
   root :to                   => 'home#index'
 

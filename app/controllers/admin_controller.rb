@@ -7,14 +7,24 @@ class AdminController < ApplicationController
       t = Date.today
       params[:range_start] = t
       params[:range_end] = t + 30
+      @dates = Date.all_days(params[:range_start], params[:range_end])
+    else
+       @dates = Date.all_days(Date.parse(params[:range_start]), Date.parse(params[:range_end]))
     end
     
-    
-    @rentals = Rental.where('(deliveryDate <= ? AND deliveryDate >= ?) OR (pickupDate <= ? AND pickupDate >= ?)', params[:range_end], params[:range_start], params[:range_end], params[:range_start])
+    if(params[:layout] == "customer")
+      if not(params[:customerID])
+        @error = "no customerID"
+      end
+      @customerID = params[:customerID]
+      @rentals = Rental.where('(deliveryDate <= ? AND deliveryDate >= ? AND customer_id = ?) OR (pickupDate <= ? AND pickupDate >= ? AND customer_id = ?)', params[:range_end], params[:range_start], params[:customerID], params[:range_end], params[:range_start], params[:customerID])
+    elsif(params[:layout] == "date")
+      @rentals = Rental.where('(deliveryDate <= ? AND deliveryDate >= ?) OR (pickupDate <= ? AND pickupDate >= ?)', params[:range_end], params[:range_start], params[:range_end], params[:range_start])
+    end
     @customers = Array.new
     @locations = Array.new
     
-    @dates = Date.all_days(Date.parse(params[:range_start]), Date.parse(params[:range_end]))
+   
     @dates = @dates.select do |day|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        # 
         @day = day
         eventDays = @rentals.select {|rental| (rental.deliveryDate == @day || rental.pickupDate == @day) ? true : false }
@@ -36,7 +46,11 @@ class AdminController < ApplicationController
     end
     
     @params = params
-    params[:layout] ? (render "rentals_#{params[:layout]}") : (render :text => "Error: Layout not present")
+    if(@error)
+      render :text => @error
+    else
+      params[:layout] ? (render "rentals_#{params[:layout]}") : (render :text => "Error: Layout not present")
+    end
  
   end
   

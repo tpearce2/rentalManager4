@@ -1,0 +1,28 @@
+<%
+  @extras = ""
+  
+  if(params[:layout] == 'customer' && params[:customerID])
+    @extras = "&customerID=#{params[:customerID]}"
+  end
+%>
+<form class="well">
+      <a id="rangeStart_btn" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i>From</a>
+      <input id="rangeStart" class="input-small" type="text" value="<%= @params['range_start'] %>"/>
+      <a id="rangeEnd_btn" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i>To</a>
+      <input id="rangeEnd" class="input-small" type="text" value="<%= @params['range_end'] %>"/>
+      <a id ="rangeRefresh" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-refresh"></i>Reload</a>
+</form>
+<script>
+$(document).ready(function() {
+  
+
+        $('#rangeStart').datepicker({defaultDate:'<%=params[:range_start]%>', dateFormat: "yy-mm-dd"});
+        $('#rangeEnd').datepicker({defaultDate:'<%=params[:range_end]%>', dateFormat: "yy-mm-dd"});
+
+        $('#rangeStart_btn').click(function(){ $('#rangeStart').datepicker('show') });
+        $('#rangeEnd_btn').click(function(){ $('#rangeEnd').datepicker('show') });
+      
+        $('#rangeRefresh').click(function(){ window.location.href = "<%= request.path %>/?range_start=" + $('#rangeStart').val() + '&range_end=' + $('#rangeEnd').val() + "<%=@extras%>&layout=<%= params[:layout] %>"});
+
+});
+</script>

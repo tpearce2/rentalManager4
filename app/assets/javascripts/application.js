@@ -13,5 +13,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree ./fullcalendar
-//= require_tree .
+//= require_directory .
 //= require jquery.ui.all
