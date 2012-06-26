@@ -26,7 +26,8 @@ ShopifyRental3::Application.routes.draw do
   get "webhooks/rental_json"       => 'webhook#rentals_json'
   
   match 'admin/rentals'   => 'admin#admin_rentals'   
-  
+  get 'admin/add_rental/single'   => 'admin#add_single_rental'
+  match 'admin/findProducts'       => 'admin#getAvailabilityAll'
  # get 'modal/rental'  => 'modal#rental'
   get 'modal/:action', :controller => 'modal'
   

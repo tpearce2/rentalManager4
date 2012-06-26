@@ -22,6 +22,10 @@ $(document).ready(function() {
         {
           element.children('div').prepend('<i class="icon-chevron-up"></i>');
         }
+        if(element.hasClass('t_recurring'))
+        {
+          element.children('div').prepend('<i class="icon-refresh"></i>');
+        }
         
     },
      eventSources: [

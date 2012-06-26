@@ -52,12 +52,67 @@ class AdminController < ApplicationController
       params[:layout] ? (render "rentals_#{params[:layout]}") : (render :text => "Error: Layout not present")
     end
  
+
+  end
+
+
+
+  def add_single_rental
+    @customer = Customer.find(params[:customerID].to_i)
+    @locations = Location.where('customer_id = ? AND location_type = ?', params[:customerID], 'single')
+    
+    render 'rentals_add_single'
   end
   
+  def getAvailabilityAll
+    products = Product.all
+    @aProducts = []
+    products.each do |product|
+      if (getAvailability Date.parse(params[:startTime]), Date.parse(params[:endTime]), product[:id])  
+        @aProducts << product
+      end
+    end
+    
+    render 'product_list'
+  end
+  
+  def getAvailability startTime, endTime, productID
+    @pickupDate = false
+  
+    @day_buffer = 1
+    
+    rProduct = Product.find(productID.to_i)
+    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime - @day_buffer, endTime + @day_buffer, rProduct['id'].to_i)
+    puts "PRSD #{rProduct.inspect}"
+    @quantity = rProduct['quantity']
+    @rangeDays = Date.all_days(startTime, endTime)
+    
+    # Check known booked days from other rentals first   
+    bookedDays = @rangeDays.select do |day|
+      returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            # 
+      @day = day
+      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= (@day + @day_buffer) && rental.pickupDate >= (@day - @day_buffer)) ? true : false }
+      
+      puts "LENGTH: #{bookedRentals.length}"
+      puts "QUANITYTY: #{@quantity}"
+      
+      if bookedRentals.length >= @quantity
+        returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         # 
+      else
+        returnDay = false
+      end
+      returnDay
+    end
+    
+    if(bookedDays.length > 0)
+      false
+    else
+      true
+    end 
+  
+  end
 
 end
-
-
 
 
 class Date

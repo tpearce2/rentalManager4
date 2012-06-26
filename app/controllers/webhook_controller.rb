@@ -261,8 +261,13 @@ class WebhookController < ApplicationController
       eventsArray = Array.new
       daysArray = Array.new
       @rentals.each do |rental|
-         daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_delivery'], :allDay => true, :backgroundColor => '#8AC8E6'}
-         daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'}        
+        if(rental['rental_type'] == 'recurring')
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['recurring', 't_recurring'], :allDay => true, :backgroundColor => '#8AC8E6'}
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['recurring', 't_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'} 
+        else
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_delivery'], :allDay => true, :backgroundColor => '#8AC8E6'}
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'} 
+        end   
       end
      # render :text=>startTime
     
