@@ -47,9 +47,6 @@ cursor_positions:
     :timestamp: 2012-06-14 12:21:24.578000 -04:00
     :selection_offset: 329
     :block_selection_mode: false
-  - :path: db/migrate/20120619164946_rename_type_column.rb
-    :cursor_offset: 120
-    :timestamp: 2012-06-19 12:50:34.459000 -04:00
   - :path: public/assets/manifest.yml
     :cursor_offset: 429
     :timestamp: 2012-06-21 18:33:33.130000 -04:00
@@ -104,9 +101,6 @@ cursor_positions:
   - :path: db/migrate/20120622213555_make_quantity_default.rb
     :cursor_offset: 130
     :timestamp: 2012-06-22 17:37:38.983000 -04:00
-  - :path: db/migrate/20120620183607_change_decimal_price.rb
-    :cursor_offset: 147
-    :timestamp: 2012-06-21 10:33:49.094000 -04:00
   - :path: app/views/login/index.html.erb
     :cursor_offset: 773
     :timestamp: 2012-06-22 09:10:10.135000 -04:00
@@ -155,9 +149,6 @@ cursor_positions:
   - :path: db/migrate/20120625193645_create_subscriptions.rb
     :cursor_offset: 248
     :timestamp: 2012-06-25 15:37:20.761000 -04:00
-  - :path: db/migrate/20120612202520_create_rentals.rb
-    :cursor_offset: 394
-    :timestamp: 2012-06-14 12:04:55.685000 -04:00
   - :path: app/models/rental.rb
     :cursor_offset: 254
     :timestamp: 2012-06-20 15:16:02.759000 -04:00
@@ -170,24 +161,12 @@ cursor_positions:
   - :path: app/views/admin/rentals_date.html.erb
     :cursor_offset: 2392
     :timestamp: 2012-06-25 15:05:29.991000 -04:00
-  - :path: config/environments/development.rb
-    :cursor_offset: 457
-    :timestamp: 2012-06-24 13:23:37.829000 -04:00
-  - :path: app/assets/stylesheets/admin.css.scss
-    :cursor_offset: 0
-    :timestamp: 2012-06-25 11:40:43.137000 -04:00
-  - :path: app/controllers/modal_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2012-06-25 13:18:44.948000 -04:00
   - :path: app/controllers/admin_controller.rb
     :cursor_offset: 2896
     :timestamp: 2012-06-25 14:54:29.951000 -04:00
   - :path: config/routes.rb
     :cursor_offset: 425
     :timestamp: 2012-06-25 16:18:15.859000 -04:00
-  - :path: app/views/layouts/application.html.erb
-    :cursor_offset: 0
-    :timestamp: 2012-06-25 13:09:20.355000 -04:00
   - :path: app/views/modal/rental.html.erb
     :cursor_offset: 0
     :timestamp: 2012-06-25 12:51:31.373000 -04:00
@@ -199,13 +178,48 @@ cursor_positions:
   - :path: app/views/admin/rentals_customer.html.erb
     :cursor_offset: 3830
     :timestamp: 2012-06-25 15:04:07.571000 -04:00
+  - :path: app/controllers/chargify_controller.rb
+    :cursor_offset: 459
+    :timestamp: 2012-06-25 16:29:30.875000 -04:00
+  - :path: config/environments/development.rb
+    :cursor_offset: 457
+    :timestamp: 2012-06-24 13:23:37.829000 -04:00
+  - :path: app/assets/stylesheets/admin.css.scss
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 11:40:43.137000 -04:00
+  - :path: app/controllers/modal_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 13:18:44.948000 -04:00
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 0
+    :timestamp: 2012-06-25 13:09:20.355000 -04:00
   - :path: app/views/admin/_dateRange.html.erb
     :cursor_offset: 749
     :timestamp: 2012-06-25 14:58:27.048000 -04:00
   - :path: app/models/subscription.rb
     :cursor_offset: 124
     :timestamp: 2012-06-25 15:38:09.216000 -04:00
-  - :path: app/controllers/chargify_controller.rb
-    :cursor_offset: 459
-    :timestamp: 2012-06-25 16:29:30.875000 -04:00
+  - :path: db/migrate/20120618175214_add_company_to_location.rb
+    :cursor_offset: 121
+    :timestamp: 2012-06-18 13:52:58.378000 -04:00
+  - :path: db/migrate/20120619164946_rename_type_column.rb
+    :cursor_offset: 120
+    :timestamp: 2012-06-19 12:50:34.459000 -04:00
+  - :path: db/migrate/20120620183607_change_decimal_price.rb
+    :cursor_offset: 147
+    :timestamp: 2012-06-21 10:33:49.094000 -04:00
+  - :path: db/migrate/20120626140122_add_customer_id_to_subscription.rb
+    :cursor_offset: 137
+    :timestamp: 2012-06-26 10:02:23.852000 -04:00
+  - :path: db/migrate/20120612202520_create_rentals.rb
+    :cursor_offset: 289
+    :timestamp: 2012-06-14 12:04:55.685000 -04:00
+    :selection_offset: 356
+    :block_selection_mode: false
+  - :path: db/migrate/20120626144952_add_type_to_location.rb
+    :cursor_offset: 104
+    :timestamp: 2012-06-26 10:53:29.229000 -04:00
+  - :path: app/models/customer.rb
+    :cursor_offset: 164
+    :timestamp: 2012-06-18 12:02:46.618000 -04:00
 files_to_retain: 0

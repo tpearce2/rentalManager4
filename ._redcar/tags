@@ -1,7 +1,9 @@
-1340657360
+1340727075
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
+AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
 AddStatusToProduct	R:/rails/shopifyRental4/db/migrate/20120618162138_add_status_to_product.rb	class AddStatusToProduct 
+AddTypeToLocation	R:/rails/shopifyRental4/db/migrate/20120626144952_add_type_to_location.rb	class AddTypeToLocation 
 AdminController	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	class AdminController 
 AdminControllerTest	R:/rails/shopifyRental4/test/functional/admin_controller_test.rb	class AdminControllerTest 
 AdminHelper	R:/rails/shopifyRental4/app/helpers/admin_helper.rb	module AdminHelper
@@ -34,6 +36,7 @@ BrowsingTest	R:/rails/shopifyRental4/test/performance/browsing_test.rb	class Bro
 Calendar	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function Calendar(element, options, eventSources)
 Calendar	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function Calendar(element, options, eventSources)
 ChangeDecimalPrice	R:/rails/shopifyRental4/db/migrate/20120620183607_change_decimal_price.rb	class ChangeDecimalPrice 
+ChargifyController	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	class ChargifyController 
 CoordinateGrid	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function CoordinateGrid(buildFunc)
 CoordinateGrid	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function CoordinateGrid(buildFunc)
 CreateCustomers	R:/rails/shopifyRental4/db/migrate/20120613192104_create_customers.rb	class CreateCustomers 
@@ -44,8 +47,8 @@ CreateTokens	R:/rails/shopifyRental4/db/migrate/20120615194648_create_tokens.rb	
 CreateWebhookEvents	R:/rails/shopifyRental4/db/migrate/20120613184736_create_webhook_events.rb	class CreateWebhookEvents 
 Customer	R:/rails/shopifyRental4/app/models/customer.rb	class Customer 
 CustomerTest	R:/rails/shopifyRental4/test/unit/customer_test.rb	class CustomerTest 
-Date	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class Date
 Date	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	class Date
+Date	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class Date
 DayEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function DayEventRenderer()
 DayEventRenderer	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function DayEventRenderer()
 Db	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Db(a,b,e){a.unbind("mouseover").mouseover(function(d){for(var f=d.target,g;f!=this;)
@@ -152,8 +155,8 @@ allDayBounds	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	fun
 allDayBounds	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function allDayBounds()
 allDayRow	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function allDayRow(i)
 allDayRow	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function allDayRow(i)
-all_days	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def self.all_days 
 all_days	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def self.all_days 
+all_days	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def self.all_days 
 applyAll	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 applyAll	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 arrayMax	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function arrayMax(a)
@@ -197,8 +200,11 @@ change	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location
 change	R:/rails/shopifyRental4/db/migrate/20120619164946_rename_type_column.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120613190422_create_products.rb	  def change
 change	R:/rails/shopifyRental4/db/migrate/20120620183607_change_decimal_price.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	  def change
+change	R:/rails/shopifyRental4/db/migrate/20120626144952_add_type_to_location.rb	  def change
 changeView	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function changeView(newViewName)
 changeView	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function changeView(newViewName)
+checkCustomer	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def checkCustomer 
 clearEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function clearEvents()
 clearEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function clearEvents()
 clearEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function clearEvents()
@@ -296,6 +302,7 @@ disableButton	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullca
 disableButton	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function disableButton(buttonName)
 disableTextSelection	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function disableTextSelection(element)
 disableTextSelection	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function disableTextSelection(element)
+dispatch_handler	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	  	def dispatch_handler
 dragStart	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
 dragStart	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
 dragStart	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function dragStart(_dragElement, ev, ui)
@@ -438,6 +445,7 @@ mouseup	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function
 moveEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function moveEvents(events, dayDelta, minuteDelta, allDay)
 moveEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function moveEvents(events, dayDelta, minuteDelta, allDay)
 nc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function nc(a,b){function e(j,t){t&&ba(j,t*7);j=ba(N(j),-((j.getDay()-f("firstDay")+7)%7));t=ba(N(j),7);var y=N(j),S=N(t),Q=f("weekends");if(!Q){Fa(y);Fa(S,-1,true)}d.title=l(y,ba(N(S),-1),f("titleFormat"));d.start=j;d.end=t;d.visStart=y;d.visEnd=S;g(1,1,Q?7:5,false)}var d=this;d.render=e;sb.call(d,a,b,"basicWeek")
+newLocation	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def newLocation 
 next	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function next()
 next	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function next()
 nextYear	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function nextYear()
@@ -618,6 +626,7 @@ setYMD	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.
 setYMD	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setYMD(date, y, m, d)
 showEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
 showEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
+signup_success	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def signup_success
 skipWeekend	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function skipWeekend(date, inc, excl)
 skipWeekend	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function skipWeekend(date, inc, excl)
 sliceSegs	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function sliceSegs(events, visEventEnds, start, end)
@@ -639,6 +648,7 @@ stackSegs	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	functi
 stripe	R:/rails/shopifyRental4/app/controllers/home_controller.rb	  def stripe
 t	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function t(w){W=w;M.clear();s=Math.floor(W/F);Va(i.slice(0,-1),s)}function y(w){w.click(S).mousedown(X)}function S(w){if(!L("selectable")){var I=parseInt(this.className.match(/fc\-day(\d+)/)[1]);I=ca(I);c("dayClick",this,I,true,w)}}function Q(w,I,R){R&&r.build();R=N(p.visStart);for(var V=ba(N(R),F),ea=0;ea<v;ea++){var aa=new Date(Math.max(R,w)),va=new Date(Math.min(V,I));if(aa<va){var wa;if(k){wa=Ca(va,R)*D+Z+1;aa=Ca(aa,R)
 test	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def test
+test	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	  	def test
 test_homepage	R:/rails/shopifyRental4/test/performance/browsing_test.rb	  def test_homepage
 timePosition	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function timePosition(day, time)
 timePosition	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function timePosition(day, time)
@@ -681,6 +691,7 @@ update_rental	R:/rails/shopifyRental4/app/controllers/api_controller.rb	  def up
 vborders	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vborders(element)
 vborders	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function vborders(element)
 vc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function vc(a){var b,e,d,f,g,l;for(b=a.length-1;b>0;b--){f=a[b];for(e=0;e<f.length;e++){g=f[e];for(d=0;d<a[b-1].length;d++){l=a[b-1][d];if(Cb(g,l))l.forward=Math.max(l.forward||0,(g.forward||0)+1)}}}}function Kb(a,b,e){function d(G,p){G=qa[G];if(typeof G=="object")return jb(G,p||e)
+verify	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def verify
 verify_webhook	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def verify_webhook 
 vmargins	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function vmargins(element)
 vmargins	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function vmargins(element)

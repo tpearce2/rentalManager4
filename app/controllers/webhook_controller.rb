@@ -22,14 +22,14 @@ class WebhookController < ApplicationController
     product = Product.where('productID = ?', oProductID).first
     sProduct =  ShopifyAPI::Product.find(oProductID)
     
+    if sProduct.images.blank?
+      pImage = ""
+    else 
+      pImage = sProduct.images[0].attributes[:src]
+    end 
+    
     if product.blank?
       if not sProduct.blank?
-        if sProduct.images.blank?
-          pImage = ""
-        else 
-          pImage = sProduct.images[0].attributes[:src]
-        end 
-          
           newProduct = Product.new(:productID => sProduct.id, :title => sProduct.title, :body_html => sProduct.body_html, :tags => sProduct.tags, :productPrice => sProduct.variants[0].attributes[:price], :productSku => sProduct.variants[0].attributes[:sku], :productImage => pImage)
           newProduct.save
           return newProduct.id
@@ -49,7 +49,7 @@ class WebhookController < ApplicationController
   # 
   # ------------------------------------------
 	def update_customer(oCustomer)
-     customer = Customer.where('customerID = ?', oCustomer[:customerID]).first
+     customer = Customer.where('email = ?', oCustomer[:email]).first
    
     
     if customer.blank?

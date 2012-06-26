@@ -11,6 +11,7 @@ class ChargifyController < ApplicationController
       begin
         self.send event
       rescue Exception => e
+        Rails.logger.debug e
         render :nothing => true, :status => 422 and return
       end
     end
@@ -22,16 +23,67 @@ class ChargifyController < ApplicationController
     end
     
     def signup_success
-       Rails.logger.debug params.to_json
+      Rails.logger.debug params.to_json
+      data = params[:payload]
       
+      subscription = Subscription.new
+      subscription.customer_id = checkCustomer data.subscription.customer
+      subscription.location_id = newLocation data.subscription.customer subscription.customer_id
+      subscription.subscriptionID = data.subscription.id
+      subscription.recurringDate = data.subscription.customer.reference
+      subscription.customerID = data.subscription.customer.id
       
-      render :nothing => true, :status => 200
+      if(subscription.save)
+        render :nothing => true, :status => 200
+      else
+        render :nothing => true, :status => 422
+      end
+      
     end
       
     
     
   
   	protected
+    
+    def newLocation customer, customer_id
+      location = Location.new
+      location.customer_id = customer_id
+      location.address1 = customer.address
+      location.address2 = customer.address_2
+      location.city = customer.city
+      location.country = customer.country
+      location.first_name = customer.first_name
+      location.last_name = customer.last_name
+      location.phone = customer.phone
+      location.province = customer.state
+      location.zip = customer.zip
+      location.name = "#{customer.first_name} #{customer.last_name}"      
+      location.country_code = customer.country      
+      location.province_code = customer.province      
+      location.company = customer.organization      
+      location.location_type = "recurring"      
+      location.save
+      
+      location.id
+    end
+    
+    def checkCustomer customerData
+      customer = Customer.where('email = ?',  customerData.email).first
+      if customer.blank?
+         customer = Customer.new
+      end
+
+      customer.email = customerData.email
+      customer.first_name = customerData.first_name
+      customer.last_name = customerData.last_name
+      customer.phone = customerData.phone
+      customer.save
+      
+      customer.id
+    end
+    
+    
     def verify
       if params[:signature].nil?
         params[:signature] = request.headers["HTTP_X_CHARGIFY_WEBHOOK_SIGNATURE"]
