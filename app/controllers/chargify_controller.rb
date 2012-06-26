@@ -25,7 +25,7 @@ class ChargifyController < ApplicationController
     def signup_success
       Rails.logger.debug params.to_json
       data = params[:payload]
-      
+      puts "IN SIGNUP_success"
       subscription = Subscription.new
       subscription.customer_id = checkCustomer data.subscription.customer
       subscription.location_id = newLocation data.subscription.customer subscription.customer_id
@@ -33,6 +33,8 @@ class ChargifyController < ApplicationController
       subscription.recurringDate = data.subscription.customer.reference
       subscription.customerID = data.subscription.customer.id
       
+      puts "SUB DATA: "
+      puts subscription
       if(subscription.save)
         render :nothing => true, :status => 200
       else
@@ -52,6 +54,7 @@ class ChargifyController < ApplicationController
       location.address1 = customer.address
       location.address2 = customer.address_2
       location.city = customer.city
+
       location.country = customer.country
       location.first_name = customer.first_name
       location.last_name = customer.last_name
@@ -64,6 +67,9 @@ class ChargifyController < ApplicationController
       location.company = customer.organization      
       location.location_type = "recurring"      
       location.save
+      
+      puts "LOC DATA: "
+      puts location
       
       location.id
     end
@@ -79,6 +85,9 @@ class ChargifyController < ApplicationController
       customer.last_name = customerData.last_name
       customer.phone = customerData.phone
       customer.save
+      
+      puts "Customer DATA: "
+      puts customer
       
       customer.id
     end
