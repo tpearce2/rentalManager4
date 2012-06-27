@@ -73,7 +73,7 @@ class AdminController < ApplicationController
       end
     end
     
-    render 'product_list'
+    render 'product_list', :layout => false
   end
   
   def getAvailability startTime, endTime, productID

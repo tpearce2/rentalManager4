@@ -1,8 +1,11 @@
 <% @aProducts.each do |product| %>
-<div class="listProduct">
-  <a href="javascript:void(null);" class="thumbnail"><img src="<%=product[:productImage]%>" style="width:175px;min-height:60px;"/></a>
-  <div>
-  <strong><%=product[:title]%></strong>
+<div class="listProduct thumbnail">
+  <div class="productCont">
+    <a href="javascript:void(null);" class="thumbnail"><img src="<%=product[:productImage]%>" /></a>
+    <div class="productDetails">
+      <strong><%=product[:title]%></strong>
+      <br><%=strip_tags(product[:body_html]).gsub('&nbsp;', "")%>
+    </div>
   </div>
 </div>
 <% end %>

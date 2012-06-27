@@ -27,7 +27,7 @@ ShopifyRental3::Application.routes.draw do
   
   match 'admin/rentals'   => 'admin#admin_rentals'   
   get 'admin/add_rental/single'   => 'admin#add_single_rental'
-  match 'admin/findProducts'       => 'admin#getAvailabilityAll'
+  post 'admin/findProducts'       => 'admin#getAvailabilityAll'
  # get 'modal/rental'  => 'modal#rental'
   get 'modal/:action', :controller => 'modal'
   

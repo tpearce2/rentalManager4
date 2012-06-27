@@ -1,4 +1,4 @@
-1340746246
+1340758117
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
@@ -630,6 +630,7 @@ setWidth	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	functio
 setWidth	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setWidth(width)
 setYMD	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function setYMD(date, y, m, d)
 setYMD	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setYMD(date, y, m, d)
+showAlert	R:/rails/shopifyRental4/app/assets/javascripts/admin.js	function showAlert(message)
 showEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
 showEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
 signup_success	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def signup_success
