@@ -1,0 +1,16 @@
+jQuery.fn.outerHTML = function(s) {
+return (s)
+? this.before(s).remove()
+: jQuery("<p>").append(this.eq(0).clone()).html();
+}
+
+function showAlert(message)
+  {
+    $('#modal_alert .modal-body').html(message);
+    $('#modal_alert').modal('show');
+  }
+  
+
+  
+  
+  

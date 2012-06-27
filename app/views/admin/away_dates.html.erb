@@ -1,0 +1,45 @@
+<% content_for(:head) do %>
+   <%= javascript_include_tag 'admin/unavailable'%>
+<% end %>
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Personal Away Days</h1>
+    </div>
+    <h3>Add Away Days</h3>
+    <form class="well">
+      <a id="rangeStart_btn" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i> From</a>
+      <input id="rangeStart" class="input-small" type="text" value=""/>
+      <a id="rangeEnd_btn" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i> To(Optional)</a>
+      <input id="rangeEnd" class="input-small" type="text" value=""/> 
+      <a style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-question-sign"></i> Reason</a>
+      <input id="awayReason" class="input-medium" type="text" value=""/>
+      <a id ="addDate" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-plus"></i> Add</a>
+    </form>
+    <div class="page-header">
+      <h3>Current Away Days</h3>
+    </div>
+    
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Remove</th>
+          <th>Away Date</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+        <tbody>
+        <% @awaydates.each do |date|%>
+        
+        <tr>
+          <td><a data-awayid="<%=date.id%>" class="btn btn-danger deleteDate"><i class="icon icon-white icon-remove"></i></a></td>
+          <td><%=date.awayDate%></td>
+          <td><%=date.title%></td>
+        </tr>
+        
+        <%end%>
+      </tbody>
+    </table>
+    
+  </div><!-- end span12 -->
+</div>

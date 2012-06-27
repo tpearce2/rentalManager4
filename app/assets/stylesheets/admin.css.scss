@@ -1,7 +1,7 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.btn{outline: none !important; }
 .ui-datepicker-calendar .toy_booked a{
     color:black !important;
     background:#ff6c6c !important;    
@@ -21,10 +21,21 @@
   
   margin-bottom: 10px;
 }
-
-div.listProduct{ cursor: pointer; width: 30%; margin-right: 1%; float: left; text-align: left; color: #000000; }
+#selectedToys{ max-height: 300px; overflow-x:hidden;overflow-y:auto;  }
+#productWell{ max-height: 370px; overflow-x:hidden;overflow-y:auto;  }
+div.listProduct{ cursor: pointer; width: 30%; margin-right: 1%; margin-bottom: 10px; float: left; text-align: left; color: #000000; }
 div.listProduct:hover{ background: #0088CC; color:#FFFFFF;}
 div.listProduct div.productCont{ padding: 10px; }
 div.listProduct div.productCont a.thumbnail img, div.listProduct div.productCont a.thumbnail{ width: 70px; }
-div.listProduct div.productCont a.thumbnail{ float:left; margin-right: 8px;}
-div.listProduct div.productCont .productDetails{ height: 60px; overflow: hidden;}
+div.listProduct div.productCont a.addProduct, div.listProduct div.productCont a.removeProduct, div.listProduct div.productCont a.addedProduct{outline: none; margin-top: 2px; padding: 1px; width: 75px; }
+
+div.listProduct div.productCont .productDetails{ height: 76px; overflow: hidden;}
+
+.selectedElement{ display: none;}
+.inventoryItem .span7{ height: 135px; overflow:hidden;}
+.inventoryItem{padding:5px 0; margin-bottom: 10px;}
+.inventoryItem:nth-child(2n+1){background-color: #F0F0F0;}
+.inventoryItem input.span1{
+    width: 35px;
+}
+.inventoryItem a.updateQuantity{ padding: 4px !important;}

@@ -57,11 +57,31 @@ class AdminController < ApplicationController
 
 
 
-  def add_single_rental
-    @customer = Customer.find(params[:customerID].to_i)
-    @locations = Location.where('customer_id = ? AND location_type = ?', params[:customerID], 'single')
+  def add_rental
+    @params = params
+    if(params[:layout] == "single")
+      @customer = Customer.find(params[:customerID].to_i)
+      @locations = Location.where('customer_id = ? AND location_type = ?', params[:customerID], 'single')
+    else
+      @subscription = Subscription.where('id = ?', params[:subscriptionID]).first
+      @customer = Customer.find(@subscription[:customer_id])
+      @location = Location.find(@subscription[:location_id])
+    end
     
-    render 'rentals_add_single'
+    render 'rentals_add'
+  end
+  
+  def add_rentals_ajax
+    
+    begin
+      params[:rentals].each do |rental|
+        Rental.create(:location_id => params[:location_id], :customer_id  => params[:customer_id], :deliveryDate => params[:deliveryDate], :pickupDate => params[:pickupDate], :product_id => rental, :rental_type => params[:rental_type])
+      end
+      render :json => {:status => 1}
+    rescue Exception => e
+      render :json => {:status => 0}
+    end
+
   end
   
   def getAvailabilityAll
@@ -111,8 +131,66 @@ class AdminController < ApplicationController
     end 
   
   end
+  
+  
+  
+  
+  def inventory
+    if(request.request_method == "GET")
+      @products = Product.all
+    elsif(request.request_method == "POST")
+      product = Product.find(params[:product_id].to_i)
+      product.quantity = params[:quantity]
+      if(product.save)
+        render :json => {:status => 1}
+      else
+        render :json => {:status => 0}
+      end
+    end
+  end
+  
+   def unavailable
+    if(request.request_method == "GET")
+      @awaydates = Unavailable.find(:all, :order => "awayDate ASC")
+      render 'away_dates'
+    elsif(request.request_method == "POST")
+      awayDays = []
+      if(params[:rangeEnd] != "")
+        awayDays = Date.all_days(Date.parse(params[:rangeStart]), Date.parse(params[:rangeEnd]))
+      else
+        awayDays << params[:rangeStart]
+      end
 
+      begin
+        awayDays.each do |day|
+          Unavailable.create(:awayDate => day, :title => params[:reason])
+        end
+        render :json => {:status => 1}
+      rescue Exception => e
+        render :json => {:status => 0}
+      end
+
+    elsif(request.request_method == "DELETE")
+      awayDate = Unavailable.find(params[:awayID])
+      if(awayDate.destroy)
+        render :json => {:status => 1}
+      else
+        render :json => {:status => 0}
+      end
+    end
+    
+    
+  end
+
+    
 end
+
+
+
+
+
+
+
 
 
 class Date

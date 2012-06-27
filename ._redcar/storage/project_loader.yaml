@@ -4,9 +4,7 @@ open_files:
   - app/controllers/api_controller.rb
   - app/views/admin/rentals_date.html.erb
   - config/environments/development.rb
-  - app/assets/stylesheets/admin.css.scss
   - app/views/admin/product_list.html.erb
-  - app/views/admin/rentals_add_single.html.erb
   - app/controllers/modal_controller.rb
   - app/controllers/admin_controller.rb
   - config/routes.rb
@@ -16,7 +14,19 @@ open_files:
   - app/controllers/chargify_controller.rb
   - app/assets/javascripts/admin/modal_product.js
   - app/assets/javascripts/admin/modal_rental.js
-  - app/assets/javascripts/admin.js
   - app/assets/javascripts/application.js
   - app/views/modal/_modal_alert.html.erb
   - app/views/layouts/application.html.erb
+  - app/controllers/webhook_controller.rb
+  - app/views/admin/_dateRange.html.erb
+  - app/views/modal/_modal_loading.html.erb
+  - app/assets/javascripts/admin.js.erb
+  - app/assets/stylesheets/admin.css.scss
+  - app/assets/javascripts/admin/add_rental.js
+  - app/views/admin/rentals_add.html.erb
+  - app/views/admin/inventory.html.erb
+  - app/views/modal/product.html.erb
+  - app/assets/javascripts/admin/inventory.js
+  - app/views/admin/away_dates.html.erb
+  - app/assets/stylesheets/style_rental.css
+  - app/assets/javascripts/admin/unavailable.js

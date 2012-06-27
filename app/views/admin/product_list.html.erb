@@ -1,7 +1,10 @@
 <% @aProducts.each do |product| %>
-<div class="listProduct thumbnail">
+<div data-productid="<%=product[:id]%>" class="listProduct thumbnail showProduct product-<%=product[:id]%>">
   <div class="productCont">
-    <a href="javascript:void(null);" class="thumbnail"><img src="<%=product[:productImage]%>" /></a>
+    <div style="float:left;  margin-right: 8px;">
+      <a href="javascript:void(null);" class="thumbnail"><img src="<%=product[:productImage]%>" /></a>
+      <a href="javascript:void(null);" class="addProduct btn">Add</a>
+    </div>
     <div class="productDetails">
       <strong><%=product[:title]%></strong>
       <br><%=strip_tags(product[:body_html]).gsub('&nbsp;', "")%>

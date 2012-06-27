@@ -1,0 +1,65 @@
+<script> 
+  var customerID = <%=@customer.id%>
+  <% if (@params[:layout] == "single") %>
+    var layoutType = 'single'
+  <%else%>
+    var layoutType = 'recurring'
+  <%end%>
+</script>
+
+<% content_for(:head) do %>
+   <%= javascript_include_tag 'admin/modal_product'%>
+   <%= javascript_include_tag 'admin/add_rental'%>
+<% end %>
+
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Add Rental to <%=@customer.first_name%> <%=@customer.last_name%></h1>
+    </div>
+    <% if (@params[:layout] == "recurring") %>
+    <h3>Subscription Date:</h3>
+    <div class="well"><%= @subscription[:recurringDate]%></div>
+    <%end%>
+    <h3>Delivery Location:</h3>
+    <div class="well" id="customerLocations">
+       <% if (@params[:layout] == "single") %>
+        <% @locations.each do |location| %>
+        <div data-locationid="<%=location[:id]%>" class="customerLocation">
+          <a class="btn" href="javascript:void(null);">Select</a> <strong><%=location.address1%> <%=location.address2%></strong> <%=location.city%>, <%=location.zip%>
+        </div>
+        <%end%>
+      <%else%>
+      <div data-locationid="<%=@location[:id]%>" class="customerLocation">
+            <a class="btn" href="javascript:void(null);">Select</a> <strong><%=@location.address1%> <%=@location.address2%></strong> <%=@location.city%>, <%=@location.zip%>
+          </div>
+      <%end%>
+    </div>
+    <h3>Dates</h3>
+    <form class="well">
+          <a id="rangeStart_btn" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i> Delivery: </a>
+          <input id="rangeStart" class="input-small" type="text" value=""/>
+          <a id="rangeEnd_btn" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-calendar"></i> Pickup: </a>
+          <input id="rangeEnd" class="input-small" type="text" value=""/>
+          <a id ="rangeRefresh" style="margin-left: 5px;" class="btn" href="javascript:void(null);"><i class="icon-refresh"></i> Get Availability</a>
+    </form>
+    
+    <h3 class="selectedElement">Selected Toys</h3>
+    <div id="selectedToys" class='well selectedElement'>
+      <div id='selectedToyCont'></div>
+    </div>
+    <h3>Available Toys</h3>
+    <div id="productWell" class="well">
+      Please Select a Date Range
+    </div>
+    <a href="javascript:void(null);" id="submitRental" class="btn btn-primary"><i class="icon icon-plus icon-white"></i> Add Rental</a>
+    
+
+    
+    
+  </div><!-- end span12 -->
+  
+</div> <!-- End Row -->
+
+   
+

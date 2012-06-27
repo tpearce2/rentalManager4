@@ -25,10 +25,13 @@ ShopifyRental3::Application.routes.draw do
   post 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
   
+  post '/admin/addRentals'         => 'admin#add_rentals_ajax'
   match 'admin/rentals'   => 'admin#admin_rentals'   
-  get 'admin/add_rental/single'   => 'admin#add_single_rental'
+  get 'admin/add_rental/:layout'   => 'admin#add_rental'
   post 'admin/findProducts'       => 'admin#getAvailabilityAll'
  # get 'modal/rental'  => 'modal#rental'
+
+  match '/admin/:action', :controller => 'admin'
   get 'modal/:action', :controller => 'modal'
   
   match 'webhooks/test' => 'webhook#test'

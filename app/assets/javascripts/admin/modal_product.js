@@ -1,19 +1,34 @@
-$(document).ready(function() {
+ var loadingHTML;
 
-  
-  var editProductBody = $('#modal_showProduct').html();
-  $('.showProduct').click(function()
+function showProduct(productID)
   {
-    $('#modal_showProduct').html(editProductBody)
-    $('#modal_showProduct').modal('show');
-    var productID = $(this).data('productid');
+
+     $('#modal_showProduct').html(loadingHTML)
+     $('#modal_showProduct').modal('show');
+    
     $.ajax({
       type: 'GET',
       url: '/modal/product?productID='+productID+'&action1=show',
       success: function(data){
         $('#modal_showProduct').html(data);
+       
       },
       dataType: 'HTML'
-    });    
-  });
+    });      
+  
+  }
+  
+function initShowProduct()
+{
+     $('.showProduct').unbind('click');
+    $('.showProduct').click(function()
+    {
+      showProduct($(this).data('productid'));
+    });
+  }
+$(document).ready(function() {
+
+  loadingHTML = $('#modal_showProduct').html();
+  initShowProduct();
+  
 });

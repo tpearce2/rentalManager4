@@ -85,8 +85,8 @@ class WebhookController < ApplicationController
 
   
   def test
-
-    get_days('2012-06-06', 94091072)
+    render :json => request.request_method 
+    
    
   end
   

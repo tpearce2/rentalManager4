@@ -56,7 +56,7 @@ class ChargifyController < ApplicationController
 
       subscription = Subscription.new
       subscription.customer_id = checkCustomer data[:subscription][:customer]
-      subscription.location_id = newLocation data[:subscription][:customer], subscription[:customer_id]
+      subscription.location_id = getLocation data[:subscription][:customer], subscription[:customer_id]
       subscription.subscriptionID = data[:subscription][:id]
       subscription.recurringDate = data[:subscription][:customer][:reference]
       subscription.customerID = data[:subscription][:customer][:id]
@@ -75,6 +75,8 @@ class ChargifyController < ApplicationController
   	protected
     
      def updateLocation customer, location_id
+      
+      
       location = Location.find(location_id)
 
       location.address1 = customer[:address]
@@ -96,7 +98,10 @@ class ChargifyController < ApplicationController
 
     end
     
-    def newLocation customer, customer_id
+    def getLocation customer, customer_id
+      
+      
+      
       location = Location.new
       location.customer_id = customer_id
       location.address1 = customer[:address]

@@ -1,4 +1,4 @@
-1340758117
+1340834212
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
@@ -147,7 +147,8 @@ addMonths	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalend
 addMonths	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function addMonths(d, n, keepTime)
 addYears	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function addYears(d, n, keepTime)
 addYears	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function addYears(d, n, keepTime)
-add_single_rental	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def add_single_rental
+add_rental	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def add_rental
+add_rentals_ajax	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def add_rentals_ajax
 admin_rentals	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def admin_rentals
 afterShow	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function afterShow()
 afterShow	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function afterShow()
@@ -372,6 +373,7 @@ getAvailability	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  de
 getAvailabilityAll	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def getAvailabilityAll
 getDate	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function getDate()
 getDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function getDate()
+getLocation	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def getLocation 
 getRowDivs	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function getRowDivs()
 getRowDivs	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function getRowDivs()
 getRowTops	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function getRowTops(rowDivs)
@@ -406,9 +408,13 @@ index	R:/rails/shopifyRental4/app/controllers/home_controller.rb	  def index
 index	R:/rails/shopifyRental4/app/controllers/login_controller.rb	  def index
 indexDate	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function indexDate(index)
 indexDate	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function indexDate(index)
+initAddProduct	R:/rails/shopifyRental4/app/assets/javascripts/admin/add_rental.js	function initAddProduct()
+initRemoveProduct	R:/rails/shopifyRental4/app/assets/javascripts/admin/add_rental.js	function initRemoveProduct()
+initShowProduct	R:/rails/shopifyRental4/app/assets/javascripts/admin/modal_product.js	function initShowProduct()
 init_session	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def init_session
 initialRender	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function initialRender()
 initialRender	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function initialRender()
+inventory	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def inventory
 isEventDraggable	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function isEventDraggable(event)
 isEventDraggable	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function isEventDraggable(event)
 isEventEditable	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function isEventEditable(event)
@@ -417,6 +423,7 @@ isEventResizable	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/ful
 isEventResizable	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function isEventResizable(event)
 isFetchNeeded	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function isFetchNeeded(start, end)
 isFetchNeeded	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function isFetchNeeded(start, end)
+isNumber	R:/rails/shopifyRental4/app/assets/javascripts/admin/inventory.js	function isNumber(n)
 isSourcesEqual	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function isSourcesEqual(source1, source2)
 isSourcesEqual	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function isSourcesEqual(source1, source2)
 j	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function j(){return i.offsetWidth!==0}function t(){return m("body")[0].offsetWidth!==0}function y(k){if(!n||k!=n.name){F++;pa();var D=n,Z;if(D){(D.beforeHide||xb)();Za(E,E.height());D.element.hide()}else Za(E,1);E.css("overflow","hidden");if(n=Y[k])n.element.show();else n=Y[k]=new Ja[k](Z=s=m("<div class='fc-view fc-view-"+k+"' style='position:absolute'/>").appendTo(E),X);D&&C.deactivateButton(D.name);C.activateButton(k);S();E.css("overflow","")
@@ -451,7 +458,6 @@ mouseup	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function
 moveEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function moveEvents(events, dayDelta, minuteDelta, allDay)
 moveEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function moveEvents(events, dayDelta, minuteDelta, allDay)
 nc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function nc(a,b){function e(j,t){t&&ba(j,t*7);j=ba(N(j),-((j.getDay()-f("firstDay")+7)%7));t=ba(N(j),7);var y=N(j),S=N(t),Q=f("weekends");if(!Q){Fa(y);Fa(S,-1,true)}d.title=l(y,ba(N(S),-1),f("titleFormat"));d.start=j;d.end=t;d.visStart=y;d.visEnd=S;g(1,1,Q?7:5,false)}var d=this;d.render=e;sb.call(d,a,b,"basicWeek")
-newLocation	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def newLocation 
 next	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function next()
 next	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function next()
 nextYear	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function nextYear()
@@ -630,9 +636,9 @@ setWidth	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	functio
 setWidth	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setWidth(width)
 setYMD	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function setYMD(date, y, m, d)
 setYMD	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setYMD(date, y, m, d)
-showAlert	R:/rails/shopifyRental4/app/assets/javascripts/admin.js	function showAlert(message)
 showEvents	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
 showEvents	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function showEvents(event, exceptElement)
+showProduct	R:/rails/shopifyRental4/app/assets/javascripts/admin/modal_product.js	function showProduct(productID)
 signup_success	R:/rails/shopifyRental4/app/controllers/chargify_controller.rb	    def signup_success
 skipWeekend	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function skipWeekend(date, inc, excl)
 skipWeekend	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function skipWeekend(date, inc, excl)
@@ -669,6 +675,7 @@ trigger	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar
 trigger	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function trigger(name, thisObj)
 trigger	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function trigger(name, thisObj)
 ua	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function ua(w){return{row:Math.floor(Ca(w,p.visStart)/7),col:ka(w.getDay())}}function pa(w){return U(w.row,w.col)}function U(w,I){return ba(N(p.visStart),w*7+I*D+Z)}function ca(w){return U(Math.floor(w/F),w%F)}function ka(w){return(w-Math.max(ja,ia)+F)%F*D+Z}function qa(w){return P.eq(w)}function G()
+unavailable	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	   def unavailable
 unselect	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function unselect()
 unselect	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function unselect(ev)
 unselect	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function unselect()

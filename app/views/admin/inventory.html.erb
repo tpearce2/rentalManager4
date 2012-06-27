@@ -1,0 +1,31 @@
+<% content_for(:head) do %>
+   <%= javascript_include_tag 'admin/inventory'%>
+<% end %>
+
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Product Inventory</h1>
+    </div>
+    <% @products.each do |product|%>
+    <div class="inventoryItem row">
+        <div class="span2">
+          <img class="thumbnail" src="<%=product.productImage%>"/>
+        </div>
+        <div class="span7">
+          <a style="font-size: 17px;" target="_blank" href="https://just-play-toy-rental.myshopify.com/admin/products/<%=product.productID%>"><%=product.title%></a><br>
+          <%=product.body_html.html_safe%>
+        </div>
+        <div class="productControls span3">
+          <form class="well form-inline"
+            <label for="input-<%=product.id%>" class="control-label">Quantity:</label>
+            <input type="text" id="input-<%=product.id%>" value="<%=product.quantity%>" class="span1">
+            <a data-productid="<%=product.id%>" class="btn updateQuantity">Update</a>
+          </form>
+          
+        </div><!-- end product controls-->
+      </div>
+    <%end%>
+    
+  </div><!-- end span12 -->
+</div><!-- End row -->
