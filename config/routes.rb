@@ -19,23 +19,28 @@ ShopifyRental3::Application.routes.draw do
 
   match 'login/logout'       => 'login#logout',       :as => :logout
   
+  match 'webhooks/rentals/get_days' => 'webhook#get_days'
   post 'webhooks/orders/create' => 'webhook#order_created'
   post 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
   
   post 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
   
-  post '/admin/addRentals'         => 'admin#add_rentals_ajax'
+  post 'admin/addRentals'         => 'admin#add_rentals_ajax'
   match 'admin/rentals'   => 'admin#admin_rentals'   
   get 'admin/add_rental/:layout'   => 'admin#add_rental'
   post 'admin/findProducts'       => 'admin#getAvailabilityAll'
  # get 'modal/rental'  => 'modal#rental'
-
-  match '/admin/:action', :controller => 'admin'
+  match 'admin/unavailable'         => 'admin#unavailable'
+  match 'admin/inventory'         => 'admin#inventory'
+  match 'admin/subscriptions'         => 'admin#ListSubscriptions'
+  match 'admin/customers'         => 'admin#ListCustomers'
+  
+  get 'admin/:action', :controller => 'admin'
   get 'modal/:action', :controller => 'modal'
   
   match 'webhooks/test' => 'webhook#test'
-  match '/chargify/hooks' => "chargify#dispatch_handler", :via => "post"
+  match 'chargify/hooks' => "chargify#dispatch_handler", :via => "post"
  
 
   root :to                   => 'home#index'

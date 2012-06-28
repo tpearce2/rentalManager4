@@ -1,4 +1,4 @@
-1340834212
+1340920423
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
@@ -48,8 +48,8 @@ CreateTokens	R:/rails/shopifyRental4/db/migrate/20120615194648_create_tokens.rb	
 CreateWebhookEvents	R:/rails/shopifyRental4/db/migrate/20120613184736_create_webhook_events.rb	class CreateWebhookEvents 
 Customer	R:/rails/shopifyRental4/app/models/customer.rb	class Customer 
 CustomerTest	R:/rails/shopifyRental4/test/unit/customer_test.rb	class CustomerTest 
-Date	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class Date
 Date	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	class Date
+Date	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	class Date
 DayEventRenderer	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function DayEventRenderer()
 DayEventRenderer	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function DayEventRenderer()
 Db	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Db(a,b,e){a.unbind("mouseover").mouseover(function(d){for(var f=d.target,g;f!=this;)
@@ -72,6 +72,8 @@ Ka	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function 
 Kb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Kb(a,b,e){function d(G,p){G=qa[G];if(typeof G=="object")return jb(G,p||e)
 L	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function L(k,D,Z){k!==ma&&gb(r,k);D!==ma&&hb(r,D);Z!==ma&&ba(r,Z);S()}function c(){return N(r)}function z(){return n}function H(k,D){if(D===ma)return b[k];if(k=="height"||k=="contentHeight"||k=="aspectRatio"){b[k]=D;Q()}}function T(k,D){if(b[k])return b[k].apply(D||i,Array.prototype.slice.call(arguments,2))
 Lb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Lb(){function a(g,l){var j=f.shift();j||(j=m("<div class='fc-cell-overlay' style='position:absolute;z-index:3'/>"));j[0].parentNode!=l[0]&&j.appendTo(l);d.push(j.css(g).show());return j}function b(){for(var g;g=d.shift();)f.push(g.hide().unbind())}var e=this;e.renderOverlay=a;e.clearOverlays=b;var d=[],f=[]}function Nb(a){var b=this,e,d;b.build=function(){e=[];d=[];a(e,d)};b.cell=function(f,g)
+ListCustomers	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def ListCustomers
+ListSubscriptions	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def ListSubscriptions
 Location	R:/rails/shopifyRental4/app/models/location.rb	class Location 
 LocationTest	R:/rails/shopifyRental4/test/unit/location_test.rb	class LocationTest 
 LoginController	R:/rails/shopifyRental4/app/controllers/login_controller.rb	class LoginController 
@@ -158,8 +160,8 @@ allDayBounds	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	fun
 allDayBounds	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function allDayBounds()
 allDayRow	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function allDayRow(i)
 allDayRow	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function allDayRow(i)
-all_days	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def self.all_days 
 all_days	R:/rails/shopifyRental4/app/controllers/admin_controller.rb	  def self.all_days 
+all_days	R:/rails/shopifyRental4/app/controllers/webhook_controller.rb	  def self.all_days 
 applyAll	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 applyAll	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function applyAll(functions, thisObj, args)
 arrayMax	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function arrayMax(a)
@@ -593,6 +595,7 @@ resetElement	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcal
 resetElement	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function resetElement()
 resetElement	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function resetElement()
 resetElement	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function resetElement()
+resetProductArea	R:/rails/shopifyRental4/app/assets/javascripts/admin/add_rental.js	function resetProductArea()
 resetScroll	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function resetScroll()
 resetScroll	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function resetScroll()
 resizableDayEvent	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function resizableDayEvent(event, element, seg)

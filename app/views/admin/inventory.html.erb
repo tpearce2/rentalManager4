@@ -1,5 +1,6 @@
 <% content_for(:head) do %>
    <%= javascript_include_tag 'admin/inventory'%>
+  <%= javascript_include_tag 'admin/modal_product'%>
 <% end %>
 
 <div class="row">
@@ -9,12 +10,21 @@
     </div>
     <% @products.each do |product|%>
     <div class="inventoryItem row">
-        <div class="span2">
-          <img class="thumbnail" src="<%=product.productImage%>"/>
+        <div class="span1">
+          <a class="showProduct" data-productid="<%=product.id%>" href="javascript:void(null);"><img class="thumbnail" src="<%=product.productImage%>"/></a>
         </div>
-        <div class="span7">
-          <a style="font-size: 17px;" target="_blank" href="https://just-play-toy-rental.myshopify.com/admin/products/<%=product.productID%>"><%=product.title%></a><br>
+        <div class="span5 productCont">
+          <a class="showProduct" data-productid="<%=product.id%>"  style="font-size: 17px;" href="javascript:void(null);"><%=product.title%></a><br>
           <%=product.body_html.html_safe%>
+        </div>
+        <div class="span3">
+          <strong>Upcoming Rentals</strong><br>
+          <% rentals = Rental.find(:all, :order => "deliveryDate ASC", :conditions => ['product_id = ? AND pickupDate >= ?', product.id, Date.today])%>
+          <%= if(rentals.length == 0) then "None" end%>
+          <%rentals.each do |rental|
+          %>
+          <%=rental.deliveryDate%> to <%=rental.pickupDate%><br>
+          <%end%>
         </div>
         <div class="productControls span3">
           <form class="well form-inline"

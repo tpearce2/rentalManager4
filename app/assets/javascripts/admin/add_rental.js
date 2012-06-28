@@ -1,3 +1,10 @@
+function resetProductArea()
+{
+    $('.selectedElement').fadeOut();
+    $('#selectedToyCont').html("");
+    $('#productWell').html("Please Select a Date Range");
+}
+
 function initRemoveProduct()
     {
       $('.removeProduct').unbind('click');
@@ -85,7 +92,12 @@ function initRemoveProduct()
             data: { customer_id: customerID, location_id: locationID, deliveryDate: $('#rangeStart').val(), pickupDate: $('#rangeEnd').val(), rental_type: layoutType, 'rentals': rentals },
             success: function(data){
               if(data['status'] == 1)
-                alert("success")
+              {
+                if(layoutType == "single")
+                  window.location = "/admin/customers/?flash=1"
+                else
+                  window.location = "/admin/subscriptions/?flash=1"
+              } 
               else
                 alert("failed")
                 
@@ -107,8 +119,8 @@ function initRemoveProduct()
       
       var loadingHTML = '<%= escape_javascript(render("modal/modal_loading")) %>';
 
-      $('#rangeStart').datepicker({dateFormat: "yy-mm-dd"});
-      $('#rangeEnd').datepicker({dateFormat: "yy-mm-dd"});
+      $('#rangeStart').datepicker({dateFormat: "yy-mm-dd", onSelect: resetProductArea});
+      $('#rangeEnd').datepicker({dateFormat: "yy-mm-dd", onSelect: resetProductArea});
 
       $('#rangeStart_btn').click(function(){ $('#rangeStart').datepicker('show') });
       $('#rangeEnd_btn').click(function(){ $('#rangeEnd').datepicker('show') });

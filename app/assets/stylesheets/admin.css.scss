@@ -15,7 +15,8 @@
 {
   background-color: #EEEEEE !important;
 }
-
+#calendar td.ui-widget-content{cursor:pointer;}
+#calendar td.ui-widget-content:hover{background:#40a5e1};
 #customerLocations .customerLocation
 {
   
@@ -32,7 +33,7 @@ div.listProduct div.productCont a.addProduct, div.listProduct div.productCont a.
 div.listProduct div.productCont .productDetails{ height: 76px; overflow: hidden;}
 
 .selectedElement{ display: none;}
-.inventoryItem .span7{ height: 135px; overflow:hidden;}
+.inventoryItem .productCont{ height: 135px; overflow:hidden;}
 .inventoryItem{padding:5px 0; margin-bottom: 10px;}
 .inventoryItem:nth-child(2n+1){background-color: #F0F0F0;}
 .inventoryItem input.span1{

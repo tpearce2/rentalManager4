@@ -181,6 +181,19 @@ class AdminController < ApplicationController
     
     
   end
+  
+  def ListCustomers
+    @customers = Customer.find(:all, :order => "first_name ASC")
+    render 'customers'
+  end
+  
+  def ListSubscriptions
+    if(request.request_method == "GET")
+      @subscriptions = Subscription.find(:all, :include => [:customer], :order => 'customers.first_name ASC')
+      render 'subscriptions'
+    elsif(request.request_method == "POST")
+    end
+  end
 
     
 end

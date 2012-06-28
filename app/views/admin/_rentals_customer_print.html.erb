@@ -1,0 +1,99 @@
+<h1>Rentals:</h1> <h3><strong><%=params[:range_start]%></strong> to <strong><%=params[:range_end]%></strong></h3><br><br>
+    <h3>Customer:</h3>
+    <%= @customer.first_name %> <%=  @customer.last_name %>
+    <% if(@customer.email != '') %><strong><br><%= @customer.email %></strong><% end %>
+    <% if(@customer.phone != '') %><br><%= @customer.phone %> <% end %>
+    <% if(@customer.note != '') %><br><%= @customer.note %> <% end %>
+
+     <%if(@dates.length == 0)%>
+      <br>No Rentals found for Customer in the current Date Range
+    <%end%>
+    <br>
+    
+    <% @dates.each do |day| %>
+      <div style="margin:0;" class="page-header">
+         <h3><%= day.strftime('%A, %B %d, %Y') %></h3>
+      </div>
+      <% dayLocations = []
+            dayRentals = @rentals.select do |rental|
+              if(rental.deliveryDate == day || rental.pickupDate == day)
+                dayLocations << rental.location_id
+                true
+              else
+                false
+              end
+            end
+            
+            dayLocations = dayLocations.uniq
+            
+            dayLocations.each do |location|
+              cLocation = @locations[location]
+              locationPickups = []
+              locationDeliveries = dayRentals.select do |rental|
+                if(rental.location_id == location)
+                  if(rental.deliveryDate == day)
+                    true
+                  else
+                    locationPickups << rental
+                    false
+                  end
+                else
+                  false
+                end
+              end
+              
+                %>
+                
+                
+                <div style="margin-bottom: 60px;" class="row">
+                  <div class="span3" style="border-right: 1px solid #CCCCCC;">
+                    <h4 style="display:inline-block;"><%= cLocation.first_name %> <%= cLocation.last_name %></h4>
+                    <br>
+                    <address>
+                      <% if(cLocation.company != '') %><strong><br><%= cLocation.company %></strong><% end %>
+                      <% if(cLocation.address1 != '') %><br><%= cLocation.address1 %><% end %>
+                      <% if(cLocation.address2 != '') %><br><%= cLocation.address2 %><% end %>
+                      <% if(cLocation.city != '') %><br><%= cLocation.city %><% end %><% if(cLocation.province != '') %>, <%= cLocation.province %><% end %><% if(cLocation.zip != '') %>, <%= cLocation.zip %><% end %>
+                      <% if(cLocation.phone != '') %><br><%= cLocation.phone %><% end %>
+                    </address>
+                  </div>
+                  <div class="span8">
+                     <% if locationDeliveries.length > 0 %>
+                      <h4>Deliveries:</h4>
+                        <table class="table rental">
+                          <tbody>
+                          <% locationDeliveries.each do |rental| %>
+                            <tr>
+                              <td><%= rental.product.title %></td>
+                              <td><%= rental.rental_type %></td>
+                            </tr>
+                           <% end %>
+                          </tboby>
+                        </table>
+                      <% end #end if deliveries %>
+                      
+                      <% if locationPickups.length > 0 %>
+                      <h4>Pickups:</h4>
+                        <table class="table table-striped rental">
+                          <tbody>
+                          <% locationPickups.each do |rental| %>
+                            <tr>
+                              <td><%= rental.product.title %></td>
+                              <td><%= rental.rental_type %></td>
+                            </tr>
+                           <% end %>
+                          </tboby>
+                        </table>
+                      <% end #end if pickups %>
+                  </div>
+                </div><!-- end row --> 
+              <% end # end location block %>
+                
+   
+    
+    <%end%>
+     <script>window.print();</script>
+    <style>
+      div.navbar{display:none !important;}
+      html, body{background-color: #FFFFFF !important;}
+    </style>

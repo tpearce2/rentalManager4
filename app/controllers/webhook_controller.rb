@@ -85,7 +85,7 @@ class WebhookController < ApplicationController
 
   
   def test
-    render :json => request.request_method 
+   get_days('2012-05-01', 94823908) 
     
    
   end
@@ -108,7 +108,7 @@ class WebhookController < ApplicationController
     endTime = Date.new rDate.year, rDate.month, -1
     endTime += (@day_buffer + 60)
     
-    rProduct = Product.where('productID = ?', productID).first
+    rProduct = Product.find(update_product(productID))
     @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
     
     @quantity = rProduct['quantity']
@@ -123,7 +123,7 @@ class WebhookController < ApplicationController
       bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= (@day + @day_buffer) && rental.pickupDate >= (@day - @day_buffer)) ? true : false }
 
       if bookedRentals.length >= @quantity
-        returnDay = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         # 
+        returnDay = true       
       else
         returnDay = false
       end
@@ -142,6 +142,8 @@ class WebhookController < ApplicationController
     availDays = goodDays.select do |day|
       returnDay = true
       
+      if(day.sunday?) then returnDay = false end
+      
       thirtydays_later = Date.new day.year, day.month, day.day
       thirtydays_later += 30
       
@@ -149,7 +151,7 @@ class WebhookController < ApplicationController
       while m <= thirtydays_later && returnDay == true
         if(bookedDays.include? m)
           returnDay = false
-        end
+        end 
         m += 1
       end
       
@@ -158,7 +160,7 @@ class WebhookController < ApplicationController
         returnDay = false
         n = Date.new thirtydays_later.year, thirtydays_later.month, thirtydays_later.day
         while n <= (thirtydays_later + 10) && returnDay == false
-          if ((!bookedDays.include? n) && (!manualDays.include? n))
+          if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday?)
             returnDay = true
             pairData << {:delivery => day, :pickup => n}
           end

@@ -51,12 +51,21 @@
           <span class="icon-bar"></span>
         </a>
         
-        <%= link_to 'Just Play Rental Manager', '/', :class => 'brand' %>
+        <%= link_to 'Toy Rental Manager', '/', :class => 'brand' %>
         
           <div class="nav-collapse">
             <ul class="nav">
               <li class='<%= active_nav_class('home', 'index') %>'><%= link_to 'Dashboard', '/' %></li>
-              <li class='<%= active_nav_class('home', 'design') %>'><%= link_to 'Bootstrap Info', '/design' %></li>
+              <li class='<%= active_nav_class('admin', 'admin_rentals') %>'><%= link_to 'Rentals', '/admin/rentals/?layout=date' %></li>
+              <li class='<%= active_nav_class('admin', 'ListCustomers')%> <%= active_nav_class('admin', 'ListSubscriptions')%> <%= active_nav_class('admin', 'add_rental')%> dropdown'>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Customers <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Regular', '/admin/customers' %></li>
+                  <li><%= link_to 'Subscriptions', '/admin/subscriptions' %></li>
+                </ul>
+              </li>
+              <li class='<%= active_nav_class('admin', 'inventory') %>'><%= link_to 'Inventory', '/admin/inventory/' %></li>
+              <li class='<%= active_nav_class('admin', 'unavailable') %>'><%= link_to 'Away Dates', '/admin/unavailable/' %></li>
             </ul>
           </div>
           <% if current_shop %>

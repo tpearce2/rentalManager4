@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="span12">
+     <% if(params[:flash])%>
+    <div class="alert alert-success">
+      Success! Rentals have been added to customer
+    </div>
+    <%end%>
+    <div class="page-header">
+      <h1>Subscriptions</h1>
+    </div>
+  </div><!-- end span12 -->
+</div>
+<div class="row">
+    <div class="span12">
+      <table class="table table-bordered table-striped">
+          <tbody>
+          <% @subscriptions.each do |subscription| 
+            customer = subscription.customer
+            location = subscription.location
+            %>
+          
+          <tr>
+            <td><%=customer.first_name%> <%=customer.last_name%></td>
+            <td><%=customer.email%><br><%=customer.phone%></td>
+            <td><strong><%=location.address1%></strong><%=if(location.address2 != "") then "<br>#{location.address2}" end%><br><%=location.zip%><br><%=location.city%>, <%=location.province%></td>
+            <td><strong>Subscription Date</strong><br><%=subscription.recurringDate%></td>
+            <td><a href="/admin/rentals/?customerID=<%=customer.id%>&layout=customer" class="btn"><i class="icon  icon-list"></i> View Rentals</a> <a href="/admin/add_rental/recurring/?subscriptionID=<%=subscription.id%>" class="btn btn-primary"><i class="icon icon-white icon-plus"></i> Add Rental</a></td>
+          </tr>
+          
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+    
+
+</div>

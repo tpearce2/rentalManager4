@@ -1,0 +1,29 @@
+
+<div class="row">
+  <div class="span12">
+    <% if(params[:flash])%>
+    <div class="alert alert-success">
+      Success! Rentals have been added to customer
+    </div>
+    <%end%>
+    <div class="page-header">
+      <h1>Customers</h1>
+    </div>
+    <div class="span7">
+      <table class="table table-bordered table-striped">
+          <tbody>
+          <% @customers.each do |customer| %>
+          
+          <tr>
+            <td><%=customer.first_name%> <%=customer.last_name%></td>
+            <td><%=customer.email%><br><%=customer.phone%></td>
+            <td><a href="/admin/rentals/?customerID=<%=customer.id%>&layout=customer" class="btn"><i class="icon  icon-list"></i> View Rentals</a> <a href="/admin/add_rental/single?customerID=<%=customer.id%>" class="btn btn-primary"><i class="icon icon-white icon-plus"></i> Add Rental</a></td>
+          </tr>
+          
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+    
+  </div><!-- end span12 -->
+</div>
