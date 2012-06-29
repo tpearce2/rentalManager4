@@ -1,4 +1,4 @@
-1340989150
+1340998266
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
@@ -490,7 +490,7 @@ parseTime	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalend
 parseTime	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function parseTime(s)
 pb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function pb(a,b){return gc(a)+hc(a)+(b?ic(a):0)}function gc(a){return(parseFloat(m.curCSS(a[0],"paddingLeft",true))||0)+(parseFloat(m.curCSS(a[0],"paddingRight",true))||0)}function ic(a)
 pc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function pc(){function a(U,ca){S(U);ua(e(U),ca)}function b(){Q();ga().empty()}function e(U){var ca=da()
-pickup_reminder	R:/rails/shopifyRental4/app/mailers/user_mailer.rb	  def pickup_reminder
+pickup_reminder	R:/rails/shopifyRental4/app/mailers/user_mailer.rb	  def pickup_reminder(customer, products, pickupDate)
 popLoading	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function popLoading()
 popLoading	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function popLoading()
 prev	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function prev()
@@ -618,6 +618,7 @@ select	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.
 select	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function select(startDate, endDate, allDay)
 select	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function select(start, end, allDay)
 select	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function select(startDate, endDate, allDay)
+send_reminders	R:/rails/shopifyRental4/app/models/customer.rb	  def self.send_reminders
 setDayID	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function setDayID(cell, date)
 setDayID	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function setDayID(cell, date)
 setDefaults	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function setDefaults(d)

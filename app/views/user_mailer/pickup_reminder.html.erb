@@ -1,7 +1,14 @@
-Hi Tyler,<br>
-<p>We wanted to remind you of your upcoming toy rental pickup. The following toys will be picked up on <strong>June 5th, 2012</strong> between 6PM and 9Pm.</p>
+Hi <%=@customer.first_name%>,<br>
+<p>We wanted to remind you of your upcoming toy rental pickup. The following toys will be picked up on <strong><%=@pickupDate.strftime('%A %B %e')%></strong> between 6PM and 9PM.</p>
 <ul>
-  <li>Toy Number 1</li>
-  <li>Toy Number 2</li>
+  <% @products.each do |product| %>
+    <li><%=product%></li>
+  <%end%>
 </ul>
-<p>Thank-you,<br>Just Play Toy Rental</p>
+
+<p>Please feel free to contact us with any questions</p>
+
+<p>Thank-you,
+<br>Just Play Toy Rental
+<br>613-000-0000
+</p>

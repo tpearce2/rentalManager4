@@ -1,3 +1,11 @@
-Why Hello there
+Hi <%=@customer.first_name%>,
+We wanted to remind you of your upcoming toy rental pickup. The following toys will be picked up on <%=@pickupDate%> between 6PM and 9PM.
 
-Tyler
+  <% @products.each do |product| %>
+    -<%=product%>
+    
+  <%end%>
+
+  
+Thank-you,
+Just Play Toy Rental

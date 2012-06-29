@@ -6,9 +6,11 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.pickup_reminder.subject
   #
-  def pickup_reminder
-    @greeting = "Hi"
-
-    mail to: "gigabytestudio@gmail.com", subject: "test"
+  def pickup_reminder(customer, products, pickupDate)
+    @customer = customer
+    @products = products
+    @pickupDate = pickupDate
+    
+    mail to: @customer.email, subject: "Toy Rental Pickup Reminder"
   end
 end
