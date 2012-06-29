@@ -1,4 +1,4 @@
-1340920423
+1340989150
 AddCompanyToLocation	R:/rails/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/rails/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/rails/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
@@ -121,6 +121,8 @@ U	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function U
 U	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function U(w,I){return ba(N(p.visStart),w*7+I*D+Z)}function ca(w){return U(Math.floor(w/F),w%F)}function ka(w){return(w-Math.max(ja,ia)+F)%F*D+Z}function qa(w){return P.eq(w)}function G()
 U	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function U(h){return(h-Math.max(Tb,Sb)+Ba)%Ba*Ha+Ia}function ca(h,O){h=N(h,true);if(O<xa(N(h),La))return 0;if(O>=xa(N(h),bb))return V.height()
 Ua	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Ua(a){return a.end?ec(a.end,a.allDay):ba(N(a.start),1)}function ec(a,b){a=N(a);return b||a.getHours()||a.getMinutes()?ba(a,1):Ka(a)}function fc(a,b){return(b.msLength-a.msLength)*100+(a.event.start-b.event.start)}function Cb(a,b){return a.end>b.start&&a.start<b.end}function nb(a,b,e,d){var f=[],g,l=a.length,j,t,y,S,Q;for(g=0;g<l;g++)
+UserMailer	R:/rails/shopifyRental4/app/mailers/user_mailer.rb	class UserMailer 
+UserMailerTest	R:/rails/shopifyRental4/test/functional/user_mailer_test.rb	class UserMailerTest 
 Va	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function Va(a,b,e){for(var d=0,f;d<a.length;d++){f=m(a[d]);f.width(Math.max(0,b-pb(f,e)))}}function Eb(a,b,e){for(var d=0,f;d<a.length;d++){f=m(a[d]);f.height(Math.max(0,b-Sa(f,e)))}}function pb(a,b){return gc(a)+hc(a)+(b?ic(a):0)}function gc(a){return(parseFloat(m.curCSS(a[0],"paddingLeft",true))||0)+(parseFloat(m.curCSS(a[0],"paddingRight",true))||0)}function ic(a)
 View	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function View(element, calendar, viewName)
 View	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function View(element, calendar, viewName)
@@ -488,6 +490,7 @@ parseTime	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalend
 parseTime	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function parseTime(s)
 pb	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function pb(a,b){return gc(a)+hc(a)+(b?ic(a):0)}function gc(a){return(parseFloat(m.curCSS(a[0],"paddingLeft",true))||0)+(parseFloat(m.curCSS(a[0],"paddingRight",true))||0)}function ic(a)
 pc	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.min.js	function pc(){function a(U,ca){S(U);ua(e(U),ca)}function b(){Q();ga().empty()}function e(U){var ca=da()
+pickup_reminder	R:/rails/shopifyRental4/app/mailers/user_mailer.rb	  def pickup_reminder
 popLoading	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function popLoading()
 popLoading	R:/rails/shopifyRental4/lib/assets/fullcalendar/fullcalendar.js	function popLoading()
 prev	R:/rails/shopifyRental4/app/assets/javascripts/fullcalendar/fullcalendar.js	function prev()

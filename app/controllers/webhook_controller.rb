@@ -85,9 +85,7 @@ class WebhookController < ApplicationController
 
   
   def test
-   get_days('2012-05-01', 94823908) 
-    
-   
+   UserMailer.pickup_reminder.deliver
   end
   
   # ------------------------------------------

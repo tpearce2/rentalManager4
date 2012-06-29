@@ -261,21 +261,15 @@ cursor_positions:
   - :path: app/views/admin/rentals_customer.html.erb
     :cursor_offset: 763
     :timestamp: 2012-06-28 17:39:02.984000 -04:00
-    :selection_offset: 526
-    :block_selection_mode: false
   - :path: app/views/modal/product.html.erb
     :cursor_offset: 1014
     :timestamp: 2012-06-28 12:30:52.354000 -04:00
-    :selection_offset: 992
-    :block_selection_mode: false
   - :path: app/views/modal/rental.html.erb
     :cursor_offset: 446
     :timestamp: 2012-06-28 16:39:40.536000 -04:00
   - :path: app/views/admin/customers.html.erb
     :cursor_offset: 700
     :timestamp: 2012-06-28 13:30:53.989000 -04:00
-    :selection_offset: 843
-    :block_selection_mode: false
   - :path: app/views/admin/rentals_add.html.erb
     :cursor_offset: 371
     :timestamp: 2012-06-28 13:30:36.531000 -04:00
