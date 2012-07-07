@@ -1,12 +1,3 @@
 --- 
-open_files: 
-  - app/controllers/webhook_controller.rb
-  - config/routes.rb
-  - app/views/admin/rentals_customer.html.erb
-  - app/views/modal/product.html.erb
-  - app/views/modal/rental.html.erb
-  - app/views/admin/customers.html.erb
-  - app/views/admin/rentals_add.html.erb
-  - app/views/admin/rentals_date.html.erb
-  - app/views/admin/_rentals_customer_print.html.erb
-  - app/views/admin/_rentals_date_print.html.erb
+open_files: []
+

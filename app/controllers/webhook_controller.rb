@@ -92,88 +92,95 @@ class WebhookController < ApplicationController
   #          webhooks/rental/get_days
   # 
   # ------------------------------------------
-  def get_days(cDate, productID)
+  def get_days
     
-    rDate = Date.parse(cDate)
-    
-    @pickupDate = false
-
-    @day_buffer = 1
-    
-    startTime = Date.new rDate.year, rDate.month
-    startTime -= @day_buffer
-    
-    endTime = Date.new rDate.year, rDate.month, -1
-    endTime += (@day_buffer + 60)
-    
-    rProduct = Product.find(update_product(productID))
-    @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
-    
-    @quantity = rProduct['quantity']
-    @rangeDays = Date.all_days(startTime, endTime)
-    
-    
-    # Check known booked days from other rentals first   
-    bookedDays = @rangeDays.select do |day|
-      returnDay = true
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     # 
-      @day = day
-      bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= (@day + @day_buffer) && rental.pickupDate >= (@day - @day_buffer)) ? true : false }
-
-      if bookedRentals.length >= @quantity
-        returnDay = true       
-      else
-        returnDay = false
-      end
-      returnDay
-    end
-    
-    # Do Manual Unavailable days
-    manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
-    # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
-    # end
-    pairData = Array.new
-    
-    goodDays = @rangeDays - bookedDays
-    goodDays -= manualDays
-    
-    availDays = goodDays.select do |day|
-      returnDay = true
+    if params['cDate'] && params['productID']
+      cDate = params['cDate']
+      productID = params['productID'].to_i
       
-      if(day.sunday?) then returnDay = false end
+      rDate = Date.parse(cDate)
       
-      thirtydays_later = Date.new day.year, day.month, day.day
-      thirtydays_later += 30
+      @pickupDate = false
+  
+      @day_buffer = 1
       
-      m = Date.new day.year, day.month, day.day
-      while m <= thirtydays_later && returnDay == true
-        if(bookedDays.include? m)
+      startTime = Date.new rDate.year, rDate.month
+      startTime -= @day_buffer
+      
+      endTime = Date.new rDate.year, rDate.month, -1
+      endTime += (@day_buffer + 60)
+      
+      rProduct = Product.find(update_product(productID))
+      @rentals = Rental.where('pickupDate >= ? AND deliveryDate <= ? AND product_id = ?', startTime, endTime, rProduct['id'].to_i)
+      
+      @quantity = rProduct['quantity']
+      @rangeDays = Date.all_days(startTime, endTime)
+      
+      
+      # Check known booked days from other rentals first   
+      bookedDays = @rangeDays.select do |day|
+        returnDay = true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       # 
+        @day = day
+        bookedRentals = @rentals.select {|rental| (rental.deliveryDate <= (@day + @day_buffer) && rental.pickupDate >= (@day - @day_buffer)) ? true : false }
+  
+        if bookedRentals.length >= @quantity
+          returnDay = true       
+        else
           returnDay = false
-        end 
-        m += 1
-      end
-      
-      
-      if(returnDay == true)
-        returnDay = false
-        n = Date.new thirtydays_later.year, thirtydays_later.month, thirtydays_later.day
-        while n <= (thirtydays_later + 10) && returnDay == false
-          if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday?)
-            returnDay = true
-            pairData << {:delivery => day, :pickup => n}
-          end
-          n += 1
         end
+        returnDay
       end
       
-      returnDay
+      # Do Manual Unavailable days
+      manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
+      # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
+      # end
+      pairData = Array.new
+      
+      goodDays = @rangeDays - bookedDays
+      goodDays -= manualDays
+      
+      availDays = goodDays.select do |day|
+        returnDay = true
+        
+        if(day.sunday?) then returnDay = false end
+        
+        thirtydays_later = Date.new day.year, day.month, day.day
+        thirtydays_later += 30
+        
+        m = Date.new day.year, day.month, day.day
+        while m <= thirtydays_later && returnDay == true
+          if(bookedDays.include? m)
+            returnDay = false
+          end 
+          m += 1
+        end
+        
+        
+        if(returnDay == true)
+          returnDay = false
+          n = Date.new thirtydays_later.year, thirtydays_later.month, thirtydays_later.day
+          while n <= (thirtydays_later + 10) && returnDay == false
+            if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday?)
+              returnDay = true
+              pairData << {:delivery => day, :pickup => n}
+            end
+            n += 1
+          end
+        end
+        
+        returnDay
+      end
+      
+      unavailDays = @rangeDays - availDays
+      
+      returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData}
+      
+      render :json => returnData.to_json
+    else
+      render :json => {:error => "Missing Params"}
     end
-    
-    unavailDays = @rangeDays - availDays
-    
-    returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData}
-    
-    render :json => returnData.to_json
     
     
   end
