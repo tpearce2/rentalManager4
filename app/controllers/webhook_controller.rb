@@ -177,7 +177,7 @@ class WebhookController < ApplicationController
       
       returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData}
       
-      render :json => returnData.to_json
+      render :json => returnData.to_json, :callback => params[:callback]
     else
       render :json => {:error => "Missing Params"}
     end

@@ -1,4 +1,4 @@
-1341695691
+1341714760
 AddCompanyToLocation	R:/shopifyRental4/db/migrate/20120618175214_add_company_to_location.rb	class AddCompanyToLocation 
 AddCustomerIdToSubscription	R:/shopifyRental4/db/migrate/20120626140122_add_customer_id_to_subscription.rb	class AddCustomerIdToSubscription 
 AddPhoneToCustomer	R:/shopifyRental4/db/migrate/20120618150711_add_phone_to_customer.rb	class AddPhoneToCustomer 
