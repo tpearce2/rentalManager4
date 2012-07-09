@@ -201,7 +201,7 @@ class WebhookController < ApplicationController
     @date_info = {}
     @note_attributes = @order.note_attributes
     @note_attributes.each do |attribute|
-      @date_info["#{attribute['name']}"] = attribute['value']
+      puts "Test: #{attribute.name}"
     end
     
     @id_customer = update_customer({:email => @order.attributes[:customer].attributes['email'], :first_name => @order.attributes[:customer].attributes['first_name'], :last_name => @order.attributes[:customer].attributes['last_name'], :customerID => @order.attributes[:customer].attributes['id'], :note => @order.attributes[:customer].attributes['note'], :phone => data['billing_address']['phone']})
