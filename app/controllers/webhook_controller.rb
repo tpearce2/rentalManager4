@@ -84,21 +84,7 @@ class WebhookController < ApplicationController
 
 
   
-  def test
-    @order = ShopifyAPI::Order.find(134626798)
-    
-    @date_info = {}
-    @note_attributes = @order.note_attributes
-    @note_attributes.each do |attribute|
-      @date_info[attribute.attributes['name']] = attribute.attributes['value']
-    end
-    @id_product = 95938084
-    delDate = @date_info["date_delivery-#{@id_product}"]
-          puts "delDate: #{delDate}"
-          pickDate = @date_info["date_pickup-#{@id_product}"]
-          puts "pickDate: #{pickDate}"
-    head :ok
-  end
+
   
   # ------------------------------------------
   #          webhooks/rental/get_days
@@ -197,6 +183,21 @@ class WebhookController < ApplicationController
     
   end
   
+  def test
+    @order = ShopifyAPI::Order.find(134626798)
+    
+    @date_info = {}
+    @note_attributes = @order.note_attributes
+    @note_attributes.each do |attribute|
+      @date_info[attribute.attributes['name']] = attribute.attributes['value']
+    end
+    @id_product = 95938084
+    delDate = @date_info["date_delivery-#{@id_product}"]
+          puts "delDate: #{delDate}"
+          pickDate = @date_info["date_pickup-#{@id_product}"]
+          puts "pickDate: #{pickDate}"
+    head :ok
+  end
   
   # ------------------------------------------
   #          webhooks/orders/create
@@ -227,11 +228,15 @@ class WebhookController < ApplicationController
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
           puts "date_info: #{@date_info.inspect}"
-          delDate = @date_info["date_delivery-#{@id_product}"]
-          puts "delDate: #{delDate}"
-          pickDate = @date_info["date_pickup-#{@id_product}"]
-          puts "pickDate: #{pickDate}"
-          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => delDate,:pickupDate => pickDate)
+          puts "STRING TEST: "
+          puts @date_info["date_delivery-#{@id_product}"]
+           puts @date_info["date_delivery-#{@id_product}"].to_s
+          
+          @delDate = @date_info["date_delivery-#{@id_product}"]
+          puts "@delDate: #{@delDate}"
+          @pickDate = @date_info["date_pickup-#{@id_product}"]
+          puts "@pickDate: #{@pickDate}"
+          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @delDate,:pickupDate => @pickDate)
       end
     end 
     
