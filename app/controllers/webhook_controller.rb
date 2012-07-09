@@ -85,13 +85,17 @@ class WebhookController < ApplicationController
 
   
   def test
-   @order = ShopifyAPI::Order.find(134622000)
+    @order = ShopifyAPI::Order.find(134626798)
+    
     @date_info = {}
     @note_attributes = @order.note_attributes
     @note_attributes.each do |attribute|
-      puts "Attribute: #{attribute.attributes['name']}"
+      @date_info[attribute.attributes['name']] = attribute.attributes['value']
     end
+    @id_product = 95938084
+    puts @date_info["date_delivery-#{@id_product}"]
     
+    Rental.create(:product_id => @id_product, :location_id => 6, :customer_id => 8, :orderID => 123, :deliveryDate => @date_info["date_delivery-#{@id_product}"],:pickupDate => @date_info["date_pickup-#{@id_product}"])
     head :ok
   end
   
@@ -221,7 +225,7 @@ class WebhookController < ApplicationController
           puts "Each Product"
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
-          puts "do rental:"
+          puts "date_info: #{@date_info.inspect}"
           puts Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @date_info["date_delivery-#{@id_product}"],:pickupDate => @date_info["date_pickup-#{@id_product}"])
       end
     end 
