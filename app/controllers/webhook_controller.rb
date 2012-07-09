@@ -224,18 +224,13 @@ class WebhookController < ApplicationController
 
     if products
       products.each do |product|
-          puts "Each Product"
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
-          puts "date_info: #{@date_info.inspect}"
-          puts "STRING:"
-          puts "date_delivery-#{@id_product.to_i}"
-          puts @date_info["date_delivery-#{@id_product}"]
-           puts @date_info["date_delivery-#{@id_product}"].to_s
+
           
-          @delDate = @date_info["date_delivery-#{@id_product.to_i}"]
+          @delDate = @date_info["date_delivery-#{product['product_id']}"]
           puts "@delDate: #{@delDate}"
-          @pickDate = @date_info["date_pickup-#{@id_product}"]
+          @pickDate = @date_info["date_pickup-#{product['product_id']}"]
           puts "@pickDate: #{@pickDate}"
           Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @delDate,:pickupDate => @pickDate)
       end
