@@ -226,7 +226,11 @@ class WebhookController < ApplicationController
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
           puts "date_info: #{@date_info.inspect}"
-          puts Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @date_info["date_delivery-#{@id_product}"],:pickupDate => @date_info["date_pickup-#{@id_product}"])
+          delDate = @date_info["date_delivery-#{@id_product}"]
+          puts "delDate: #{delDate}"
+          pickDate = @date_info["date_pickup-#{@id_product}"]
+          puts "pickDate: #{pickDate}"
+          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => delDate,:pickupDate => pickDate)
       end
     end 
     
