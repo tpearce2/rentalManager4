@@ -93,9 +93,10 @@ class WebhookController < ApplicationController
       @date_info[attribute.attributes['name']] = attribute.attributes['value']
     end
     @id_product = 95938084
-    puts @date_info["date_delivery-#{@id_product}"]
-    
-    Rental.create(:product_id => @id_product, :location_id => 6, :customer_id => 8, :orderID => 123, :deliveryDate => @date_info["date_delivery-#{@id_product}"],:pickupDate => @date_info["date_pickup-#{@id_product}"])
+    delDate = @date_info["date_delivery-#{@id_product}"]
+          puts "delDate: #{delDate}"
+          pickDate = @date_info["date_pickup-#{@id_product}"]
+          puts "pickDate: #{pickDate}"
     head :ok
   end
   
