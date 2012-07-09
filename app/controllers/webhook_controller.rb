@@ -85,7 +85,14 @@ class WebhookController < ApplicationController
 
   
   def test
-   UserMailer.pickup_reminder.deliver
+   @order = ShopifyAPI::Order.find(134622000)
+    @date_info = {}
+    @note_attributes = @order.note_attributes
+    @note_attributes.each do |attribute|
+      puts "Attribute: #{attribute.attributes['name']}"
+    end
+    
+    head :ok
   end
   
   # ------------------------------------------
@@ -201,7 +208,7 @@ class WebhookController < ApplicationController
     @date_info = {}
     @note_attributes = @order.note_attributes
     @note_attributes.each do |attribute|
-      puts "Test: #{attribute.name}"
+      @date_info[attribute.attributes['name']] = attribute.attributes['value']
     end
     
     @id_customer = update_customer({:email => @order.attributes[:customer].attributes['email'], :first_name => @order.attributes[:customer].attributes['first_name'], :last_name => @order.attributes[:customer].attributes['last_name'], :customerID => @order.attributes[:customer].attributes['id'], :note => @order.attributes[:customer].attributes['note'], :phone => data['billing_address']['phone']})
