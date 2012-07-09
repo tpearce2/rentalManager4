@@ -228,11 +228,12 @@ class WebhookController < ApplicationController
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
           puts "date_info: #{@date_info.inspect}"
-          puts "STRING TEST: "
+          puts "STRING:"
+          puts "date_delivery-#{@id_product.to_i}"
           puts @date_info["date_delivery-#{@id_product}"]
            puts @date_info["date_delivery-#{@id_product}"].to_s
           
-          @delDate = @date_info["date_delivery-#{@id_product}"]
+          @delDate = @date_info["date_delivery-#{@id_product.to_i}"]
           puts "@delDate: #{@delDate}"
           @pickDate = @date_info["date_pickup-#{@id_product}"]
           puts "@pickDate: #{@pickDate}"
