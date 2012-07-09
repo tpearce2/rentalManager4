@@ -197,7 +197,12 @@ class WebhookController < ApplicationController
     # render :json => data
     
     @order = ShopifyAPI::Order.find(data['id'])
+    
+    @date_info = {}
     @note_attributes = @order.note_attributes
+    @note_attributes.each do |attribute|
+      @date_info["#{attribute['name']}"] = attribute['value']
+    end
     
     @id_customer = update_customer({:email => @order.attributes[:customer].attributes['email'], :first_name => @order.attributes[:customer].attributes['first_name'], :last_name => @order.attributes[:customer].attributes['last_name'], :customerID => @order.attributes[:customer].attributes['id'], :note => @order.attributes[:customer].attributes['note'], :phone => data['billing_address']['phone']})
     @id_location = update_locations(@order.attributes[:customer].attributes['id'], data['shipping_address'])
@@ -210,7 +215,7 @@ class WebhookController < ApplicationController
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
           puts "do rental:"
-          puts Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'])
+          puts Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @date_info["date_delivery-#{@id_product}"],:pickupDate => @date_info["date_pickup-#{@id_product}"])
       end
     end 
     
