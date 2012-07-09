@@ -1,3 +1,7 @@
 --- 
-open_files: []
-
+open_files: 
+  - app/controllers/admin_controller.rb
+  - app/controllers/api_controller.rb
+  - app/controllers/webhook_controller.rb
+  - config/routes.rb
+  - app/assets/javascripts/admin/add_rental.js

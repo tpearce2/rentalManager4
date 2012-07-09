@@ -136,7 +136,7 @@ class WebhookController < ApplicationController
       manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
       # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
       # end
-      pairData = Array.new
+      pairData = {}
       
       goodDays = @rangeDays - bookedDays
       goodDays -= manualDays
@@ -164,7 +164,7 @@ class WebhookController < ApplicationController
           while n <= (thirtydays_later + 10) && returnDay == false
             if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday?)
               returnDay = true
-              pairData << {:delivery => day, :pickup => n}
+              pairData["#{day}"] = n
             end
             n += 1
           end
@@ -191,6 +191,7 @@ class WebhookController < ApplicationController
   # 
   # ------------------------------------------
   def order_created
+    puts "Start: Order Created"
     data = ActiveSupport::JSON.decode(request.body.read)
     # puts data.inspect
     # render :json => data
@@ -204,12 +205,12 @@ class WebhookController < ApplicationController
     products = data["line_items"]
 
     if products
-      puts "YEYEYEYEYEYEYEYEY"
       products.each do |product|
+          puts "Each Product"
           @id_product = update_product(product['product_id'])
           # date_query = @note_attributes.select {|f| f.name == 'date_delivery-#{product["id"]}' }
-          
-          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'])
+          puts "do rental:"
+          puts Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'])
       end
     end 
     
