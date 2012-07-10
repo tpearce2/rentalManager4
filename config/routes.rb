@@ -41,6 +41,11 @@ ShopifyRental3::Application.routes.draw do
   
   match 'webhooks/test' => 'webhook#test'
   match 'chargify/hooks' => "chargify#dispatch_handler", :via => "post"
+  
+  match 'subscription/list' => 'customer#getSubscriptions'
+  match 'subscription/verify' => 'customer#verifyCancelSubscription'
+  match 'subscription/test' =>  'customer#test'
+  
  
 
   root :to                   => 'home#index'

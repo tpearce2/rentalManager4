@@ -5,3 +5,4 @@ open_files:
   - app/controllers/webhook_controller.rb
   - config/routes.rb
   - app/assets/javascripts/admin/add_rental.js
+  - Gemfile

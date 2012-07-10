@@ -1,0 +1,16 @@
+Hi <%=@customer.first_name%>,<br>
+<p>You have requested that the following toy rental subscription be cancelled:</p>
+<p>
+  <strong><%=@location.first_name%> <%=@location.last_name%></strong>
+  <br><%=@location.address1%>
+  <br><%=@location.address2%>
+  <br><%=@location.zip%>
+  <br><%=@location.city%>, <%=@location.province%>, <%=@location.country%>
+</p>
+<br>
+If you wish to cancel this subscription, please click the link below
+<br><a href="http://just-play-toy-rental.myshopify.com/pages/cancel-subscription-send/?sID=<%=@subscription.subscriptionID%>&hash=<%=@hash%>">http://just-play-toy-rental.myshopify.com/pages/cancel-subscription-send/?sID=<%=@subscription.subscriptionID%>&hash=<%=@hash%></a>
+<br><br>
+Thank-you,
+
+Just Play Toy Rental

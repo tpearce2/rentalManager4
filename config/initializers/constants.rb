@@ -1,1 +1,2 @@
 RENTAL_DAY_BUFFER = 3
+HASH_SECRET = "@justplay1"

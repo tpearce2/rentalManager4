@@ -50,6 +50,9 @@ $(document).ready(function() {
     ],
     dayClick: function(date, allDay, jsEvent, view) {
       window.location = "/admin/rentals/?range_start=" + $.datepicker.formatDate('yy-mm-dd',date) + "&range_end=" + $.datepicker.formatDate('yy-mm-dd',date) + "&layout=date";
+    },
+    eventClick: function(calEvent, jsEvent, view) {
+      window.location = "/admin/rentals/?range_start=" + $.datepicker.formatDate('yy-mm-dd',calEvent.start) + "&range_end=" + $.datepicker.formatDate('yy-mm-dd',calEvent.start) + "&layout=date";  
     }
 			
 		});

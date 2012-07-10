@@ -2,6 +2,9 @@ class Customer < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :locations, :dependent => :destroy
   has_many :rentals, :dependent => :destroy
+  has_many :subscriptions
+  
+ 
   
   def self.send_reminders
     noticeDays = 3
@@ -20,4 +23,11 @@ class Customer < ActiveRecord::Base
       puts "SendReminders: No rentals found"
     end
   end
+  
+  
+  def sendCancelEmail sub
+    UserMailer.verify_cancel(email, sub).deliver
+  end 
+  
+  
 end

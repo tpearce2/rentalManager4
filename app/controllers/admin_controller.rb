@@ -5,7 +5,7 @@ class AdminController < ApplicationController
   def admin_rentals
     if not(params[:range_start] && params[:range_end])
       t = Date.today
-      params[:range_start] = t
+      params[:range_start] = t-1
       params[:range_end] = t + 30
       @dates = Date.all_days(params[:range_start], params[:range_end])
     else
