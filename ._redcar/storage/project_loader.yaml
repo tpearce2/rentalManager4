@@ -1,8 +1,21 @@
 --- 
 open_files: 
-  - app/controllers/admin_controller.rb
-  - app/controllers/api_controller.rb
   - app/controllers/webhook_controller.rb
   - config/routes.rb
   - app/assets/javascripts/admin/add_rental.js
   - Gemfile
+  - app/views/admin/rentals_date.html.erb
+  - app/assets/javascripts/rental.js
+  - config/environments/production.rb
+  - config/environments/development.rb
+  - lib/tasks/scheduler.rake
+  - app/models/customer.rb
+  - app/controllers/customer_controller.rb
+  - app/controllers/chargify_controller.rb
+  - app/mailers/user_mailer.rb
+  - config/initializers/constants.rb
+  - app/views/user_mailer/verify_cancel.html.erb
+  - app/controllers/admin_controller.rb
+  - app/controllers/api_controller.rb
+  - app/controllers/home_controller.rb
+  - app/controllers/login_controller.rb
