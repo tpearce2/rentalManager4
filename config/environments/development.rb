@@ -1,7 +1,7 @@
 ShopifyRental3::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   config.shopify.api_key = "97e6e6ee13280ad449085de839cc1f3a"
-  config.shopify.secret = "65e3768ade7a3fd6463f125292fdd5ae"
+  config.shopify.secret = "65e3768ade7a3fd6463f125292fdd5ae" 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
