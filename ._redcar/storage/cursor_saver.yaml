@@ -52,9 +52,6 @@ cursor_positions:
     :timestamp: 2012-07-09 19:57:48.988000 -04:00
     :selection_offset: 658
     :block_selection_mode: false
-  - :path: config/initializers/constants.rb
-    :cursor_offset: 0
-    :timestamp: 2012-07-09 18:50:32.675000 -04:00
   - :path: app/views/user_mailer/verify_cancel.html.erb
     :cursor_offset: 745
     :timestamp: 2012-07-09 21:31:52.832000 -04:00
@@ -73,4 +70,16 @@ cursor_positions:
   - :path: public/robots.txt
     :cursor_offset: 200
     :timestamp: 2012-07-10 13:28:06.843000 -04:00
+  - :path: config/initializers/backtrace_silencers.rb
+    :cursor_offset: 404
+    :timestamp: 2012-06-05 19:48:30.436000 -04:00
+  - :path: config/initializers/constants.rb
+    :cursor_offset: 0
+    :timestamp: 2012-07-09 18:50:32.675000 -04:00
+  - :path: config/initializers/inflections.rb
+    :cursor_offset: 533
+    :timestamp: 2012-06-05 19:48:30.436000 -04:00
+  - :path: config/initializers/wrap_parameters.rb
+    :cursor_offset: 468
+    :timestamp: 2012-06-05 19:48:30.440000 -04:00
 files_to_retain: 0

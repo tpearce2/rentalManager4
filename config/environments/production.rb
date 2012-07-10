@@ -1,6 +1,7 @@
 ShopifyRental3::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  config.shopify.api_key = "f03e259b962263817f1f0a9df0c30477"
+  config.shopify.secret = "8554d06a2e5ef3536ecb7ab5cb025635"
   # Code is not reloaded between requests
   config.cache_classes = true
 
