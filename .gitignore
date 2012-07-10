@@ -14,5 +14,7 @@ doc/
 *~
 .project
 .DS_Store
-
+._redcar/
+._redcar/*
+._redcar
 /._redcar
