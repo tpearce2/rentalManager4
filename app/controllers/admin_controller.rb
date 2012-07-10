@@ -75,7 +75,7 @@ class AdminController < ApplicationController
     
     begin
       params[:rentals].each do |rental|
-        Rental.create(:location_id => params[:location_id], :customer_id  => params[:customer_id], :deliveryDate => params[:deliveryDate], :pickupDate => params[:pickupDate], :product_id => rental, :rental_type => params[:rental_type])
+        Rental.create(:location_id => params[:location_id], :chargifyID => params[:chargifyID], :customer_id  => params[:customer_id], :deliveryDate => params[:deliveryDate], :pickupDate => params[:pickupDate], :product_id => rental, :rental_type => params[:rental_type])
       end
       render :json => {:status => 1}
     rescue Exception => e
