@@ -131,8 +131,12 @@ class WebhookController < ApplicationController
       end
       
       # Do Manual Unavailable days
-      manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
-      manualDays = manualDays.select {|mDay| true }
+      manualDaysQ = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
+      manualDays = []
+      
+      manualDaysQ.each do |day|
+        manualDays << day.awayDate
+      end
       # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
       # end
       pairData = {}
@@ -174,7 +178,7 @@ class WebhookController < ApplicationController
       
       unavailDays = @rangeDays - availDays
       
-      returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData}
+      returnData = {:unavailable => unavailDays, :available => availDays, :pairs => pairData, :manual => manualDays}
       
       render :json => returnData.to_json, :callback => params[:callback]
     else
