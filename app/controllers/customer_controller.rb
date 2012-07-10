@@ -7,7 +7,7 @@ class CustomerController < ApplicationController
       subs = []
       customer = Customer.where('email = ?', params[:email]).first
       if customer.blank?
-        render :json => { :error => "Invalid Email", :callback => params[:callback]}
+        render :json => { :error => "Invalid Email"}, :callback => params[:callback]
       else
         customer.subscriptions.each do |sub|
           curSub = {}
@@ -17,10 +17,10 @@ class CustomerController < ApplicationController
           curSub[:sID] = sub.subscriptionID
           subs << curSub
         end
-        render :json => {:subs => subs, :callback => params[:callback] }
+        render :json => {:subs => subs}, :callback => params[:callback]
       end
     else
-      render :json => { :error => "No Email Specified", :callback => params[:callback]}
+      render :json => { :error => "No Email Specified"}, :callback => params[:callback]
     end
     
   end
@@ -32,13 +32,13 @@ class CustomerController < ApplicationController
       customer = Customer.where('email = ?', params[:email]).first
       subscription = Subscription.where('subscriptionID = ?', params[:sID]).first
       if(!customer.blank? && !subscription.blank?)
-          render :json => { :msg => customer.sendCancelEmail(subscription), :callback => params[:callback]}
+          render :json => { :msg => customer.sendCancelEmail(subscription)}, :callback => params[:callback]
       else 
-        render :json => { :error => 'Invalid Email', :callback => params[:callback]} 
+        render :json => { :error => 'Invalid Email'}, :callback => params[:callback] 
       end
       
     else
-      render :json => { :error => 'Missing Email', :callback => params[:callback]}
+      render :json => { :error => 'Missing Email'}, :callback => params[:callback]
     end
     
   end
@@ -49,15 +49,15 @@ class CustomerController < ApplicationController
       if Digest::MD5::hexdigest("#{HASH_SECRET}#{params[:sID]}") == params[:hash]
         subData = `curl -u d5FoR3cfJqKnY8hHJY4A:x -X DELETE https://shopify-just-play-toy-rental.chargify.com/subscriptions/#{params[:sID]}.json`
         if(subData.to_s.length > 1)
-          render :json => {:status => 1, :callback => params[:callback]}
+          render :json => {:status => 1}, :callback => params[:callback]
         else
-          render :json => {:error => "Error Deleting Subscription", :callback => params[:callback]}
+          render :json => {:error => "Error Deleting Subscription"}, :callback => params[:callback]
         end
       else
-        render :json => { :error => 'Invalid Hash', :callback => params[:callback]}
+        render :json => { :error => 'Invalid Hash'}, :callback => params[:callback]
       end
     else
-      render :json => { :error => 'Missing Params', :callback => params[:callback]}
+      render :json => { :error => 'Missing Params'}, :callback => params[:callback]
     end
   end
   
