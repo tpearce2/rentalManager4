@@ -19,7 +19,6 @@
             <th>Order</th>
             <th>Placed by</th>
             <th>Paid</th>
-            <th>Fulfillment</th>
             <th>Total</th>
           </tr>
         </thead>
@@ -31,13 +30,6 @@
             <span class="label  <% if order.financial_status  == 'paid' %>label-success<% end %> <% if order.financial_status  == 'pending' %>label-warning<% end %> <% if order.financial_status  == 'refunded' %>label-important<% end %>"><%= order.financial_status %>
             </span>
           </td>
-          <td>
-            <% if !order.fulfillment_status %>
-            <span class="label">Not Fulfilled</span>
-            <% else %>
-            <span class="label label-success">Fulfilled</span>
-            <% end %>
-          </td>
           <td><%= order.total_price %> <%= order.currency %></td>
         </tr>
       <% end %>
@@ -47,65 +39,6 @@
     
     <br/>
     
-    <h2>New Products</h2>
-    
-    <div class="accordion" id="accordion">      
-      
-      <% if @products.blank? %>
-      
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <em>There are no products in your store.</em>
-          </div>
-        </div>
-      
-      <% else %>
-      
-        <%  @products.each_with_index do |product, index| %>
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= product.id %>">
-                <%= product.title %> <span class="pull-right muted"><%= product.price_range %> <%= current_shop.shop.currency %></span>
-              </a>
-            </div>
-        
-            <div id="<%= product.id %>" class="accordion-body collapse <% if index == 1 %>in<% end %>">
-              <div class="accordion-inner">
-                
-                <% if !product.images.empty? %>
-                  <div class="polaroid">
-                    <%= link_to image_tag(product.images.first.medium), '#modal-'+product.id.to_s, :'data-toggle' => 'modal' %>
-                  </div>
-                <% end %>
-                
-                <p><strong>Type:</strong> <%= product.product_type %></p>
-                <p><strong>Vendor:</strong> <%= product.vendor %></p>
-                <p><%= raw(product.body_html) %></p><br/>
-                <% if product.published_at != nil %>
-                <p class="muted">Published at <%= Time.parse(product.published_at).strftime("%H:%M on %m/%d/%Y") %></p>
-                <% end %>
-                <p><%= link_to raw('View in your Shopify Admin <i class="icon-chevron-right" style="opacity:.25"></i>'), "https://#{current_shop.url}/admin/products/#{product.id}", :target => 'blank', :class => 'btn btn-primary' %></p>
-              </div>
-              
-            </div>
-          </div>
-          
-          <div class="modal hide fade" id="modal-<%= product.id %>" style="display:none;">
-            <div class="modal-header">
-              <a class="close" data-dismiss="modal">×</a>
-              <h3><%= product.title %></h3>
-            </div>
-            <div class="modal-body" >
-              <% if !product.images.empty? %>
-                <%= image_tag product.images.first.large %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      
-      <% end %>
-      
-    </div> <!-- accordion -->
+   
   </div> <!-- span8 / right-column -->
 </div>

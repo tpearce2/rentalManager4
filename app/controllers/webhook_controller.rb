@@ -132,6 +132,7 @@ class WebhookController < ApplicationController
       
       # Do Manual Unavailable days
       manualDays = Unavailable.where('awayDate >= ? AND awayDate <= ?', startTime, endTime)
+      manualDays = manualDays.select {|mDay| true }
       # You need to subtract out these days at the end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    # 
       # end
       pairData = {}

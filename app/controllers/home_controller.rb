@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     # get latest 5 orders
    # ActiveResource::Base.site = "http://localhost"
 
-    @orders = ShopifyAPI::Order.find(:all)
+    @orders = ShopifyAPI::Order.find(:all, :params => {:limit => 10})
   end
   
 end
