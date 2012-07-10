@@ -31,7 +31,7 @@ class CustomerController < ApplicationController
       
       customer = Customer.where('email = ?', params[:email]).first 
       subscription = Subscription.where('subscriptionID = ?', params[:sID]).first 
-      if(!customer.blank? && !subscription.blank)
+      if(!customer.blank? && !subscription.blank?)
           emailStatus = customer.sendCancelEmail(subscription)
           render :json => { :msg => emailStatus}, :callback => params[:callback]
       else
