@@ -70,4 +70,7 @@ cursor_positions:
   - :path: app/views/home/index.html.erb
     :cursor_offset: 486
     :timestamp: 2012-07-10 08:55:04.370000 -04:00
+  - :path: public/robots.txt
+    :cursor_offset: 200
+    :timestamp: 2012-07-10 13:28:06.843000 -04:00
 files_to_retain: 0

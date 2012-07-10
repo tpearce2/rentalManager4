@@ -89,7 +89,7 @@ function initRemoveProduct()
           $.ajax({
             type: 'POST',
             url: '/admin/addRentals',
-            data: { customer_id: customerID, location_id: locationID, deliveryDate: $('#rangeStart').val(), pickupDate: $('#rangeEnd').val(), rental_type: layoutType, 'rentals': rentals },
+            data: { customer_id: customerID, chargifyID: subID, location_id: locationID, deliveryDate: $('#rangeStart').val(), pickupDate: $('#rangeEnd').val(), rental_type: layoutType, 'rentals': rentals },
             success: function(data){
               if(data['status'] == 1)
               {
