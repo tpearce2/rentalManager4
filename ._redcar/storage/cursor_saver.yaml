@@ -6,9 +6,12 @@ cursor_positions:
   - :path: app/views/user_mailer/pickup_reminder.html.erb
     :cursor_offset: 419
     :timestamp: 2012-06-29 14:34:53.895000 -04:00
+  - :path: app/controllers/admin_controller.rb
+    :cursor_offset: 79
+    :timestamp: 2012-07-09 13:10:22.252000 -04:00
   - :path: app/controllers/webhook_controller.rb
-    :cursor_offset: 13786
-    :timestamp: 2012-07-08 22:04:55.046000 -04:00
+    :cursor_offset: 6118
+    :timestamp: 2012-07-10 09:24:13.355000 -04:00
   - :path: config/routes.rb
     :cursor_offset: 1571
     :timestamp: 2012-07-09 22:57:40.034000 -04:00
@@ -19,7 +22,7 @@ cursor_positions:
     :cursor_offset: 833
     :timestamp: 2012-07-09 16:11:37.039000 -04:00
   - :path: app/views/admin/rentals_date.html.erb
-    :cursor_offset: 0
+    :cursor_offset: 3945
     :timestamp: 2012-06-28 17:43:36.396000 -04:00
   - :path: app/assets/javascripts/rental.js
     :cursor_offset: 1274
@@ -50,21 +53,21 @@ cursor_positions:
     :selection_offset: 658
     :block_selection_mode: false
   - :path: config/initializers/constants.rb
-    :cursor_offset: 49
+    :cursor_offset: 0
     :timestamp: 2012-07-09 18:50:32.675000 -04:00
   - :path: app/views/user_mailer/verify_cancel.html.erb
     :cursor_offset: 745
     :timestamp: 2012-07-09 21:31:52.832000 -04:00
-  - :path: app/controllers/admin_controller.rb
-    :cursor_offset: 79
-    :timestamp: 2012-07-09 13:10:22.252000 -04:00
   - :path: app/controllers/api_controller.rb
     :cursor_offset: 5296
     :timestamp: 2012-06-24 16:04:11.024000 -04:00
   - :path: app/controllers/home_controller.rb
-    :cursor_offset: 0
-    :timestamp: 2012-06-14 16:39:01.150000 -04:00
+    :cursor_offset: 643
+    :timestamp: 2012-07-10 08:55:28.624000 -04:00
   - :path: app/controllers/login_controller.rb
     :cursor_offset: 0
     :timestamp: 2012-06-15 15:56:28.376000 -04:00
+  - :path: app/views/home/index.html.erb
+    :cursor_offset: 486
+    :timestamp: 2012-07-10 08:55:04.370000 -04:00
 files_to_retain: 0
