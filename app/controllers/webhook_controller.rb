@@ -82,7 +82,14 @@ class WebhookController < ApplicationController
   end
   
 
-
+  # ------------------------------------------
+  #          webhooks/manual/get_manuals
+  # 
+  # ------------------------------------------
+  def get_manuals
+    @manuals = Unavailables.find(:all)
+    return :json => @manuals.to_json
+  end
   
 
   

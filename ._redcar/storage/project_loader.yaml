@@ -14,3 +14,5 @@ open_files:
   - config/environments/production.rb
   - config/application.rb
   - config/environments/development.rb
+  - .gitignore
+  - app/assets/stylesheets/admin.css.scss

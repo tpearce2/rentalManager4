@@ -22,6 +22,8 @@ ShopifyRental3::Application.routes.draw do
   match 'webhooks/rentals/get_days' => 'webhook#get_days'
   post 'webhooks/orders/create' => 'webhook#order_created'
   post 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
+  match 'webhooks/manual/get_manuals' => 'webhook#get_manuals'
+  
   
   post 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
