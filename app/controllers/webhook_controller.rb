@@ -87,8 +87,13 @@ class WebhookController < ApplicationController
   # 
   # ------------------------------------------
   def get_manuals
-    @manuals = Unavailables.find(:all)
-    return :json => @manuals.to_json
+     manualDaysQ = Unavailable.find(:all)
+    manualDays = []
+    
+    manualDaysQ.each do |day|
+      manualDays << day.awayDate
+    end
+    render :json => manualDays.to_json
   end
   
 
