@@ -93,7 +93,7 @@ class WebhookController < ApplicationController
     manualDaysQ.each do |day|
       manualDays << day.awayDate
     end
-    render :json => manualDays.to_json
+    render :json => manualDays.to_json, :callback => params[:callback]
   end
   
 
