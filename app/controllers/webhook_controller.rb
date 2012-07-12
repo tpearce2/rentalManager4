@@ -249,7 +249,7 @@ class WebhookController < ApplicationController
           puts "@delDate: #{@delDate}"
           @pickDate = @date_info["date_pickup-#{product['product_id']}"]
           puts "@pickDate: #{@pickDate}"
-          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :deliveryDate => @delDate,:pickupDate => @pickDate)
+          Rental.create(:product_id => @id_product, :location_id => @id_location, :customer_id => @id_customer, :orderID => data['id'], :order_note => data['note'], :deliveryDate => @delDate,:pickupDate => @pickDate)
       end
     end 
     
@@ -284,8 +284,20 @@ class WebhookController < ApplicationController
     head :ok
   end
   
+  # ------------------------------------------
+  #          webhooks/products/deleted
+  # 
+  # ------------------------------------------
   
   
+   def product_deleted
+    data = ActiveSupport::JSON.decode(request.body.read)
+    product = Product.where('productID = ?', data["id"]).first
+    if product
+      product.destroy
+    end
+    head :ok
+  end
    
   # ------------------------------------------
   #          webhooks/rentals_json
@@ -377,21 +389,7 @@ class WebhookController < ApplicationController
       head :ok
   end
 
-  def product_deleted
-    data = ActiveSupport::JSON.decode(request.body.read)
-    product = Product.where('shopify_id = ?', data["id"]).first
-    if product
-      puts 'products shop id: ' + product.shop.id
-      event = WebhookEvent.new(:event_type => "product delete")
-      event.save
-      product.logical_delete = true
-      product.webhook_events << event
-      product.shop.webhook_events << event
-      product.shop.save
-      product.save
-    end
-    head :ok
-  end
+ 
   
   private
   

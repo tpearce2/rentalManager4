@@ -25,7 +25,7 @@ ShopifyRental3::Application.routes.draw do
   post 'webhooks/orders/cancelled' => 'webhook#order_cancelled'
   
   
-  
+  post 'webhooks/products/deleted'  => 'webhook#product_deleted'
   post 'webhooks/products/create'  => 'webhook#product_created'
   get "webhooks/rental_json"       => 'webhook#rentals_json'
   
