@@ -1,0 +1,16 @@
+<%
+  rental = Rental.find(@rentalID)
+  
+%> 
+
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Order Note</h3>
+    </div>
+    <div class="modal-body">
+      <p><%=rental.order_note%></p>
+    </div>
+    <div class="modal-footer">
+      <a href="javascript:void(null);" class="btn" data-dismiss="modal">Ok</a>
+    </div>
+    
