@@ -14,6 +14,15 @@ class ModalController < ApplicationController
     end
   end
   
+   def note
+    if(params[:rentalID])
+      @rentalID = params[:rentalID] 
+      render 'modal/note', :layout => false
+    else
+      render :text => 'Error: No RentalID given'  
+    end
+  end
+  
   def product
     if(params[:productID])
       @productID = params[:productID]

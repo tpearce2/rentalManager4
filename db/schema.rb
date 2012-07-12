@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626174901) do
+ActiveRecord::Schema.define(:version => 20120712155435) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -33,19 +33,19 @@ ActiveRecord::Schema.define(:version => 20120626174901) do
     t.string   "country"
     t.string   "first_name"
     t.string   "last_name"
-    t.decimal  "latitude",                   :precision => 10, :scale => 6
-    t.decimal  "longitude",                  :precision => 10, :scale => 6
+    t.decimal  "latitude",      :precision => 10, :scale => 6
+    t.decimal  "longitude",     :precision => 10, :scale => 6
     t.string   "phone"
     t.string   "province"
     t.string   "zip"
     t.string   "name"
     t.string   "country_code"
     t.string   "province_code"
-    t.boolean  "status",                                                    :default => true
-    t.datetime "created_at",                                                                      :null => false
-    t.datetime "updated_at",                                                                      :null => false
+    t.boolean  "status",                                       :default => true
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.string   "company"
-    t.string   "location_type", :limit => 0,                                :default => "single"
+    t.string   "location_type",                                :default => "single"
   end
 
   create_table "products", :force => true do |t|
@@ -70,9 +70,10 @@ ActiveRecord::Schema.define(:version => 20120626174901) do
     t.date     "pickupDate"
     t.date     "deliveryDate"
     t.integer  "chargifyID"
-    t.string   "rental_type",  :limit => 0, :default => "single"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.string   "rental_type",  :default => "single"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.text     "order_note"
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -80,10 +81,10 @@ ActiveRecord::Schema.define(:version => 20120626174901) do
     t.integer  "customer_id"
     t.integer  "subscriptionID"
     t.date     "recurringDate"
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "customerID"
-    t.string   "subscription_state", :limit => 0, :default => "active"
+    t.string   "subscription_state", :default => "active"
   end
 
   create_table "tokens", :force => true do |t|

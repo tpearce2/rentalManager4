@@ -9,7 +9,9 @@
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 2px solid #2694E8 !important;}
 
-.table.rental td{ width: 33%; }
+.table.rental td{ width: 25%; }
+.table.rental .active{ color:#3a710d;  }
+.table.rental .canceled{ color:#b70b0b;  }
 
 .well.outline
 {
@@ -24,10 +26,10 @@
 }
 #selectedToys{ max-height: 300px; overflow-x:hidden;overflow-y:auto;  }
 #productWell{ max-height: 370px; overflow-x:hidden;overflow-y:auto;  }
-div.listProduct{ cursor: pointer; width: 30%; margin-right: 1%; margin-bottom: 10px; float: left; text-align: left; color: #000000; }
+div.listProduct{ cursor: pointer; width: 30%; margin-right: 1%; margin-bottom: 10px; float: left; text-align: left; height:124px; color: #000000; }
 div.listProduct:hover{ background: #0088CC; color:#FFFFFF;}
 div.listProduct div.productCont{ padding: 10px; }
-div.listProduct div.productCont a.thumbnail img, div.listProduct div.productCont a.thumbnail{ width: 70px; }
+div.listProduct div.productCont a.thumbnail img, div.listProduct div.productCont a.thumbnail{ width: 70px; max-height:79px;}
 div.listProduct div.productCont a.addProduct, div.listProduct div.productCont a.removeProduct, div.listProduct div.productCont a.addedProduct{outline: none; margin-top: 2px; padding: 1px; width: 75px; }
 
 div.listProduct div.productCont .productDetails{ height: 76px; overflow: hidden;}

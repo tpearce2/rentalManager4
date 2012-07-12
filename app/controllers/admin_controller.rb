@@ -189,7 +189,7 @@ class AdminController < ApplicationController
   
   def ListSubscriptions
     if(request.request_method == "GET")
-      @subscriptions = Subscription.find(:all, :include => [:customer], :order => 'customers.first_name ASC')
+      @subscriptions = Subscription.find(:all, :conditions => [ "subscription_state = ?", 'active'], :include => [:customer], :order => 'customers.first_name ASC')
       render 'subscriptions'
     elsif(request.request_method == "POST")
     end

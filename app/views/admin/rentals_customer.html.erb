@@ -11,6 +11,7 @@
       <% content_for(:head) do %>
         <%= javascript_include_tag 'admin/modal_product'%>
         <%= javascript_include_tag 'admin/modal_rental'%>
+        <%= javascript_include_tag 'admin/modal_note'%>
       <% end %>
       
       <div class="row">
@@ -90,7 +91,8 @@
                           <% locationDeliveries.each do |rental| %>
                             <tr>
                               <td><a data-productid="<%= rental.product_id %>" href="javascript:void(null);" class="showProduct"><%= rental.product.title %></a></td>
-                             <td><%=rental.rental_type%><% if rental.rental_type == "recurring" && rental.chargifyID != "" && rental.chargifyID %><% @subscription = Subscription.where('subscriptionID = ?', rental.chargifyID).first %> - <span class="<%=@subscription.subscription_state%>"><%=@subscription.subscription_state%></span><% end %></td>
+                            <td><% if rental.order_note != nil%><a data-rentalid="<%= rental.id %>" class="showNote" href="javascript:void(null);">Note - <%=rental.orderID%></a><% end %></td>
+                              <td><%=rental.rental_type%><% if rental.rental_type == "recurring" && rental.chargifyID != "" && rental.chargifyID %><% @subscription = Subscription.where('subscriptionID = ?', rental.chargifyID).first %> - <span class="<%=@subscription.subscription_state%>"><%=@subscription.subscription_state%></span><% end %></td>
                               <td align="right">
                                 <a data-rentalid="<%= rental.id %>" class="btn editRental" href="javascript:void(null);"><i class="icon-pencil"></i> Edit</a>
                                 <a data-rentalid="<%= rental.id %>" style="margin-left: 5px;" class="btn btn-danger deleteRental" href="javascript:void(null);"><i class="icon-trash"></i></a>
@@ -108,6 +110,7 @@
                           <% locationPickups.each do |rental| %>
                             <tr>
                               <td><a data-productid="<%= rental.product_id %>" href="javascript:void(null);" class="showProduct"><%= rental.product.title %></a></td>
+                              <td><% if rental.order_note != nil%><a data-rentalid="<%= rental.id %>" class="showNote" href="javascript:void(null);">Note - <%=rental.orderID%></a><% end %></td>
                               <td><%=rental.rental_type%><% if rental.rental_type == "recurring" && rental.chargifyID != "" && rental.chargifyID %><% @subscription = Subscription.where('subscriptionID = ?', rental.chargifyID).first %> - <span class="<%=@subscription.subscription_state%>"><%=@subscription.subscription_state%></span><% end %></td>
                               <td align="right">
                                 <a data-rentalid="<%= rental.id %>" class="btn editRental" href="javascript:void(null);"><i class="icon-pencil"></i> Edit</a>
