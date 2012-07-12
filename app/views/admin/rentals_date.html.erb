@@ -52,7 +52,13 @@
     
       <%
       dayLocations.each do |location|
+        puts "CUSTOMERS:"
+        puts @customers.inspect
+        puts "Locations:"
+        puts @locations.inspect
         cCustomer = @customers[@locations[location].customer_id]
+        puts "cust:"
+        puts cCustomer.inspect
         cLocation = @locations[location]
         locationPickups = []
         locationDeliveries = dayRentals.select do |rental|
