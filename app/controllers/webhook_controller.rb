@@ -334,11 +334,14 @@ class WebhookController < ApplicationController
       eCount = 0
       search = eventsArray.select do |event|
         if((event[:start] == day[:start]) && (event[:customer] == day[:customer]))
-          if (eventsArray[eCount][:className].include? day[:className][0])
-          else
-            eventsArray[eCount][:className] << day[:className][0]
-            eventsArray[eCount][:backgroundColor] = '#EDF731'
+          day[:className].each do |cClass|
+            if (eventsArray[eCount][:className].include? cClass)
+            else
+              eventsArray[eCount][:className] << cClass
+              eventsArray[eCount][:backgroundColor] = '#EDF731'
+            end
           end
+          
           true
         else
           false
