@@ -55,8 +55,6 @@ class ChargifyController < ApplicationController
       data = params[:payload]
       
       subscription = Subscription.find(data[:subscription][:customer][:reference].to_i)
-      if(subscription)
-        subscription = Subscription.new
         subscription.customer_id = checkCustomer data[:subscription][:customer]
         subscription.location_id = getLocation data[:subscription][:customer], subscription[:customer_id]
         subscription.subscriptionID = data[:subscription][:id]
@@ -68,9 +66,6 @@ class ChargifyController < ApplicationController
         else
           render :nothing => true, :status => 422
         end
-      else
-        render :nothing => true, :status => 422
-      end
 
       
       
