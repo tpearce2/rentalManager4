@@ -22,7 +22,7 @@
           <tr>
             <td><%=customer.first_name%> <%=customer.last_name%></td>
             <td><%=customer.email%><br><%=customer.phone%></td>
-            <td><strong><%=location.address1%></strong><%=if(location.address2 != "")%><br><%=location.address2%><%end%><br><%=location.zip%><br><%=location.city%>, <%=location.province%></td>
+            <td><strong><%=location.address1%></strong><%if(location.address2 != "")%><br><%=location.address2%><%end%><br><%=location.zip%><br><%=location.city%>, <%=location.province%></td>
             <td><strong>Subscription Date</strong><br><%=subscription.recurringDate%></td>
             <td><a href="/admin/rentals/?customerID=<%=customer.id%>&layout=customer" class="btn"><i class="icon  icon-list"></i> View Rentals</a> <a href="/admin/add_rental/recurring/?subscriptionID=<%=subscription.id%>" class="btn btn-primary"><i class="icon icon-white icon-plus"></i> Add Rental</a></td>
           </tr>
