@@ -54,7 +54,10 @@ class ChargifyController < ApplicationController
       Rails.logger.debug params.to_json
       data = params[:payload]
       
+      puts "SUB ID: #{data[:subscription][:customer][:reference].to_i}"
+      puts "sub:"
       subscription = Subscription.find(data[:subscription][:customer][:reference].to_i)
+      puts subscription.inspect
         subscription.customer_id = checkCustomer data[:subscription][:customer]
         subscription.location_id = getLocation data[:subscription][:customer], subscription[:customer_id]
         subscription.subscriptionID = data[:subscription][:id]
