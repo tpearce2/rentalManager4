@@ -49,6 +49,7 @@ ShopifyRental3::Application.routes.draw do
   match 'subscription/verify' => 'customer#verifyCancelSubscription'
   match 'subscription/cancel' => 'customer#cancelSubscription'
   match 'subscription/test' =>  'customer#test'
+  match 'subscription/create' => 'customer#createInactiveSubscription'
   
  
 

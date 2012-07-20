@@ -62,6 +62,20 @@ class CustomerController < ApplicationController
     end
   end
   
+  
+  def createInactiveSubscription
+    if params[:recurringDate] && params[:ageInfo]
+      subscription = Subscription.new
+      subscription.recurringDate = params[:recurringDate]
+      subscription.ageInfo = params[:ageInfo]
+      subscription.subscription_state = "inactive"
+      subscription.save
+      render :json => { :sID => subscription.id }, :callback => params[:callback]
+    else
+       render :json => { :error => 'Missing Params'}, :callback => params[:callback]
+    end
+  end
+  
   def test
 
   end

@@ -53,19 +53,26 @@ class ChargifyController < ApplicationController
     def signup_success
       Rails.logger.debug params.to_json
       data = params[:payload]
-
-      subscription = Subscription.new
-      subscription.customer_id = checkCustomer data[:subscription][:customer]
-      subscription.location_id = getLocation data[:subscription][:customer], subscription[:customer_id]
-      subscription.subscriptionID = data[:subscription][:id]
-      subscription.recurringDate = data[:subscription][:customer][:reference]
-      subscription.customerID = data[:subscription][:customer][:id]
       
-      if(subscription.save)
-        render :nothing => true, :status => 200
+      subscription = Subscription.find(data[:subscription][:customer][:reference].to_i)
+      if(subscription)
+        subscription = Subscription.new
+        subscription.customer_id = checkCustomer data[:subscription][:customer]
+        subscription.location_id = getLocation data[:subscription][:customer], subscription[:customer_id]
+        subscription.subscriptionID = data[:subscription][:id]
+        subscription.customerID = data[:subscription][:customer][:id]
+        subscription.subscription_state = "active"
+        
+        if(subscription.save)
+          render :nothing => true, :status => 200
+        else
+          render :nothing => true, :status => 422
+        end
       else
         render :nothing => true, :status => 422
       end
+
+      
       
     end
       

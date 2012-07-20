@@ -3,7 +3,7 @@ ShopifyRental3::Application.configure do
   config.shopify.api_key = "97e6e6ee13280ad449085de839cc1f3a"
   config.shopify.secret = "65e3768ade7a3fd6463f125292fdd5ae" 
   # Code is not reloaded between requests
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false

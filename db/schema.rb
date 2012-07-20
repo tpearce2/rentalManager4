@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712155435) do
+ActiveRecord::Schema.define(:version => 20120720164018) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20120712155435) do
     t.datetime "updated_at",                               :null => false
     t.integer  "customerID"
     t.string   "subscription_state", :default => "active"
+    t.text     "ageInfo"
   end
 
   create_table "tokens", :force => true do |t|
