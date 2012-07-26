@@ -1,5 +1,5 @@
 Hi <%=@customer.first_name%>,
-We wanted to remind you of your upcoming toy rental pickup. The following toys will be picked up on <%=@pickupDate%> between 6PM and 9PM.
+We wanted to remind you of your upcoming toy rental pickup. The following toys will be picked up on <%=@pickupDate%> between <% if(@pickupDate.saturday?)%>1-5PM<% else %>7-9PM<% endif %>.
 
   <% @products.each do |product| %>
     -<%=product%>
