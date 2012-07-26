@@ -322,8 +322,8 @@ class WebhookController < ApplicationController
       daysArray = Array.new
       @rentals.each do |rental|
         if(rental['rental_type'] == 'recurring')
-          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['recurring', 't_recurring'], :allDay => true, :backgroundColor => '#8AC8E6'}
-          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['recurring', 't_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'} 
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_recurring'], :allDay => true, :backgroundColor => '#8AC8E6'}
+          daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_recurring'],  :allDay => true, :backgroundColor => '#9AE88E'} 
         else
           daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['deliveryDate'], :className => ['t_delivery'], :allDay => true, :backgroundColor => '#8AC8E6'}
           daysArray << {:title => '', :customer => rental['customer_id'], :start => rental['pickupDate'], :className => ['t_pickup'],  :allDay => true, :backgroundColor => '#9AE88E'} 
@@ -332,26 +332,29 @@ class WebhookController < ApplicationController
      # render :text=>startTime
     
     daysArray.each do |day|
-      eCount = 0
+
       search = eventsArray.select do |event|
-        if((event[:start] == day[:start]) && (event[:customer] == day[:customer]))
-          day[:className].each do |cClass|
-            if (eventsArray[eCount][:className].include? cClass)
-            else
-              eventsArray[eCount][:className] << cClass
-              eventsArray[eCount][:backgroundColor] = '#EDF731'
+
+          if((event[:start] == day[:start]) && (event[:customer] == day[:customer]))
+            day[:className].each do |cClass|
+              if (event[:className].include? cClass)
+              else
+                event[:className] << cClass
+                event[:backgroundColor] = '#EDF731'
+              end
             end
+            
+            true
+          else
+            false
           end
-          
-          true
-        else
-          false
         end
-      end
-      if search.length == 0
-        eventsArray << day
-      end
-      eCount += 1
+        
+        if(search.size == 0)
+          eventsArray << day
+        end
+
+      
     end
     
     eventsArray.each do |event|
