@@ -160,6 +160,7 @@ class WebhookController < ApplicationController
         returnDay = true
         
         if(day.sunday?) then returnDay = false end
+        if(day.monday?) then returnDay = false end
         
         thirtydays_later = Date.new day.year, day.month, day.day
         thirtydays_later += 30
@@ -177,7 +178,7 @@ class WebhookController < ApplicationController
           returnDay = false
           n = Date.new thirtydays_later.year, thirtydays_later.month, thirtydays_later.day
           while n <= (thirtydays_later + 10) && returnDay == false
-            if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday?)
+            if ((!bookedDays.include? n) && (!manualDays.include? n) && !n.sunday? && !n.monday?)
               returnDay = true
               pairData["#{day}"] = n
             end
