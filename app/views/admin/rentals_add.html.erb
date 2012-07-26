@@ -27,7 +27,7 @@
     <h3>Delivery Location:</h3>
     <div class="well" id="customerLocations">
        <% if (@params[:layout] == "single") %>
-        <% @locations.each do |location| %>+++
+        <% @locations.each do |location| %>
         <div data-locationid="<%=location[:id]%>" class="customerLocation">
           <a class="btn" href="javascript:void(null);">Select</a> <strong><%=location.address1%> <%=location.address2%></strong> <%=location.city%>, <%=location.zip%>
         </div>

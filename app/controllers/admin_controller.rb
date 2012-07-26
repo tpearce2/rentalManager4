@@ -61,7 +61,7 @@ class AdminController < ApplicationController
     @params = params
     if(params[:layout] == "single")
       @customer = Customer.find(params[:customerID].to_i)
-      @locations = Location.where('customer_id = ? AND location_type = ?', params[:customerID], 'single')
+      @locations = Location.where('customer_id = ?', params[:customerID])
     else
       @subscription = Subscription.where('id = ?', params[:subscriptionID]).first
       @customer = Customer.find(@subscription[:customer_id])
