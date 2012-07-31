@@ -17,6 +17,7 @@ end
  group :production do
   # gems specifically for Heroku go here
   # gem "pg"
+  gem 'newrelic_rpm'
   ruby "1.9.3"
   gem 'taps'
 end
