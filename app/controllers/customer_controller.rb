@@ -2,6 +2,29 @@ require 'digest/md5'
 class CustomerController < ApplicationController
   
   
+  def new
+      @customer = Customer.new
+      @location = Location.new
+      @location.city = "Ottawa"
+      @location.country = "Canada"
+      @location.province = "Ontario"
+  end
+  
+  def create
+    if params[:customer] && params[:location]
+      params[:customer][:email] = params[:customer][:email].strip
+      @customer = Customer.create(params[:customer])
+      @location = Location.new(params[:location])
+      @location.first_name = @customer.first_name
+      @location.last_name = @customer.last_name
+      @location.phone = @customer.phone
+      @location.name = "#{@customer.first_name} #{@customer.last_name}"
+      @location.customer_id = @customer.id
+      @location.save
+    end
+  end
+  
+  
   def getSubscriptions
     if params[:email]
       subs = []

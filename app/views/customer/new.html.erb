@@ -1,0 +1,28 @@
+<%= form_tag(:controller => "customer", :action => "create", :method => "post") %>
+<h3>Customer Info</h3>
+  Email<br>
+  <%= text_field(:customer, :email) %><br><br>
+  First Name<br>
+  <%=text_field(:customer, :first_name) %><br><br>
+  Last Name<br>
+  <%= text_field(:customer, :last_name) %><br><br>
+  Phone Number<br>
+  <%= text_field(:customer, :phone) %><br><br>
+  <h3>Location Info</h3>
+  Address1<br>
+  <%= text_field(:location, :address1) %><br><br>
+  Address2<br>
+  <%= text_field(:location, :address2) %><br><br>
+  Postal Code<br>
+  <%= text_field(:location, :zip) %><br><br>
+  City<br>
+  <%= text_field(:location, :city) %><br><br>
+  Country<br>
+  <%= text_field(:location, :country) %><br><br>
+  Province<br>
+  <%= text_field(:location, :province) %><br><br>
+  Company<br>
+  <%= text_field(:location, :company) %><br><br>
+  
+  <%= submit_tag("Add Customer") %>
+</form>

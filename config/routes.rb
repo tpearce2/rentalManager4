@@ -51,6 +51,9 @@ ShopifyRental3::Application.routes.draw do
   match 'subscription/test' =>  'customer#test'
   match 'subscription/create' => 'customer#createInactiveSubscription'
   
+  get 'customer/new' => 'customer#new'
+  post 'customer/create' => 'customer#create'
+  
  
 
   root :to                   => 'home#index'
